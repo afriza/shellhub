@@ -44,4 +44,10 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 COPY new-ui/scripts /scripts
 
+RUN apk add openjdk11-jre
+
+RUN npm install -g @openapitools/openapi-generator-cli
+
+RUN openapi-generator-cli version-manager set 6.0.0
+
 CMD ["/scripts/entrypoint.sh"]
