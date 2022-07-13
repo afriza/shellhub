@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * ShellHub Enterprise
- * ShellHub Enterprise.  It documents all routes provided by ShellHub Enterprise.   NOTICE: THE API IS NOT STABLE YET; ERROR AND INCONSISTENCIES MAY OCCUR. 
+ * ShellHub Cloud
+ * ShellHub Cloud documentation.  It documents all routes provided by ShellHub Cloud.   NOTICE: THE API IS NOT STABLE YET; ERROR AND INCONSISTENCIES MAY OCCUR. 
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: contato@ossystems.com.br
@@ -65,19 +65,6 @@ export interface CreateDeviceTagRequest {
      * @memberof CreateDeviceTagRequest
      */
     'tag': string;
-}
-/**
- * 
- * @export
- * @interface CreateNamespaceAdminRequest
- */
-export interface CreateNamespaceAdminRequest {
-    /**
-     * Namespace\'s name
-     * @type {string}
-     * @memberof CreateNamespaceAdminRequest
-     */
-    'name': string;
 }
 /**
  * 
@@ -266,28 +253,15 @@ export type DeviceStatus = typeof DeviceStatus[keyof typeof DeviceStatus];
 /**
  * 
  * @export
- * @interface EnableRecordSession422Response
+ * @interface EditNamespaceRequest
  */
-export interface EnableRecordSession422Response {
+export interface EditNamespaceRequest {
     /**
-     * 
+     * Namespace\'s name
      * @type {string}
-     * @memberof EnableRecordSession422Response
+     * @memberof EditNamespaceRequest
      */
-    'message'?: string;
-}
-/**
- * 
- * @export
- * @interface EnableRecordSession500Response
- */
-export interface EnableRecordSession500Response {
-    /**
-     * Error message
-     * @type {string}
-     * @memberof EnableRecordSession500Response
-     */
-    'message'?: string;
+    'name': string;
 }
 /**
  * 
@@ -439,440 +413,15 @@ export interface FirewallRulesResponseFilterOneOf1 {
 /**
  * 
  * @export
- * @interface GetLicense200Response
+ * @interface GetSessionData401Response
  */
-export interface GetLicense200Response {
+export interface GetSessionData401Response {
     /**
-     * License\'s ID
+     * Error message
      * @type {string}
-     * @memberof GetLicense200Response
+     * @memberof GetSessionData401Response
      */
-    'id': string;
-    /**
-     * License\'s expired status
-     * @type {boolean}
-     * @memberof GetLicense200Response
-     */
-    'expired': boolean;
-    /**
-     * License\'s about to expire status
-     * @type {boolean}
-     * @memberof GetLicense200Response
-     */
-    'about_to_expire': boolean;
-    /**
-     * License\'s grace period status
-     * @type {boolean}
-     * @memberof GetLicense200Response
-     */
-    'grace_period': boolean;
-    /**
-     * License\'s issued at  It is the number of seconds elapsed since January 1, 1970 UTC.
-     * @type {number}
-     * @memberof GetLicense200Response
-     */
-    'issued_at': number;
-    /**
-     * License\'s started at  It is the number of seconds elapsed since January 1, 1970 UTC.
-     * @type {number}
-     * @memberof GetLicense200Response
-     */
-    'starts_at': number;
-    /**
-     * License\'s expired at  It is the number of seconds elapsed since January 1, 1970 UTC.  `-1` means license does not expire
-     * @type {number}
-     * @memberof GetLicense200Response
-     */
-    'expires_at': number;
-    /**
-     * License\'s allowed regions  It is a list of regions in `ISO 3166-1 alpha-2` format.
-     * @type {Array<string>}
-     * @memberof GetLicense200Response
-     */
-    'allowed_regions': Array<GetLicense200ResponseAllowedRegionsEnum>;
-    /**
-     * 
-     * @type {GetLicense200ResponseCustomer}
-     * @memberof GetLicense200Response
-     */
-    'customer': GetLicense200ResponseCustomer;
-    /**
-     * 
-     * @type {GetLicense200ResponseFeatures}
-     * @memberof GetLicense200Response
-     */
-    'features': GetLicense200ResponseFeatures;
-}
-
-export const GetLicense200ResponseAllowedRegionsEnum = {
-    Ad: 'AD',
-    Ae: 'AE',
-    Af: 'AF',
-    Ag: 'AG',
-    Ai: 'AI',
-    Al: 'AL',
-    Am: 'AM',
-    Ao: 'AO',
-    Aq: 'AQ',
-    Ar: 'AR',
-    As: 'AS',
-    At: 'AT',
-    Au: 'AU',
-    Aw: 'AW',
-    Ax: 'AX',
-    Az: 'AZ',
-    Ba: 'BA',
-    Bb: 'BB',
-    Bd: 'BD',
-    Be: 'BE',
-    Bf: 'BF',
-    Bg: 'BG',
-    Bh: 'BH',
-    Bi: 'BI',
-    Bj: 'BJ',
-    Bl: 'BL',
-    Bm: 'BM',
-    Bn: 'BN',
-    Bo: 'BO',
-    Bq: 'BQ',
-    Br: 'BR',
-    Bs: 'BS',
-    Bt: 'BT',
-    Bv: 'BV',
-    Bw: 'BW',
-    By: 'BY',
-    Bz: 'BZ',
-    Ca: 'CA',
-    Cc: 'CC',
-    Cd: 'CD',
-    Cf: 'CF',
-    Cg: 'CG',
-    Ch: 'CH',
-    Ci: 'CI',
-    Ck: 'CK',
-    Cl: 'CL',
-    Cm: 'CM',
-    Cn: 'CN',
-    Co: 'CO',
-    Cr: 'CR',
-    Cu: 'CU',
-    Cv: 'CV',
-    Cw: 'CW',
-    Cx: 'CX',
-    Cy: 'CY',
-    Cz: 'CZ',
-    De: 'DE',
-    Dj: 'DJ',
-    Dk: 'DK',
-    Dm: 'DM',
-    Do: 'DO',
-    Dz: 'DZ',
-    Ec: 'EC',
-    Ee: 'EE',
-    Eg: 'EG',
-    Eh: 'EH',
-    Er: 'ER',
-    Es: 'ES',
-    Et: 'ET',
-    Fi: 'FI',
-    Fj: 'FJ',
-    Fk: 'FK',
-    Fm: 'FM',
-    Fo: 'FO',
-    Fr: 'FR',
-    Ga: 'GA',
-    Gb: 'GB',
-    Gd: 'GD',
-    Ge: 'GE',
-    Gf: 'GF',
-    Gg: 'GG',
-    Gh: 'GH',
-    Gi: 'GI',
-    Gl: 'GL',
-    Gm: 'GM',
-    Gn: 'GN',
-    Gp: 'GP',
-    Gq: 'GQ',
-    Gr: 'GR',
-    Gs: 'GS',
-    Gt: 'GT',
-    Gu: 'GU',
-    Gw: 'GW',
-    Gy: 'GY',
-    Hk: 'HK',
-    Hm: 'HM',
-    Hn: 'HN',
-    Hr: 'HR',
-    Ht: 'HT',
-    Hu: 'HU',
-    Id: 'ID',
-    Ie: 'IE',
-    Il: 'IL',
-    Im: 'IM',
-    In: 'IN',
-    Io: 'IO',
-    Iq: 'IQ',
-    Ir: 'IR',
-    Is: 'IS',
-    It: 'IT',
-    Je: 'JE',
-    Jm: 'JM',
-    Jo: 'JO',
-    Jp: 'JP',
-    Ke: 'KE',
-    Kg: 'KG',
-    Kh: 'KH',
-    Ki: 'KI',
-    Km: 'KM',
-    Kn: 'KN',
-    Kp: 'KP',
-    Kr: 'KR',
-    Kw: 'KW',
-    Ky: 'KY',
-    Kz: 'KZ',
-    La: 'LA',
-    Lb: 'LB',
-    Lc: 'LC',
-    Li: 'LI',
-    Lk: 'LK',
-    Lr: 'LR',
-    Ls: 'LS',
-    Lt: 'LT',
-    Lu: 'LU',
-    Lv: 'LV',
-    Ly: 'LY',
-    Ma: 'MA',
-    Mc: 'MC',
-    Md: 'MD',
-    Me: 'ME',
-    Mf: 'MF',
-    Mg: 'MG',
-    Mh: 'MH',
-    Mk: 'MK',
-    Ml: 'ML',
-    Mm: 'MM',
-    Mn: 'MN',
-    Mo: 'MO',
-    Mp: 'MP',
-    Mq: 'MQ',
-    Mr: 'MR',
-    Ms: 'MS',
-    Mt: 'MT',
-    Mu: 'MU',
-    Mv: 'MV',
-    Mw: 'MW',
-    Mx: 'MX',
-    My: 'MY',
-    Mz: 'MZ',
-    Na: 'NA',
-    Nc: 'NC',
-    Ne: 'NE',
-    Nf: 'NF',
-    Ng: 'NG',
-    Ni: 'NI',
-    Nl: 'NL',
-    No: 'NO',
-    Np: 'NP',
-    Nr: 'NR',
-    Nu: 'NU',
-    Nz: 'NZ',
-    Om: 'OM',
-    Pa: 'PA',
-    Pe: 'PE',
-    Pf: 'PF',
-    Pg: 'PG',
-    Ph: 'PH',
-    Pk: 'PK',
-    Pl: 'PL',
-    Pm: 'PM',
-    Pn: 'PN',
-    Pr: 'PR',
-    Ps: 'PS',
-    Pt: 'PT',
-    Pw: 'PW',
-    Py: 'PY',
-    Qa: 'QA',
-    Re: 'RE',
-    Ro: 'RO',
-    Rs: 'RS',
-    Ru: 'RU',
-    Rw: 'RW',
-    Sa: 'SA',
-    Sb: 'SB',
-    Sc: 'SC',
-    Sd: 'SD',
-    Se: 'SE',
-    Sg: 'SG',
-    Sh: 'SH',
-    Si: 'SI',
-    Sj: 'SJ',
-    Sk: 'SK',
-    Sl: 'SL',
-    Sm: 'SM',
-    Sn: 'SN',
-    So: 'SO',
-    Sr: 'SR',
-    Ss: 'SS',
-    St: 'ST',
-    Sv: 'SV',
-    Sx: 'SX',
-    Sy: 'SY',
-    Sz: 'SZ',
-    Tc: 'TC',
-    Td: 'TD',
-    Tf: 'TF',
-    Tg: 'TG',
-    Th: 'TH',
-    Tj: 'TJ',
-    Tk: 'TK',
-    Tm: 'TM',
-    Tn: 'TN',
-    To: 'TO',
-    Tr: 'TR',
-    Tt: 'TT',
-    Tv: 'TV',
-    Tw: 'TW',
-    Tz: 'TZ',
-    Ua: 'UA',
-    Ug: 'UG',
-    Um: 'UM',
-    Us: 'US',
-    Uy: 'UY',
-    Uz: 'UZ',
-    Va: 'VA',
-    Vc: 'VC',
-    Ve: 'VE',
-    Vg: 'VG',
-    Vi: 'VI',
-    Vn: 'VN',
-    Vu: 'VU',
-    Wf: 'WF',
-    Ws: 'WS',
-    Ye: 'YE',
-    Yt: 'YT',
-    Za: 'ZA',
-    Zm: 'ZM',
-    Zw: 'ZW'
-} as const;
-
-export type GetLicense200ResponseAllowedRegionsEnum = typeof GetLicense200ResponseAllowedRegionsEnum[keyof typeof GetLicense200ResponseAllowedRegionsEnum];
-
-/**
- * License\'s customer
- * @export
- * @interface GetLicense200ResponseCustomer
- */
-export interface GetLicense200ResponseCustomer {
-    /**
-     * Customer\'s ID
-     * @type {string}
-     * @memberof GetLicense200ResponseCustomer
-     */
-    'id'?: string;
-    /**
-     * Customer\'s name
-     * @type {string}
-     * @memberof GetLicense200ResponseCustomer
-     */
-    'name'?: string;
-    /**
-     * Customer\'s email
-     * @type {string}
-     * @memberof GetLicense200ResponseCustomer
-     */
-    'email'?: string;
-    /**
-     * Customer\'s company
-     * @type {string}
-     * @memberof GetLicense200ResponseCustomer
-     */
-    'company'?: string;
-}
-/**
- * License\'s features
- * @export
- * @interface GetLicense200ResponseFeatures
- */
-export interface GetLicense200ResponseFeatures {
-    /**
-     * Number of devices allowed   `-1` means unlimited number of devices and any other number means the number of devices allowed 
-     * @type {number}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'devices': number;
-    /**
-     * Session recording status
-     * @type {boolean}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'session_recording': boolean;
-    /**
-     * Firewall rules status
-     * @type {boolean}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'firewall_rules': boolean;
-    /**
-     * Reports status
-     * @type {boolean}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'reports': boolean;
-    /**
-     * Login link status
-     * @type {boolean}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'login_link': boolean;
-    /**
-     * Billing status
-     * @type {boolean}
-     * @memberof GetLicense200ResponseFeatures
-     */
-    'billing': boolean;
-}
-/**
- * 
- * @export
- * @interface GetStats200Response
- */
-export interface GetStats200Response {
-    /**
-     * Number of registered users.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'registered_users'?: number;
-    /**
-     * Number of registered devices.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'registered_devices'?: number;
-    /**
-     * Number of online devices.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'online_devices'?: number;
-    /**
-     * Number of active sessions.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'active_sessions'?: number;
-    /**
-     * Number of pending devices.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'pending_devices'?: number;
-    /**
-     * Number of rejected devices.
-     * @type {number}
-     * @memberof GetStats200Response
-     */
-    'rejected_devices'?: number;
+    'message'?: string;
 }
 /**
  * 
@@ -914,34 +463,21 @@ export interface GetStatusDevices200Response {
 /**
  * 
  * @export
- * @interface GetUser200Response
+ * @interface GetValidateAccountRequest
  */
-export interface GetUser200Response {
+export interface GetValidateAccountRequest {
     /**
-     * 
-     * @type {UserAdminResponse}
-     * @memberof GetUser200Response
-     */
-    'user'?: UserAdminResponse;
-    /**
-     * User\'s integer of owned namespaces
-     * @type {number}
-     * @memberof GetUser200Response
-     */
-    'namespacesOwned'?: number;
-}
-/**
- * 
- * @export
- * @interface GetUserTokenAdmin200Response
- */
-export interface GetUserTokenAdmin200Response {
-    /**
-     * JWT Token
+     * User\'s email.
      * @type {string}
-     * @memberof GetUserTokenAdmin200Response
+     * @memberof GetValidateAccountRequest
      */
-    'token'?: string;
+    'email': string;
+    /**
+     * User\'s recovery token.    It is the token from the email sent to user when the user request password reset.
+     * @type {string}
+     * @memberof GetValidateAccountRequest
+     */
+    'token': string;
 }
 /**
  * 
@@ -997,44 +533,6 @@ export interface Login {
      * Password
      * @type {string}
      * @memberof Login
-     */
-    'password': string;
-}
-/**
- * 
- * @export
- * @interface LoginAdmin200Response
- */
-export interface LoginAdmin200Response {
-    /**
-     * JWT token
-     * @type {string}
-     * @memberof LoginAdmin200Response
-     */
-    'token'?: string;
-    /**
-     * username
-     * @type {string}
-     * @memberof LoginAdmin200Response
-     */
-    'user'?: string;
-}
-/**
- * 
- * @export
- * @interface LoginAdminRequest
- */
-export interface LoginAdminRequest {
-    /**
-     * Admin\'s username
-     * @type {string}
-     * @memberof LoginAdminRequest
-     */
-    'username': string;
-    /**
-     * Admin\'s password
-     * @type {string}
-     * @memberof LoginAdminRequest
      */
     'password': string;
 }
@@ -1380,6 +878,19 @@ export interface RecordedSessionResponseInner {
 /**
  * 
  * @export
+ * @interface RecoverPasswordRequest
+ */
+export interface RecoverPasswordRequest {
+    /**
+     * User\'s email.
+     * @type {string}
+     * @memberof RecoverPasswordRequest
+     */
+    'email': string;
+}
+/**
+ * 
+ * @export
  * @interface RenameTagRequest
  */
 export interface RenameTagRequest {
@@ -1389,6 +900,45 @@ export interface RenameTagRequest {
      * @memberof RenameTagRequest
      */
     'tag'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ResendEmailRequest
+ */
+export interface ResendEmailRequest {
+    /**
+     * User\'s username.
+     * @type {string}
+     * @memberof ResendEmailRequest
+     */
+    'username': string;
+}
+/**
+ * 
+ * @export
+ * @interface RuleAddTagRequest
+ */
+export interface RuleAddTagRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof RuleAddTagRequest
+     */
+    'tag': string;
+}
+/**
+ * 
+ * @export
+ * @interface RuleUpdateTagsRequest
+ */
+export interface RuleUpdateTagsRequest {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof RuleUpdateTagsRequest
+     */
+    'tags': Array<string>;
 }
 /**
  * 
@@ -1518,13 +1068,13 @@ export interface SetSSHKeyRequest {
 /**
  * 
  * @export
- * @interface SetSessionAuthenticationStatusAdminRequest
+ * @interface SetSessionAuthenticationStatusRequest
  */
-export interface SetSessionAuthenticationStatusAdminRequest {
+export interface SetSessionAuthenticationStatusRequest {
     /**
      * Session\'s authentication status.
      * @type {boolean}
-     * @memberof SetSessionAuthenticationStatusAdminRequest
+     * @memberof SetSessionAuthenticationStatusRequest
      */
     'authenticated'?: boolean;
 }
@@ -1544,13 +1094,13 @@ export interface SetSessionRecordRequest {
 /**
  * 
  * @export
- * @interface UpdateDeviceNameAdminRequest
+ * @interface UpdateDeviceNameRequest
  */
-export interface UpdateDeviceNameAdminRequest {
+export interface UpdateDeviceNameRequest {
     /**
      * Device\'s new name.
      * @type {string}
-     * @memberof UpdateDeviceNameAdminRequest
+     * @memberof UpdateDeviceNameRequest
      */
     'name': string;
 }
@@ -1591,6 +1141,25 @@ export interface UpdatePublicKeyRequest {
      * @memberof UpdatePublicKeyRequest
      */
     'filter': PublicKeyFilter;
+}
+/**
+ * 
+ * @export
+ * @interface UpdateRecoverPasswordRequest
+ */
+export interface UpdateRecoverPasswordRequest {
+    /**
+     * User\'s new password.
+     * @type {string}
+     * @memberof UpdateRecoverPasswordRequest
+     */
+    'password': string;
+    /**
+     * User\'s recovery token.    It is the token from the email sent to user when the user request password reset. 
+     * @type {string}
+     * @memberof UpdateRecoverPasswordRequest
+     */
+    'token': string;
 }
 /**
  * 
@@ -1665,94 +1234,33 @@ export interface UpdateUserPasswordRequest {
 /**
  * 
  * @export
- * @interface UserAdminRequest
+ * @interface User
  */
-export interface UserAdminRequest {
+export interface User {
     /**
      * User\'s name.
      * @type {string}
-     * @memberof UserAdminRequest
+     * @memberof User
      */
     'name': string;
     /**
      * User\'s E-mail.
      * @type {string}
-     * @memberof UserAdminRequest
+     * @memberof User
      */
     'email': string;
     /**
      * User\'s name.
      * @type {string}
-     * @memberof UserAdminRequest
+     * @memberof User
      */
     'username': string;
     /**
      * User\'s password.
      * @type {string}
-     * @memberof UserAdminRequest
+     * @memberof User
      */
     'password': string;
-}
-/**
- * 
- * @export
- * @interface UserAdminResponse
- */
-export interface UserAdminResponse {
-    /**
-     * User\'s ID.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'id'?: string;
-    /**
-     * User\'s integer of owned namespaces.
-     * @type {number}
-     * @memberof UserAdminResponse
-     */
-    'namespaces'?: number;
-    /**
-     * User\'s confirmation.
-     * @type {boolean}
-     * @memberof UserAdminResponse
-     */
-    'confirmed'?: boolean;
-    /**
-     * User\'s creating date.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'created_at'?: string;
-    /**
-     * User\'s last login date.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'last_login'?: string;
-    /**
-     * User\'s name.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'name'?: string;
-    /**
-     * User\'s E-mail.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'email'?: string;
-    /**
-     * User\'s name.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'username'?: string;
-    /**
-     * User\'s hashed password.
-     * @type {string}
-     * @memberof UserAdminResponse
-     */
-    'password'?: string;
 }
 /**
  * 
@@ -1805,2354 +1313,61 @@ export interface UserAuth {
 }
 
 /**
- * AdminApi - axios parameter creator
- * @export
- */
-export const AdminApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Create a firewall rule.
-         * @summary Create firewall rule Admin
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createFirewallRuleAdmin: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(firewallRulesRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin: async (tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('createNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createNamespaceAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin: async (userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a firewall rule.
-         * @summary Delete firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('deleteNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin: async (tenantID: string, namespace?: Namespace, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantID' is not null or undefined
-            assertParamExists('editNamespaceAdmin', 'tenantID', tenantID)
-            const localVarPath = `/admin/api/namespaces-update/{tenantID}`
-                .replace(`{${"tenantID"}}`, encodeURIComponent(String(tenantID)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(namespace, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportNamespaces: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/export/namespaces`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportUsers: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/export/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin: async (filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/devices`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-
-            if (orderBy !== undefined) {
-                localVarQueryParameter['order_by'] = orderBy;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a firewall rule.
-         * @summary Get firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFirewallRulesAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('getNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/namespaces`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getSessionAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionsAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/sessions`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getStats: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/stats`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserTokenAdmin: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUserTokenAdmin', 'id', id)
-            const localVarPath = `/admin/api/auth/token/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        loginAdmin: async (loginAdminRequest?: LoginAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/login`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(loginAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin: async (uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('setSessionAuthenticationStatusAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(setSessionAuthenticationStatusAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceNameAdmin: async (uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceNameAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateDeviceNameAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceStatusAdmin: async (uid: string, status: DeviceStatus, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'uid', uid)
-            // verify required parameter 'status' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'status', status)
-            const localVarPath = `/admin/api/devices/{uid}/{status}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)))
-                .replace(`{${"status"}}`, encodeURIComponent(String(status)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update a firewall rule.
-         * @summary Update firewall rule admin
-         * @param {number} id 
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFirewallRuleAdmin: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(firewallRulesRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateUser: async (id: string, userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * AdminApi - functional programming interface
- * @export
- */
-export const AdminApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AdminApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Create a firewall rule.
-         * @summary Create firewall rule Admin
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRuleAdmin(firewallRulesRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createUserAdmin(userAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeviceAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a firewall rule.
-         * @summary Delete firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRuleAdmin(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNamespaceAdmin(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.editNamespaceAdmin(tenantID, namespace, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async exportNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNamespaces(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async exportUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportUsers(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Device>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeviceAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a firewall rule.
-         * @summary Get firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRuleAdmin(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRulesAdmin(page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getLicense(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLicense200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLicense(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespaceAdmin(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Namespace>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespacesAdmin(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSessionAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Session>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Session>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionsAdmin(page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getStats(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetStats200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStats(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUser200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUserTokenAdmin(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUserTokenAdmin200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTokenAdmin(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserAdminResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoginAdmin200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loginAdmin(loginAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async sendLicense(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendLicense(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceStatusAdmin(uid, status, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update a firewall rule.
-         * @summary Update firewall rule admin
-         * @param {number} id 
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRuleAdmin(id, firewallRulesRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, userAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * AdminApi - factory interface
- * @export
- */
-export const AdminApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AdminApiFp(configuration)
-    return {
-        /**
-         * Create a firewall rule.
-         * @summary Create firewall rule Admin
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin(userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.createUserAdmin(userAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteDeviceAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a firewall rule.
-         * @summary Delete firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteFirewallRuleAdmin(id: number, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin(tenant: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: any): AxiosPromise<void> {
-            return localVarFp.editNamespaceAdmin(tenantID, namespace, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportNamespaces(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<any> {
-            return localVarFp.exportNamespaces(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportUsers(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<any> {
-            return localVarFp.exportUsers(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin(uid: string, options?: any): AxiosPromise<Device> {
-            return localVarFp.getDeviceAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: any): AxiosPromise<Array<Device>> {
-            return localVarFp.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a firewall rule.
-         * @summary Get firewall rule admin
-         * @param {number} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFirewallRuleAdmin(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.getFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getFirewallRulesAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
-            return localVarFp.getFirewallRulesAdmin(page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense(options?: any): AxiosPromise<GetLicense200Response> {
-            return localVarFp.getLicense(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin(tenant: string, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.getNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<Namespace>> {
-            return localVarFp.getNamespacesAdmin(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionAdmin(uid: string, options?: any): AxiosPromise<Session> {
-            return localVarFp.getSessionAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionsAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<Session>> {
-            return localVarFp.getSessionsAdmin(page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getStats(options?: any): AxiosPromise<GetStats200Response> {
-            return localVarFp.getStats(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUser(id: string, options?: any): AxiosPromise<GetUser200Response> {
-            return localVarFp.getUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserTokenAdmin(id: string, options?: any): AxiosPromise<GetUserTokenAdmin200Response> {
-            return localVarFp.getUserTokenAdmin(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<UserAdminResponse>> {
-            return localVarFp.getUsers(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: any): AxiosPromise<LoginAdmin200Response> {
-            return localVarFp.loginAdmin(loginAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense(file?: any, options?: any): AxiosPromise<void> {
-            return localVarFp.sendLicense(file, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceStatusAdmin(uid, status, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a firewall rule.
-         * @summary Update firewall rule admin
-         * @param {number} id 
-         * @param {FirewallRulesRequest} [firewallRulesRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateUser(id, userAdminRequest, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * AdminApi - object-oriented interface
- * @export
- * @class AdminApi
- * @extends {BaseAPI}
- */
-export class AdminApi extends BaseAPI {
-    /**
-     * Create a firewall rule.
-     * @summary Create firewall rule Admin
-     * @param {FirewallRulesRequest} [firewallRulesRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a namespace.
-     * @summary Create namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a User.
-     * @summary Create a User admin
-     * @param {UserAdminRequest} [userAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).createUserAdmin(userAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a device.
-     * @summary Delete device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).deleteDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a firewall rule.
-     * @summary Delete firewall rule admin
-     * @param {number} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).deleteFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a namespace.
-     * @summary Delete namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).deleteNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a user.
-     * @summary Delete user
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public deleteUser(id: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).deleteUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Edit a namespace.
-     * @summary Edit namespace admin
-     * @param {string} tenantID Namespace\&#39;s tenant ID
-     * @param {Namespace} [namespace] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).editNamespaceAdmin(tenantID, namespace, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Export namespaces to csv file.
-     * @summary export namespace
-     * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public exportNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).exportNamespaces(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Export users to csv file.
-     * @summary export users
-     * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public exportUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).exportUsers(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a device.
-     * @summary Get device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of devices.
-     * @summary Get devices admin
-     * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {DeviceStatus} [status] Device\&#39;s status
-     * @param {string} [sortBy] Device\&#39;s property to sort of
-     * @param {'asc' | 'desc'} [orderBy] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a firewall rule.
-     * @summary Get firewall rule admin
-     * @param {number} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of firewall rules.
-     * @summary Get firewall rules Admin
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getFirewallRulesAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get the license data.
-     * @summary Get license data
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getLicense(options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getLicense(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a namespace.
-     * @summary Get namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns a list of namespaces.
-     * @summary Get namespaces admin
-     * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getNamespacesAdmin(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a session.
-     * @summary Get session admin
-     * @param {string} uid 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getSessionAdmin(uid: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getSessionAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list sessions.
-     * @summary Get sessions admin
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getSessionsAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get stats about the ShellHub instance.
-     * @summary Get stats
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getStats(options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getStats(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a user.
-     * @summary Get user
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getUser(id: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get user JWT token to login.
-     * @summary Get user token
-     * @param {string} id User\&#39;s ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getUserTokenAdmin(id: string, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getUserTokenAdmin(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of users.
-     * @summary Get users
-     * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).getUsers(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Login on Admin
-     * @summary Login on Admin
-     * @param {LoginAdminRequest} [loginAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).loginAdmin(loginAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Send license data
-     * @summary Send license data
-     * @param {any} [file] License\\\&#39;s file
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public sendLicense(file?: any, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).sendLicense(file, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Set session authentication status.
-     * @summary Set session authentication status admin
-     * @param {string} uid 
-     * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s name.
-     * @summary Update device name Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s status.
-     * @summary Update status Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {DeviceStatus} status Device\&#39;s status
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).updateDeviceStatusAdmin(uid, status, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a firewall rule.
-     * @summary Update firewall rule admin
-     * @param {number} id 
-     * @param {FirewallRulesRequest} [firewallRulesRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update a user.
-     * @summary Update user
-     * @param {string} id 
-     * @param {UserAdminRequest} [userAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AdminApi
-     */
-    public updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return AdminApiFp(this.configuration).updateUser(id, userAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
  * CloudApi - axios parameter creator
  * @export
  */
 export const CloudApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
+         * Create a firewall rule.
+         * @summary Create firewall rule
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordSession: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+        createFirewallRule: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(firewallRulesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a firewall rule.
+         * @summary Delete firewall rule
+         * @param {number} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -4163,6 +1378,10 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4176,17 +1395,445 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
+         * Get a firewall rule.
+         * @summary Get firewall rule
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enableRecordSession: async (uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a list of firewall rules.
+         * @summary Get firewall rules
+         * @param {number} [page] Pagination page number
+         * @param {number} [perPage] Pagination items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFirewallRules: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (perPage !== undefined) {
+                localVarQueryParameter['per_page'] = perPage;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get session recorded data.
+         * @summary Get session recorded data
+         * @param {string} uid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSessionData: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'uid' is not null or undefined
-            assertParamExists('enableRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
+            assertParamExists('getSessionData', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/play`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/validation_account`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recoverPassword: async (recoverPasswordRequest?: RecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/recover_password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(recoverPasswordRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser: async (user?: User, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/register`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(user, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail: async (resendEmailRequest?: ResendEmailRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/resend_email`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resendEmailRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleAddTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleAddTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleDeleteTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleDeleteTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleUpdateTags: async (id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleUpdateTags', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleUpdateTagsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a firewall rule.
+         * @summary Update firewall rule
+         * @param {number} id 
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFirewallRule: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(firewallRulesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateRecoverPassword: async (uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('updateRecoverPassword', 'uid', uid)
+            const localVarPath = `/api/user/{uid}/update_password`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4210,7 +1857,7 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(recordedSessionResponseInner, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateRecoverPasswordRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -4228,26 +1875,163 @@ export const CloudApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CloudApiAxiosParamCreator(configuration)
     return {
         /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
+         * Create a firewall rule.
+         * @summary Create firewall rule
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRecordSession(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordSession(uid, options);
+        async createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRule(firewallRulesRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
+         * Delete a firewall rule.
+         * @summary Delete firewall rule
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableRecordSession(uid, recordedSessionResponseInner, options);
+        async deleteFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRule(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a firewall rule.
+         * @summary Get firewall rule
+         * @param {number} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRule(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a list of firewall rules.
+         * @summary Get firewall rules
+         * @param {number} [page] Pagination page number
+         * @param {number} [perPage] Pagination items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRules(page, perPage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get session recorded data.
+         * @summary Get session recorded data
+         * @param {string} uid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSessionData(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RecordedSessionResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionData(uid, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recoverPassword(recoverPasswordRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async registerUser(user?: User, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.registerUser(user, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resendEmail(resendEmailRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleAddTag(id, ruleAddTagRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleDeleteTag(id, ruleAddTagRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleUpdateTags(id, ruleUpdateTagsRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a firewall rule.
+         * @summary Update firewall rule
+         * @param {number} id 
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRule(id, firewallRulesRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecoverPassword(uid, updateRecoverPasswordRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -4261,25 +2045,150 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = CloudApiFp(configuration)
     return {
         /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
+         * Create a firewall rule.
+         * @summary Create firewall rule
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordSession(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteRecordSession(uid, options).then((request) => request(axios, basePath));
+        createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.createFirewallRule(firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
+         * Delete a firewall rule.
+         * @summary Delete firewall rule
+         * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: any): AxiosPromise<void> {
-            return localVarFp.enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(axios, basePath));
+        deleteFirewallRule(id: number, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteFirewallRule(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a firewall rule.
+         * @summary Get firewall rule
+         * @param {number} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFirewallRule(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.getFirewallRule(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a list of firewall rules.
+         * @summary Get firewall rules
+         * @param {number} [page] Pagination page number
+         * @param {number} [perPage] Pagination items per page
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFirewallRules(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
+            return localVarFp.getFirewallRules(page, perPage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get session recorded data.
+         * @summary Get session recorded data
+         * @param {string} uid 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSessionData(uid: string, options?: any): AxiosPromise<Array<RecordedSessionResponseInner>> {
+            return localVarFp.getSessionData(uid, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recoverPassword(recoverPasswordRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser(user?: User, options?: any): AxiosPromise<void> {
+            return localVarFp.registerUser(user, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail(resendEmailRequest?: ResendEmailRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.resendEmail(resendEmailRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a firewall rule.
+         * @summary Update firewall rule
+         * @param {number} id 
+         * @param {FirewallRulesRequest} [firewallRulesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4292,28 +2201,177 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
  */
 export class CloudApi extends BaseAPI {
     /**
-     * Delete a session record
-     * @summary Delete a session record
-     * @param {string} uid 
+     * Create a firewall rule.
+     * @summary Create firewall rule
+     * @param {FirewallRulesRequest} [firewallRulesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CloudApi
      */
-    public deleteRecordSession(uid: string, options?: AxiosRequestConfig) {
-        return CloudApiFp(this.configuration).deleteRecordSession(uid, options).then((request) => request(this.axios, this.basePath));
+    public createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).createFirewallRule(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Enable a session record
-     * @summary Enable a session record
-     * @param {string} uid 
-     * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
+     * Delete a firewall rule.
+     * @summary Delete firewall rule
+     * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CloudApi
      */
-    public enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig) {
-        return CloudApiFp(this.configuration).enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(this.axios, this.basePath));
+    public deleteFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).deleteFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a firewall rule.
+     * @summary Get firewall rule
+     * @param {number} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a list of firewall rules.
+     * @summary Get firewall rules
+     * @param {number} [page] Pagination page number
+     * @param {number} [perPage] Pagination items per page
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getFirewallRules(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get session recorded data.
+     * @summary Get session recorded data
+     * @param {string} uid 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getSessionData(uid: string, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getSessionData(uid, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Validate the activation link for user.
+     * @summary Validate activation link
+     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Send a recovery email to the user.
+     * @summary Recover password
+     * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).recoverPassword(recoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Register user
+     * @summary Register user
+     * @param {User} [user] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public registerUser(user?: User, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).registerUser(user, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Resend confirmation to user.
+     * @summary Resend confirmation
+     * @param {ResendEmailRequest} [resendEmailRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).resendEmail(resendEmailRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a tag to firewall rule
+     * @summary Add a tag to firewall rule
+     * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Remove a tag from firewall rule
+     * @summary Remove a tag from firewall rule
+     * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update tags in firewall rule
+     * @summary Update tags in firewall rule
+     * @param {string} id 
+     * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a firewall rule.
+     * @summary Update firewall rule
+     * @param {number} id 
+     * @param {FirewallRulesRequest} [firewallRulesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update user password from a recovery token got from email.
+     * @summary Update user password
+     * @param {string} uid User\&#39;s UID.
+     * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4511,44 +2569,6 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Delete a tag from device.
          * @summary Delete a tag from device
          * @param {string} uid Device\&#39;s UID
@@ -4601,44 +2621,6 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'uid' is not null or undefined
             assertParamExists('getDevice', 'uid', uid)
             const localVarPath = `/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -4731,70 +2713,6 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin: async (filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/devices`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-
-            if (orderBy !== undefined) {
-                localVarQueryParameter['order_by'] = orderBy;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get stats ShellHub instance.
          * @summary Get stats ShellHub instance
          * @param {*} [options] Override http request option.
@@ -4812,6 +2730,10 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -4914,11 +2836,11 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
          * Update device\'s name.
          * @summary Update device name
          * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
+         * @param {UpdateDeviceNameRequest} [updateDeviceNameRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDeviceName: async (uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateDeviceName: async (uid: string, updateDeviceNameRequest?: UpdateDeviceNameRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'uid' is not null or undefined
             assertParamExists('updateDeviceName', 'uid', uid)
             const localVarPath = `/api/devices/{uid}`
@@ -4945,49 +2867,7 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateDeviceNameAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceNameAdmin: async (uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceNameAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateDeviceNameAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateDeviceNameRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -5008,48 +2888,6 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'status' is not null or undefined
             assertParamExists('updateDeviceStatus', 'status', status)
             const localVarPath = `/api/devices/{uid}/{status}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)))
-                .replace(`{${"status"}}`, encodeURIComponent(String(status)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceStatusAdmin: async (uid: string, status: DeviceStatus, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'uid', uid)
-            // verify required parameter 'status' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'status', status)
-            const localVarPath = `/admin/api/devices/{uid}/{status}`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)))
                 .replace(`{${"status"}}`, encodeURIComponent(String(status)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -5154,17 +2992,6 @@ export const DevicesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeviceAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Delete a tag from device.
          * @summary Delete a tag from device
          * @param {string} uid Device\&#39;s UID
@@ -5188,17 +3015,6 @@ export const DevicesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Device>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeviceAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get a list of devices.
          * @summary Get devices
          * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
@@ -5212,22 +3028,6 @@ export const DevicesApiFp = function(configuration?: Configuration) {
          */
         async getDevices(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDevices(filter, page, perPage, status, sortBy, orderBy, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -5268,24 +3068,12 @@ export const DevicesApiFp = function(configuration?: Configuration) {
          * Update device\'s name.
          * @summary Update device name
          * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
+         * @param {UpdateDeviceNameRequest} [updateDeviceNameRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateDeviceName(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceName(uid, updateDeviceNameAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options);
+        async updateDeviceName(uid: string, updateDeviceNameRequest?: UpdateDeviceNameRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceName(uid, updateDeviceNameRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -5298,18 +3086,6 @@ export const DevicesApiFp = function(configuration?: Configuration) {
          */
         async updateDeviceStatus(uid: string, status: 'accept' | 'reject' | 'pending' | 'unused', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceStatus(uid, status, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceStatusAdmin(uid, status, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -5356,16 +3132,6 @@ export const DevicesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteDevice(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteDeviceAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Delete a tag from device.
          * @summary Delete a tag from device
          * @param {string} uid Device\&#39;s UID
@@ -5387,16 +3153,6 @@ export const DevicesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getDevice(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin(uid: string, options?: any): AxiosPromise<Device> {
-            return localVarFp.getDeviceAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get a list of devices.
          * @summary Get devices
          * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
@@ -5410,21 +3166,6 @@ export const DevicesApiFactory = function (configuration?: Configuration, basePa
          */
         getDevices(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: any): AxiosPromise<Array<Device>> {
             return localVarFp.getDevices(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: any): AxiosPromise<Array<Device>> {
-            return localVarFp.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get stats ShellHub instance.
@@ -5461,23 +3202,12 @@ export const DevicesApiFactory = function (configuration?: Configuration, basePa
          * Update device\'s name.
          * @summary Update device name
          * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
+         * @param {UpdateDeviceNameRequest} [updateDeviceNameRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDeviceName(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceName(uid, updateDeviceNameAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(axios, basePath));
+        updateDeviceName(uid: string, updateDeviceNameRequest?: UpdateDeviceNameRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.updateDeviceName(uid, updateDeviceNameRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Update device\'s status.
@@ -5489,17 +3219,6 @@ export const DevicesApiFactory = function (configuration?: Configuration, basePa
          */
         updateDeviceStatus(uid: string, status: 'accept' | 'reject' | 'pending' | 'unused', options?: any): AxiosPromise<void> {
             return localVarFp.updateDeviceStatus(uid, status, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceStatusAdmin(uid, status, options).then((request) => request(axios, basePath));
         },
         /**
          * Update tags to device
@@ -5548,18 +3267,6 @@ export class DevicesApi extends BaseAPI {
     }
 
     /**
-     * Delete a device.
-     * @summary Delete device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DevicesApi
-     */
-    public deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).deleteDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Delete a tag from device.
      * @summary Delete a tag from device
      * @param {string} uid Device\&#39;s UID
@@ -5585,18 +3292,6 @@ export class DevicesApi extends BaseAPI {
     }
 
     /**
-     * Get a device.
-     * @summary Get device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DevicesApi
-     */
-    public getDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).getDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get a list of devices.
      * @summary Get devices
      * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
@@ -5611,23 +3306,6 @@ export class DevicesApi extends BaseAPI {
      */
     public getDevices(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig) {
         return DevicesApiFp(this.configuration).getDevices(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of devices.
-     * @summary Get devices admin
-     * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {DeviceStatus} [status] Device\&#39;s status
-     * @param {string} [sortBy] Device\&#39;s property to sort of
-     * @param {'asc' | 'desc'} [orderBy] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DevicesApi
-     */
-    public getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5671,26 +3349,13 @@ export class DevicesApi extends BaseAPI {
      * Update device\'s name.
      * @summary Update device name
      * @param {string} uid Device\&#39;s UID
-     * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
+     * @param {UpdateDeviceNameRequest} [updateDeviceNameRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DevicesApi
      */
-    public updateDeviceName(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).updateDeviceName(uid, updateDeviceNameAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s name.
-     * @summary Update device name Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DevicesApi
-     */
-    public updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(this.axios, this.basePath));
+    public updateDeviceName(uid: string, updateDeviceNameRequest?: UpdateDeviceNameRequest, options?: AxiosRequestConfig) {
+        return DevicesApiFp(this.configuration).updateDeviceName(uid, updateDeviceNameRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5704,19 +3369,6 @@ export class DevicesApi extends BaseAPI {
      */
     public updateDeviceStatus(uid: string, status: 'accept' | 'reject' | 'pending' | 'unused', options?: AxiosRequestConfig) {
         return DevicesApiFp(this.configuration).updateDeviceStatus(uid, status, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s status.
-     * @summary Update status Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {DeviceStatus} status Device\&#39;s status
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DevicesApi
-     */
-    public updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig) {
-        return DevicesApiFp(this.configuration).updateDeviceStatusAdmin(uid, status, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -5742,13 +3394,13 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createFirewallRuleAdmin: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
+        createFirewallRule: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -5779,134 +3431,16 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin: async (tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('createNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createNamespaceAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin: async (userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('deleteFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5922,226 +3456,6 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             // authentication jwt required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('deleteNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin: async (tenantID: string, namespace?: Namespace, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantID' is not null or undefined
-            assertParamExists('editNamespaceAdmin', 'tenantID', tenantID)
-            const localVarPath = `/admin/api/namespaces-update/{tenantID}`
-                .replace(`{${"tenantID"}}`, encodeURIComponent(String(tenantID)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(namespace, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getDeviceAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin: async (filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/devices`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
-            }
-
-            if (sortBy !== undefined) {
-                localVarQueryParameter['sort_by'] = sortBy;
-            }
-
-            if (orderBy !== undefined) {
-                localVarQueryParameter['order_by'] = orderBy;
-            }
 
 
     
@@ -6156,15 +3470,15 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('getFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6194,14 +3508,14 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRulesAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
+        getFirewallRules: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6237,137 +3551,16 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('getNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/namespaces`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSessionData: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getSessionAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
+            assertParamExists('getSessionData', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/play`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6396,57 +3589,14 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionsAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/sessions`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getStats: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/stats`;
+        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/validation_account`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6464,9 +3614,12 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6474,16 +3627,119 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Get a user.
-         * @summary Get user
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recoverPassword: async (recoverPasswordRequest?: RecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/recover_password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(recoverPasswordRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser: async (user?: User, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/register`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(user, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail: async (resendEmailRequest?: ResendEmailRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/resend_email`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resendEmailRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
          * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        ruleAddTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
+            assertParamExists('ruleAddTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6492,171 +3748,6 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        loginAdmin: async (loginAdminRequest?: LoginAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/login`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(loginAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin: async (uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('setSessionAuthenticationStatusAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
@@ -6672,7 +3763,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(setSessionAuthenticationStatusAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6680,18 +3771,18 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDeviceNameAdmin: async (uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceNameAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/devices/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+        ruleDeleteTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleDeleteTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6699,7 +3790,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -6714,7 +3805,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateDeviceNameAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6722,21 +3813,18 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateDeviceStatusAdmin: async (uid: string, status: DeviceStatus, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'uid', uid)
-            // verify required parameter 'status' is not null or undefined
-            assertParamExists('updateDeviceStatusAdmin', 'status', status)
-            const localVarPath = `/admin/api/devices/{uid}/{status}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)))
-                .replace(`{${"status"}}`, encodeURIComponent(String(status)));
+        ruleUpdateTags: async (id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleUpdateTags', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6744,7 +3832,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -6754,9 +3842,12 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleUpdateTagsRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6765,16 +3856,16 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateFirewallRuleAdmin: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateFirewallRule: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('updateFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6806,18 +3897,18 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser: async (id: string, userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        updateRecoverPassword: async (uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('updateRecoverPassword', 'uid', uid)
+            const localVarPath = `/api/user/{uid}/update_password`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6825,7 +3916,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -6840,7 +3931,7 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateRecoverPasswordRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6859,315 +3950,162 @@ export const ExternalApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRuleAdmin(firewallRulesRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createUserAdmin(userAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteDeviceAdmin(uid, options);
+        async createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRule(firewallRulesRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRuleAdmin(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNamespaceAdmin(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.editNamespaceAdmin(tenantID, namespace, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDeviceAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Device>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDeviceAdmin(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options);
+        async deleteFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRule(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRuleAdmin(id, options);
+        async getFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRule(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRulesAdmin(page, perPage, options);
+        async getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRules(page, perPage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getLicense(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLicense200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLicense(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespaceAdmin(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Namespace>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespacesAdmin(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSessionAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Session>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionAdmin(uid, options);
+        async getSessionData(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RecordedSessionResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionData(uid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Session>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionsAdmin(page, perPage, options);
+        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStats(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetStats200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStats(options);
+        async recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recoverPassword(recoverPasswordRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a user.
-         * @summary Get user
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async registerUser(user?: User, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.registerUser(user, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resendEmail(resendEmailRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
          * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUser200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, options);
+        async ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleAddTag(id, ruleAddTagRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserAdminResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(filter, page, perPage, options);
+        async ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleDeleteTag(id, ruleAddTagRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoginAdmin200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loginAdmin(loginAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async sendLicense(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendLicense(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateDeviceStatusAdmin(uid, status, options);
+        async ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleUpdateTags(id, ruleUpdateTagsRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRuleAdmin(id, firewallRulesRequest, options);
+        async updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRule(id, firewallRulesRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, userAdminRequest, options);
+        async updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecoverPassword(uid, updateRecoverPasswordRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -7182,289 +4120,149 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin(userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.createUserAdmin(userAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a device.
-         * @summary Delete device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteDeviceAdmin(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteDeviceAdmin(uid, options).then((request) => request(axios, basePath));
+        createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.createFirewallRule(firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFirewallRuleAdmin(id: number, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin(tenant: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: any): AxiosPromise<void> {
-            return localVarFp.editNamespaceAdmin(tenantID, namespace, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a device.
-         * @summary Get device admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDeviceAdmin(uid: string, options?: any): AxiosPromise<Device> {
-            return localVarFp.getDeviceAdmin(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of devices.
-         * @summary Get devices admin
-         * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {DeviceStatus} [status] Device\&#39;s status
-         * @param {string} [sortBy] Device\&#39;s property to sort of
-         * @param {'asc' | 'desc'} [orderBy] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: any): AxiosPromise<Array<Device>> {
-            return localVarFp.getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(axios, basePath));
+        deleteFirewallRule(id: number, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteFirewallRule(id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRuleAdmin(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.getFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
+        getFirewallRule(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.getFirewallRule(id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRulesAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
-            return localVarFp.getFirewallRulesAdmin(page, perPage, options).then((request) => request(axios, basePath));
+        getFirewallRules(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
+            return localVarFp.getFirewallRules(page, perPage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense(options?: any): AxiosPromise<GetLicense200Response> {
-            return localVarFp.getLicense(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin(tenant: string, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.getNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<Namespace>> {
-            return localVarFp.getNamespacesAdmin(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionAdmin(uid: string, options?: any): AxiosPromise<Session> {
-            return localVarFp.getSessionAdmin(uid, options).then((request) => request(axios, basePath));
+        getSessionData(uid: string, options?: any): AxiosPromise<Array<RecordedSessionResponseInner>> {
+            return localVarFp.getSessionData(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionsAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<Session>> {
-            return localVarFp.getSessionsAdmin(page, perPage, options).then((request) => request(axios, basePath));
+        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStats(options?: any): AxiosPromise<GetStats200Response> {
-            return localVarFp.getStats(options).then((request) => request(axios, basePath));
+        recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recoverPassword(recoverPasswordRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a user.
-         * @summary Get user
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser(user?: User, options?: any): AxiosPromise<void> {
+            return localVarFp.registerUser(user, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail(resendEmailRequest?: ResendEmailRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.resendEmail(resendEmailRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
          * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(id: string, options?: any): AxiosPromise<GetUser200Response> {
-            return localVarFp.getUser(id, options).then((request) => request(axios, basePath));
+        ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsers(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<UserAdminResponse>> {
-            return localVarFp.getUsers(filter, page, perPage, options).then((request) => request(axios, basePath));
+        ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Login on Admin
-         * @summary Login on Admin
-         * @param {LoginAdminRequest} [loginAdminRequest] 
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: any): AxiosPromise<LoginAdmin200Response> {
-            return localVarFp.loginAdmin(loginAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense(file?: any, options?: any): AxiosPromise<void> {
-            return localVarFp.sendLicense(file, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s name.
-         * @summary Update device name Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Update device\'s status.
-         * @summary Update status Admin
-         * @param {string} uid Device\&#39;s UID
-         * @param {DeviceStatus} status Device\&#39;s status
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: any): AxiosPromise<void> {
-            return localVarFp.updateDeviceStatusAdmin(uid, status, options).then((request) => request(axios, basePath));
+        ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
+        updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateUser(id, userAdminRequest, options).then((request) => request(axios, basePath));
+        updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7478,703 +4276,176 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
 export class ExternalApi extends BaseAPI {
     /**
      * Create a firewall rule.
-     * @summary Create firewall rule Admin
+     * @summary Create firewall rule
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a namespace.
-     * @summary Create namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a User.
-     * @summary Create a User admin
-     * @param {UserAdminRequest} [userAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).createUserAdmin(userAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a device.
-     * @summary Delete device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public deleteDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).deleteDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
+    public createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).createFirewallRule(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete a firewall rule.
-     * @summary Delete firewall rule admin
+     * @summary Delete firewall rule
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).deleteFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a namespace.
-     * @summary Delete namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).deleteNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a user.
-     * @summary Delete user
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public deleteUser(id: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).deleteUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Edit a namespace.
-     * @summary Edit namespace admin
-     * @param {string} tenantID Namespace\&#39;s tenant ID
-     * @param {Namespace} [namespace] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).editNamespaceAdmin(tenantID, namespace, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a device.
-     * @summary Get device admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public getDeviceAdmin(uid: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getDeviceAdmin(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of devices.
-     * @summary Get devices admin
-     * @param {string} [filter] Device\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;linux&#x60;.  If you want get only Devices name as &#x60;Linux&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;name\&quot;,           \&quot;operator\&quot;:\&quot;contains\&quot;,           \&quot;value\&quot;:\&quot;linux\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZDAifX1d&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {DeviceStatus} [status] Device\&#39;s status
-     * @param {string} [sortBy] Device\&#39;s property to sort of
-     * @param {'asc' | 'desc'} [orderBy] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public getDevicesAdmin(filter?: string, page?: number, perPage?: number, status?: DeviceStatus, sortBy?: string, orderBy?: 'asc' | 'desc', options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getDevicesAdmin(filter, page, perPage, status, sortBy, orderBy, options).then((request) => request(this.axios, this.basePath));
+    public deleteFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).deleteFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a firewall rule.
-     * @summary Get firewall rule admin
+     * @summary Get firewall rule
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
+    public getFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of firewall rules.
-     * @summary Get firewall rules Admin
+     * @summary Get firewall rules
      * @param {number} [page] Pagination page number
      * @param {number} [perPage] Pagination items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getFirewallRulesAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getFirewallRules(page, perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get the license data.
-     * @summary Get license data
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public getLicense(options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getLicense(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a namespace.
-     * @summary Get namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns a list of namespaces.
-     * @summary Get namespaces admin
-     * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getNamespacesAdmin(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a session.
-     * @summary Get session admin
+     * Get session recorded data.
+     * @summary Get session recorded data
      * @param {string} uid 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getSessionAdmin(uid: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getSessionAdmin(uid, options).then((request) => request(this.axios, this.basePath));
+    public getSessionData(uid: string, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getSessionData(uid, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get a list sessions.
-     * @summary Get sessions admin
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
+     * Validate the activation link for user.
+     * @summary Validate activation link
+     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getSessionsAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get stats about the ShellHub instance.
-     * @summary Get stats
+     * Send a recovery email to the user.
+     * @summary Recover password
+     * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getStats(options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getStats(options).then((request) => request(this.axios, this.basePath));
+    public recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).recoverPassword(recoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get a user.
-     * @summary Get user
+     * Register user
+     * @summary Register user
+     * @param {User} [user] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public registerUser(user?: User, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).registerUser(user, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Resend confirmation to user.
+     * @summary Resend confirmation
+     * @param {ResendEmailRequest} [resendEmailRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).resendEmail(resendEmailRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a tag to firewall rule
+     * @summary Add a tag to firewall rule
      * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getUser(id: string, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getUser(id, options).then((request) => request(this.axios, this.basePath));
+    public ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get a list of users.
-     * @summary Get users
-     * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
+     * Remove a tag from firewall rule
+     * @summary Remove a tag from firewall rule
+     * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getUsers(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Login on Admin
-     * @summary Login on Admin
-     * @param {LoginAdminRequest} [loginAdminRequest] 
+     * Update tags in firewall rule
+     * @summary Update tags in firewall rule
+     * @param {string} id 
+     * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public loginAdmin(loginAdminRequest?: LoginAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).loginAdmin(loginAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Send license data
-     * @summary Send license data
-     * @param {any} [file] License\\\&#39;s file
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public sendLicense(file?: any, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).sendLicense(file, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Set session authentication status.
-     * @summary Set session authentication status admin
-     * @param {string} uid 
-     * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s name.
-     * @summary Update device name Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {UpdateDeviceNameAdminRequest} [updateDeviceNameAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public updateDeviceNameAdmin(uid: string, updateDeviceNameAdminRequest?: UpdateDeviceNameAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).updateDeviceNameAdmin(uid, updateDeviceNameAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Update device\'s status.
-     * @summary Update status Admin
-     * @param {string} uid Device\&#39;s UID
-     * @param {DeviceStatus} status Device\&#39;s status
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ExternalApi
-     */
-    public updateDeviceStatusAdmin(uid: string, status: DeviceStatus, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).updateDeviceStatusAdmin(uid, status, options).then((request) => request(this.axios, this.basePath));
+    public ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a firewall rule.
-     * @summary Update firewall rule admin
+     * @summary Update firewall rule
      * @param {number} id 
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
+    public updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Update a user.
-     * @summary Update user
-     * @param {string} id 
-     * @param {UserAdminRequest} [userAdminRequest] 
+     * Update user password from a recovery token got from email.
+     * @summary Update user password
+     * @param {string} uid User\&#39;s UID.
+     * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).updateUser(id, userAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * InternalApi - axios parameter creator
- * @export
- */
-export const InternalApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRecordSession: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enableRecordSession: async (uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('enableRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(recordedSessionResponseInner, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * InternalApi - functional programming interface
- * @export
- */
-export const InternalApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = InternalApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteRecordSession(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordSession(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableRecordSession(uid, recordedSessionResponseInner, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * InternalApi - factory interface
- * @export
- */
-export const InternalApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = InternalApiFp(configuration)
-    return {
-        /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRecordSession(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteRecordSession(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: any): AxiosPromise<void> {
-            return localVarFp.enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * InternalApi - object-oriented interface
- * @export
- * @class InternalApi
- * @extends {BaseAPI}
- */
-export class InternalApi extends BaseAPI {
-    /**
-     * Delete a session record
-     * @summary Delete a session record
-     * @param {string} uid 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public deleteRecordSession(uid: string, options?: AxiosRequestConfig) {
-        return InternalApiFp(this.configuration).deleteRecordSession(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Enable a session record
-     * @summary Enable a session record
-     * @param {string} uid 
-     * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalApi
-     */
-    public enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig) {
-        return InternalApiFp(this.configuration).enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * LicenseApi - axios parameter creator
- * @export
- */
-export const LicenseApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense: async (file?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/license`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * LicenseApi - functional programming interface
- * @export
- */
-export const LicenseApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = LicenseApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getLicense(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetLicense200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLicense(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async sendLicense(file?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendLicense(file, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * LicenseApi - factory interface
- * @export
- */
-export const LicenseApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = LicenseApiFp(configuration)
-    return {
-        /**
-         * Get the license data.
-         * @summary Get license data
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getLicense(options?: any): AxiosPromise<GetLicense200Response> {
-            return localVarFp.getLicense(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Send license data
-         * @summary Send license data
-         * @param {any} [file] License\\\&#39;s file
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendLicense(file?: any, options?: any): AxiosPromise<void> {
-            return localVarFp.sendLicense(file, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * LicenseApi - object-oriented interface
- * @export
- * @class LicenseApi
- * @extends {BaseAPI}
- */
-export class LicenseApi extends BaseAPI {
-    /**
-     * Get the license data.
-     * @summary Get license data
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof LicenseApi
-     */
-    public getLicense(options?: AxiosRequestConfig) {
-        return LicenseApiFp(this.configuration).getLicense(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Send license data
-     * @summary Send license data
-     * @param {any} [file] License\\\&#39;s file
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof LicenseApi
-     */
-    public sendLicense(file?: any, options?: AxiosRequestConfig) {
-        return LicenseApiFp(this.configuration).sendLicense(file, options).then((request) => request(this.axios, this.basePath));
+    public updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -8231,11 +4502,11 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
          * Create a namespace.
          * @summary Create namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createNamespace: async (tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createNamespace: async (tenant: string, editNamespaceRequest?: EditNamespaceRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenant' is not null or undefined
             assertParamExists('createNamespace', 'tenant', tenant)
             const localVarPath = `/api/namespaces/{tenant}`
@@ -8262,49 +4533,7 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createNamespaceAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin: async (tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('createNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createNamespaceAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(editNamespaceRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -8350,52 +4579,14 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('deleteNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Edit a namespace.
          * @summary Edit namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        editNamespace: async (tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        editNamespace: async (tenant: string, editNamespaceRequest?: EditNamespaceRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tenant' is not null or undefined
             assertParamExists('editNamespace', 'tenant', tenant)
             const localVarPath = `/api/namespaces/{tenant}`
@@ -8422,98 +4613,7 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createNamespaceAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin: async (tenantID: string, namespace?: Namespace, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenantID' is not null or undefined
-            assertParamExists('editNamespaceAdmin', 'tenantID', tenantID)
-            const localVarPath = `/admin/api/namespaces-update/{tenantID}`
-                .replace(`{${"tenantID"}}`, encodeURIComponent(String(tenantID)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(namespace, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportNamespaces: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/export/namespaces`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(editNamespaceRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -8531,44 +4631,6 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'tenant' is not null or undefined
             assertParamExists('getNamespace', 'tenant', tenant)
             const localVarPath = `/api/namespaces/{tenant}`
-                .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'tenant' is not null or undefined
-            assertParamExists('getNamespaceAdmin', 'tenant', tenant)
-            const localVarPath = `/admin/api/namespaces/{tenant}`
                 .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8643,55 +4705,6 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
          */
         getNamespaces: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/namespaces`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/namespaces`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8844,24 +4857,12 @@ export const NamespacesApiFp = function(configuration?: Configuration) {
          * Create a namespace.
          * @summary Create namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNamespace(tenant, createNamespaceAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options);
+        async createNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNamespace(tenant, editNamespaceRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -8876,51 +4877,15 @@ export const NamespacesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNamespaceAdmin(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Edit a namespace.
          * @summary Edit namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async editNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.editNamespace(tenant, createNamespaceAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.editNamespaceAdmin(tenantID, namespace, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async exportNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNamespaces(filter, page, perPage, options);
+        async editNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.editNamespace(tenant, editNamespaceRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -8932,17 +4897,6 @@ export const NamespacesApiFp = function(configuration?: Configuration) {
          */
         async getNamespace(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespace(tenant, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Namespace>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespaceAdmin(tenant, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -8967,19 +4921,6 @@ export const NamespacesApiFp = function(configuration?: Configuration) {
          */
         async getNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Namespace>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespaces(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Namespace>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespacesAdmin(filter, page, perPage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -9032,23 +4973,12 @@ export const NamespacesApiFactory = function (configuration?: Configuration, bas
          * Create a namespace.
          * @summary Create namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.createNamespace(tenant, createNamespaceAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create a namespace.
-         * @summary Create namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(axios, basePath));
+        createNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: any): AxiosPromise<Namespace> {
+            return localVarFp.createNamespace(tenant, editNamespaceRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a namespace.
@@ -9061,48 +4991,15 @@ export const NamespacesApiFactory = function (configuration?: Configuration, bas
             return localVarFp.deleteNamespace(tenant, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a namespace.
-         * @summary Delete namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteNamespaceAdmin(tenant: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Edit a namespace.
          * @summary Edit namespace
          * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+         * @param {EditNamespaceRequest} [editNamespaceRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        editNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.editNamespace(tenant, createNamespaceAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Edit a namespace.
-         * @summary Edit namespace admin
-         * @param {string} tenantID Namespace\&#39;s tenant ID
-         * @param {Namespace} [namespace] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: any): AxiosPromise<void> {
-            return localVarFp.editNamespaceAdmin(tenantID, namespace, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Export namespaces to csv file.
-         * @summary export namespace
-         * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportNamespaces(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<any> {
-            return localVarFp.exportNamespaces(filter, page, perPage, options).then((request) => request(axios, basePath));
+        editNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: any): AxiosPromise<Namespace> {
+            return localVarFp.editNamespace(tenant, editNamespaceRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a namespace.
@@ -9113,16 +5010,6 @@ export const NamespacesApiFactory = function (configuration?: Configuration, bas
          */
         getNamespace(tenant: string, options?: any): AxiosPromise<Namespace> {
             return localVarFp.getNamespace(tenant, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a namespace.
-         * @summary Get namespace admin
-         * @param {string} tenant Namespace\&#39;s tenant ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespaceAdmin(tenant: string, options?: any): AxiosPromise<Namespace> {
-            return localVarFp.getNamespaceAdmin(tenant, options).then((request) => request(axios, basePath));
         },
         /**
          * This route works like a login\'s one; returns a JWT token and extra information about namespace.  You can use this route to swap between namespaces. 
@@ -9145,18 +5032,6 @@ export const NamespacesApiFactory = function (configuration?: Configuration, bas
          */
         getNamespaces(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<Namespace>> {
             return localVarFp.getNamespaces(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Returns a list of namespaces.
-         * @summary Get namespaces admin
-         * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<Namespace>> {
-            return localVarFp.getNamespacesAdmin(filter, page, perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a member from a namespace.
@@ -9208,26 +5083,13 @@ export class NamespacesApi extends BaseAPI {
      * Create a namespace.
      * @summary Create namespace
      * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+     * @param {EditNamespaceRequest} [editNamespaceRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof NamespacesApi
      */
-    public createNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).createNamespace(tenant, createNamespaceAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a namespace.
-     * @summary Create namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public createNamespaceAdmin(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).createNamespaceAdmin(tenant, createNamespaceAdminRequest, options).then((request) => request(this.axios, this.basePath));
+    public createNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: AxiosRequestConfig) {
+        return NamespacesApiFp(this.configuration).createNamespace(tenant, editNamespaceRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9243,55 +5105,16 @@ export class NamespacesApi extends BaseAPI {
     }
 
     /**
-     * Delete a namespace.
-     * @summary Delete namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public deleteNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).deleteNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Edit a namespace.
      * @summary Edit namespace
      * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {CreateNamespaceAdminRequest} [createNamespaceAdminRequest] 
+     * @param {EditNamespaceRequest} [editNamespaceRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof NamespacesApi
      */
-    public editNamespace(tenant: string, createNamespaceAdminRequest?: CreateNamespaceAdminRequest, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).editNamespace(tenant, createNamespaceAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Edit a namespace.
-     * @summary Edit namespace admin
-     * @param {string} tenantID Namespace\&#39;s tenant ID
-     * @param {Namespace} [namespace] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public editNamespaceAdmin(tenantID: string, namespace?: Namespace, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).editNamespaceAdmin(tenantID, namespace, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Export namespaces to csv file.
-     * @summary export namespace
-     * @param {string} [filter] Namespace\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;devices&#x60; where the value should be \&#39;gt\&#39; &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;devices\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJkZXZpY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public exportNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).exportNamespaces(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public editNamespace(tenant: string, editNamespaceRequest?: EditNamespaceRequest, options?: AxiosRequestConfig) {
+        return NamespacesApiFp(this.configuration).editNamespace(tenant, editNamespaceRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9304,18 +5127,6 @@ export class NamespacesApi extends BaseAPI {
      */
     public getNamespace(tenant: string, options?: AxiosRequestConfig) {
         return NamespacesApiFp(this.configuration).getNamespace(tenant, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a namespace.
-     * @summary Get namespace admin
-     * @param {string} tenant Namespace\&#39;s tenant ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public getNamespaceAdmin(tenant: string, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).getNamespaceAdmin(tenant, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9342,20 +5153,6 @@ export class NamespacesApi extends BaseAPI {
      */
     public getNamespaces(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
         return NamespacesApiFp(this.configuration).getNamespaces(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Returns a list of namespaces.
-     * @summary Get namespaces admin
-     * @param {string} [filter] Namespaces\&#39;s filter.   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;name&#x60; where the value should &#x60;contains&#x60; &#x60;examplespace&#x60;.  If you want get only Namespaces name as &#x60;examplespace&#x60;, the JSON object will looks like this   &#x60;&#x60;&#x60;json [   {     \&quot;type\&quot;:\&quot;property\&quot;,     \&quot;params\&quot;:{       \&quot;name\&quot;:\&quot;name\&quot;,       \&quot;operator\&quot;:\&quot;contains\&quot;,       \&quot;value\&quot;:\&quot;examplespace\&quot;     }   } ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lIiwib3BlcmF0b3IiOiJjb250YWlucyIsInZhbHVlIjoiZXhhbXBsZXNwYWNlIn19XQ&#x3D;&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NamespacesApi
-     */
-    public getNamespacesAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return NamespacesApiFp(this.configuration).getNamespacesAdmin(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -9395,13 +5192,13 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createFirewallRuleAdmin: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
+        createFirewallRule: async (firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9433,15 +5230,15 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('deleteFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9471,15 +5268,15 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRuleAdmin: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFirewallRule: async (id: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('getFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9509,14 +5306,14 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRulesAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/firewall/rules`;
+        getFirewallRules: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/firewall/rules`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -9552,17 +5349,143 @@ export const RulesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleAddTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleAddTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleDeleteTag: async (id: string, ruleAddTagRequest?: RuleAddTagRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleDeleteTag', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleAddTagRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleUpdateTags: async (id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('ruleUpdateTags', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}/tags`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(ruleUpdateTagsRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateFirewallRuleAdmin: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateFirewallRule: async (id: number, firewallRulesRequest?: FirewallRulesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateFirewallRuleAdmin', 'id', id)
-            const localVarPath = `/admin/api/firewall/rules/{id}`
+            assertParamExists('updateFirewallRule', 'id', id)
+            const localVarPath = `/api/firewall/rules/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9605,59 +5528,95 @@ export const RulesApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRuleAdmin(firewallRulesRequest, options);
+        async createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFirewallRule(firewallRulesRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRuleAdmin(id, options);
+        async deleteFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRule(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRuleAdmin(id, options);
+        async getFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRule(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRulesAdmin(page, perPage, options);
+        async getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FirewallRulesResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFirewallRules(page, perPage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleAddTag(id, ruleAddTagRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleDeleteTag(id, ruleAddTagRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ruleUpdateTags(id, ruleUpdateTagsRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRuleAdmin(id, firewallRulesRequest, options);
+        async updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FirewallRulesResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFirewallRule(id, firewallRulesRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -9672,55 +5631,88 @@ export const RulesApiFactory = function (configuration?: Configuration, basePath
     return {
         /**
          * Create a firewall rule.
-         * @summary Create firewall rule Admin
+         * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(axios, basePath));
+        createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.createFirewallRule(firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a firewall rule.
-         * @summary Delete firewall rule admin
+         * @summary Delete firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFirewallRuleAdmin(id: number, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
+        deleteFirewallRule(id: number, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteFirewallRule(id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a firewall rule.
-         * @summary Get firewall rule admin
+         * @summary Get firewall rule
          * @param {number} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRuleAdmin(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.getFirewallRuleAdmin(id, options).then((request) => request(axios, basePath));
+        getFirewallRule(id: number, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.getFirewallRule(id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a list of firewall rules.
-         * @summary Get firewall rules Admin
+         * @summary Get firewall rules
          * @param {number} [page] Pagination page number
          * @param {number} [perPage] Pagination items per page
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFirewallRulesAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
-            return localVarFp.getFirewallRulesAdmin(page, perPage, options).then((request) => request(axios, basePath));
+        getFirewallRules(page?: number, perPage?: number, options?: any): AxiosPromise<Array<FirewallRulesResponse>> {
+            return localVarFp.getFirewallRules(page, perPage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a tag to firewall rule
+         * @summary Add a tag to firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Remove a tag from firewall rule
+         * @summary Remove a tag from firewall rule
+         * @param {string} id 
+         * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update tags in firewall rule
+         * @summary Update tags in firewall rule
+         * @param {string} id 
+         * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a firewall rule.
-         * @summary Update firewall rule admin
+         * @summary Update firewall rule
          * @param {number} id 
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
-            return localVarFp.updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
+        updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: any): AxiosPromise<FirewallRulesResponse> {
+            return localVarFp.updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9734,64 +5726,103 @@ export const RulesApiFactory = function (configuration?: Configuration, basePath
 export class RulesApi extends BaseAPI {
     /**
      * Create a firewall rule.
-     * @summary Create firewall rule Admin
+     * @summary Create firewall rule
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public createFirewallRuleAdmin(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).createFirewallRuleAdmin(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
+    public createFirewallRule(firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).createFirewallRule(firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete a firewall rule.
-     * @summary Delete firewall rule admin
+     * @summary Delete firewall rule
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public deleteFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).deleteFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
+    public deleteFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).deleteFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a firewall rule.
-     * @summary Get firewall rule admin
+     * @summary Get firewall rule
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public getFirewallRuleAdmin(id: number, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).getFirewallRuleAdmin(id, options).then((request) => request(this.axios, this.basePath));
+    public getFirewallRule(id: number, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).getFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of firewall rules.
-     * @summary Get firewall rules Admin
+     * @summary Get firewall rules
      * @param {number} [page] Pagination page number
      * @param {number} [perPage] Pagination items per page
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public getFirewallRulesAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).getFirewallRulesAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public getFirewallRules(page?: number, perPage?: number, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).getFirewallRules(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a tag to firewall rule
+     * @summary Add a tag to firewall rule
+     * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RulesApi
+     */
+    public ruleAddTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).ruleAddTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Remove a tag from firewall rule
+     * @summary Remove a tag from firewall rule
+     * @param {string} id 
+     * @param {RuleAddTagRequest} [ruleAddTagRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RulesApi
+     */
+    public ruleDeleteTag(id: string, ruleAddTagRequest?: RuleAddTagRequest, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).ruleDeleteTag(id, ruleAddTagRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update tags in firewall rule
+     * @summary Update tags in firewall rule
+     * @param {string} id 
+     * @param {RuleUpdateTagsRequest} [ruleUpdateTagsRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RulesApi
+     */
+    public ruleUpdateTags(id: string, ruleUpdateTagsRequest?: RuleUpdateTagsRequest, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).ruleUpdateTags(id, ruleUpdateTagsRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a firewall rule.
-     * @summary Update firewall rule admin
+     * @summary Update firewall rule
      * @param {number} id 
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RulesApi
      */
-    public updateFirewallRuleAdmin(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
-        return RulesApiFp(this.configuration).updateFirewallRuleAdmin(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
+    public updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
+        return RulesApiFp(this.configuration).updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -9802,82 +5833,6 @@ export class RulesApi extends BaseAPI {
  */
 export const SessionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRecordSession: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('deleteRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enableRecordSession: async (uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('enableRecordSession', 'uid', uid)
-            const localVarPath = `/api/sessions/{uid}/record`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(recordedSessionResponseInner, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Get a session.
          * @summary Get session
@@ -9917,16 +5872,16 @@ export const SessionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionAdmin: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSessionData: async (uid: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'uid' is not null or undefined
-            assertParamExists('getSessionAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
+            assertParamExists('getSessionData', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/play`
                 .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10033,58 +5988,14 @@ export const SessionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionsAdmin: async (page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/sessions`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
+         * @param {SetSessionAuthenticationStatusRequest} [setSessionAuthenticationStatusRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        setSessionAuthenticationStatus: async (uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setSessionAuthenticationStatus: async (uid: string, setSessionAuthenticationStatusRequest?: SetSessionAuthenticationStatusRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'uid' is not null or undefined
             assertParamExists('setSessionAuthenticationStatus', 'uid', uid)
             const localVarPath = `/api/sessions/{uid}`
@@ -10111,49 +6022,7 @@ export const SessionsApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(setSessionAuthenticationStatusAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin: async (uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'uid' is not null or undefined
-            assertParamExists('setSessionAuthenticationStatusAdmin', 'uid', uid)
-            const localVarPath = `/admin/api/sessions/{uid}`
-                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(setSessionAuthenticationStatusAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(setSessionAuthenticationStatusRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -10213,29 +6082,6 @@ export const SessionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SessionsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteRecordSession(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordSession(uid, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableRecordSession(uid, recordedSessionResponseInner, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get a session.
          * @summary Get session
          * @param {string} uid 
@@ -10247,14 +6093,14 @@ export const SessionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSessionAdmin(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Session>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionAdmin(uid, options);
+        async getSessionData(uid: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RecordedSessionResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionData(uid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10280,39 +6126,15 @@ export const SessionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Session>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSessionsAdmin(page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
+         * @param {SetSessionAuthenticationStatusRequest} [setSessionAuthenticationStatusRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options);
+        async setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusRequest?: SetSessionAuthenticationStatusRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10338,27 +6160,6 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = SessionsApiFp(configuration)
     return {
         /**
-         * Delete a session record
-         * @summary Delete a session record
-         * @param {string} uid 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteRecordSession(uid: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteRecordSession(uid, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Enable a session record
-         * @summary Enable a session record
-         * @param {string} uid 
-         * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: any): AxiosPromise<void> {
-            return localVarFp.enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get a session.
          * @summary Get session
          * @param {string} uid 
@@ -10369,14 +6170,14 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getSession(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a session.
-         * @summary Get session admin
+         * Get session recorded data.
+         * @summary Get session recorded data
          * @param {string} uid 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSessionAdmin(uid: string, options?: any): AxiosPromise<Session> {
-            return localVarFp.getSessionAdmin(uid, options).then((request) => request(axios, basePath));
+        getSessionData(uid: string, options?: any): AxiosPromise<Array<RecordedSessionResponseInner>> {
+            return localVarFp.getSessionData(uid, options).then((request) => request(axios, basePath));
         },
         /**
          * Get status from if `session record` feature is enable.
@@ -10399,37 +6200,15 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getSessions(page, perPage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list sessions.
-         * @summary Get sessions admin
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSessionsAdmin(page?: number, perPage?: number, options?: any): AxiosPromise<Array<Session>> {
-            return localVarFp.getSessionsAdmin(page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
+         * @param {SetSessionAuthenticationStatusRequest} [setSessionAuthenticationStatusRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Set session authentication status.
-         * @summary Set session authentication status admin
-         * @param {string} uid 
-         * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(axios, basePath));
+        setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusRequest?: SetSessionAuthenticationStatusRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Define if sessions will be recorded.
@@ -10453,31 +6232,6 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
  */
 export class SessionsApi extends BaseAPI {
     /**
-     * Delete a session record
-     * @summary Delete a session record
-     * @param {string} uid 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SessionsApi
-     */
-    public deleteRecordSession(uid: string, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).deleteRecordSession(uid, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Enable a session record
-     * @summary Enable a session record
-     * @param {string} uid 
-     * @param {Array<RecordedSessionResponseInner>} [recordedSessionResponseInner] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SessionsApi
-     */
-    public enableRecordSession(uid: string, recordedSessionResponseInner?: Array<RecordedSessionResponseInner>, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).enableRecordSession(uid, recordedSessionResponseInner, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get a session.
      * @summary Get session
      * @param {string} uid 
@@ -10490,15 +6244,15 @@ export class SessionsApi extends BaseAPI {
     }
 
     /**
-     * Get a session.
-     * @summary Get session admin
+     * Get session recorded data.
+     * @summary Get session recorded data
      * @param {string} uid 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SessionsApi
      */
-    public getSessionAdmin(uid: string, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).getSessionAdmin(uid, options).then((request) => request(this.axios, this.basePath));
+    public getSessionData(uid: string, options?: AxiosRequestConfig) {
+        return SessionsApiFp(this.configuration).getSessionData(uid, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10526,42 +6280,16 @@ export class SessionsApi extends BaseAPI {
     }
 
     /**
-     * Get a list sessions.
-     * @summary Get sessions admin
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SessionsApi
-     */
-    public getSessionsAdmin(page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).getSessionsAdmin(page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Set session authentication status.
      * @summary Set session authentication status
      * @param {string} uid 
-     * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
+     * @param {SetSessionAuthenticationStatusRequest} [setSessionAuthenticationStatusRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SessionsApi
      */
-    public setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Set session authentication status.
-     * @summary Set session authentication status admin
-     * @param {string} uid 
-     * @param {SetSessionAuthenticationStatusAdminRequest} [setSessionAuthenticationStatusAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SessionsApi
-     */
-    public setSessionAuthenticationStatusAdmin(uid: string, setSessionAuthenticationStatusAdminRequest?: SetSessionAuthenticationStatusAdminRequest, options?: AxiosRequestConfig) {
-        return SessionsApiFp(this.configuration).setSessionAuthenticationStatusAdmin(uid, setSessionAuthenticationStatusAdminRequest, options).then((request) => request(this.axios, this.basePath));
+    public setSessionAuthenticationStatus(uid: string, setSessionAuthenticationStatusRequest?: SetSessionAuthenticationStatusRequest, options?: AxiosRequestConfig) {
+        return SessionsApiFp(this.configuration).setSessionAuthenticationStatus(uid, setSessionAuthenticationStatusRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10666,44 +6394,6 @@ export const SshApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
-         * Create a new public key.
-         * @summary Create public key admin
-         * @param {PublicKeyRequest} [publicKeyRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPublicKeyAdmin: async (publicKeyRequest?: PublicKeyRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/sshkeys/public-keys`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(publicKeyRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Delete a public key.
          * @summary Delete public key
          * @param {string} fingerprint Public key\&#39;s fingerprint.
@@ -10752,55 +6442,6 @@ export const SshApiAxiosParamCreator = function (configuration?: Configuration) 
          */
         getPublicKeys: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/sshkeys/public-keys`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list from all public keys.
-         * @summary Get public keys admin
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPublicKeysAdmin: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/sshkeys/public-keys`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -11033,17 +6674,6 @@ export const SshApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Create a new public key.
-         * @summary Create public key admin
-         * @param {PublicKeyRequest} [publicKeyRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createPublicKeyAdmin(publicKeyRequest?: PublicKeyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicKeyResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPublicKeyAdmin(publicKeyRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Delete a public key.
          * @summary Delete public key
          * @param {string} fingerprint Public key\&#39;s fingerprint.
@@ -11065,19 +6695,6 @@ export const SshApiFp = function(configuration?: Configuration) {
          */
         async getPublicKeys(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicKeyResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicKeys(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list from all public keys.
-         * @summary Get public keys admin
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPublicKeysAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicKeyResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicKeysAdmin(filter, page, perPage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -11159,16 +6776,6 @@ export const SshApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.createPublicKey(publicKeyRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create a new public key.
-         * @summary Create public key admin
-         * @param {PublicKeyRequest} [publicKeyRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createPublicKeyAdmin(publicKeyRequest?: PublicKeyRequest, options?: any): AxiosPromise<PublicKeyResponse> {
-            return localVarFp.createPublicKeyAdmin(publicKeyRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Delete a public key.
          * @summary Delete public key
          * @param {string} fingerprint Public key\&#39;s fingerprint.
@@ -11189,18 +6796,6 @@ export const SshApiFactory = function (configuration?: Configuration, basePath?:
          */
         getPublicKeys(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<PublicKeyResponse>> {
             return localVarFp.getPublicKeys(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list from all public keys.
-         * @summary Get public keys admin
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPublicKeysAdmin(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<PublicKeyResponse> {
-            return localVarFp.getPublicKeysAdmin(filter, page, perPage, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a tag from public key.
@@ -11281,18 +6876,6 @@ export class SshApi extends BaseAPI {
     }
 
     /**
-     * Create a new public key.
-     * @summary Create public key admin
-     * @param {PublicKeyRequest} [publicKeyRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SshApi
-     */
-    public createPublicKeyAdmin(publicKeyRequest?: PublicKeyRequest, options?: AxiosRequestConfig) {
-        return SshApiFp(this.configuration).createPublicKeyAdmin(publicKeyRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Delete a public key.
      * @summary Delete public key
      * @param {string} fingerprint Public key\&#39;s fingerprint.
@@ -11316,20 +6899,6 @@ export class SshApi extends BaseAPI {
      */
     public getPublicKeys(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
         return SshApiFp(this.configuration).getPublicKeys(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list from all public keys.
-     * @summary Get public keys admin
-     * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SshApi
-     */
-    public getPublicKeysAdmin(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return SshApiFp(this.configuration).getPublicKeysAdmin(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -11381,108 +6950,6 @@ export class SshApi extends BaseAPI {
      */
     public updateTagsPublicKey(fingerprint: string, updateTagsPublicKeyRequest?: UpdateTagsPublicKeyRequest, options?: AxiosRequestConfig) {
         return SshApiFp(this.configuration).updateTagsPublicKey(fingerprint, updateTagsPublicKeyRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * StatsApi - axios parameter creator
- * @export
- */
-export const StatsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getStats: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/stats`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * StatsApi - functional programming interface
- * @export
- */
-export const StatsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = StatsApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getStats(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetStats200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStats(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * StatsApi - factory interface
- * @export
- */
-export const StatsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = StatsApiFp(configuration)
-    return {
-        /**
-         * Get stats about the ShellHub instance.
-         * @summary Get stats
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getStats(options?: any): AxiosPromise<GetStats200Response> {
-            return localVarFp.getStats(options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * StatsApi - object-oriented interface
- * @export
- * @class StatsApi
- * @extends {BaseAPI}
- */
-export class StatsApi extends BaseAPI {
-    /**
-     * Get stats about the ShellHub instance.
-     * @summary Get stats
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StatsApi
-     */
-    public getStats(options?: AxiosRequestConfig) {
-        return StatsApiFp(this.configuration).getStats(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -12213,131 +7680,6 @@ export class TagsApi extends BaseAPI {
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin: async (userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportUsers: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/export/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get status from if `session record` feature is enable.
          * @summary Get session record
          * @param {*} [options] Override http request option.
@@ -12408,17 +7750,14 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/validation_account`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -12436,96 +7775,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserTokenAdmin: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUserTokenAdmin', 'id', id)
-            const localVarPath = `/admin/api/auth/token/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers: async (filter?: string, page?: number, perPage?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/admin/api/users`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (filter !== undefined) {
-                localVarQueryParameter['filter'] = filter;
-            }
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (perPage !== undefined) {
-                localVarQueryParameter['per_page'] = perPage;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12601,6 +7856,108 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recoverPassword: async (recoverPasswordRequest?: RecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/recover_password`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(recoverPasswordRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser: async (user?: User, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/register`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(user, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail: async (resendEmailRequest?: ResendEmailRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/user/resend_email`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resendEmailRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Define if sessions will be recorded.
          * @summary Set session record
          * @param {string} tenant Namespace\&#39;s tenant ID
@@ -12643,18 +8000,18 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser: async (id: string, userAdminRequest?: UserAdminRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateUser', 'id', id)
-            const localVarPath = `/admin/api/users/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        updateRecoverPassword: async (uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('updateRecoverPassword', 'uid', uid)
+            const localVarPath = `/api/user/{uid}/update_password`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -12662,7 +8019,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -12677,7 +8034,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(userAdminRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateRecoverPasswordRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12777,41 +8134,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createUserAdmin(userAdminRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async exportUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportUsers(filter, page, perPage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get status from if `session record` feature is enable.
          * @summary Get session record
          * @param {*} [options] Override http request option.
@@ -12833,38 +8155,14 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUser200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUserTokenAdmin(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetUserTokenAdmin200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserTokenAdmin(id, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserAdminResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsers(filter, page, perPage, options);
+        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -12890,6 +8188,39 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recoverPassword(recoverPasswordRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async registerUser(user?: User, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.registerUser(user, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resendEmail(resendEmailRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Define if sessions will be recorded.
          * @summary Set session record
          * @param {string} tenant Namespace\&#39;s tenant ID
@@ -12902,15 +8233,15 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, userAdminRequest, options);
+        async updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecoverPassword(uid, updateRecoverPasswordRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -12948,38 +8279,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = UsersApiFp(configuration)
     return {
         /**
-         * Create a User.
-         * @summary Create a User admin
-         * @param {UserAdminRequest} [userAdminRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        createUserAdmin(userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.createUserAdmin(userAdminRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Delete a user.
-         * @summary Delete user
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteUser(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Export users to csv file.
-         * @summary export users
-         * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        exportUsers(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<any> {
-            return localVarFp.exportUsers(filter, page, perPage, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get status from if `session record` feature is enable.
          * @summary Get session record
          * @param {*} [options] Override http request option.
@@ -12999,36 +8298,14 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getToken(tenant, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get a user.
-         * @summary Get user
-         * @param {string} id 
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(id: string, options?: any): AxiosPromise<GetUser200Response> {
-            return localVarFp.getUser(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get user JWT token to login.
-         * @summary Get user token
-         * @param {string} id User\&#39;s ID
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUserTokenAdmin(id: string, options?: any): AxiosPromise<GetUserTokenAdmin200Response> {
-            return localVarFp.getUserTokenAdmin(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get a list of users.
-         * @summary Get users
-         * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-         * @param {number} [page] Pagination page number
-         * @param {number} [perPage] Pagination items per page
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getUsers(filter?: string, page?: number, perPage?: number, options?: any): AxiosPromise<Array<UserAdminResponse>> {
-            return localVarFp.getUsers(filter, page, perPage, options).then((request) => request(axios, basePath));
+        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Get data about a user
@@ -13051,6 +8328,36 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.login_1(login, options).then((request) => request(axios, basePath));
         },
         /**
+         * Send a recovery email to the user.
+         * @summary Recover password
+         * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recoverPassword(recoverPasswordRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Register user
+         * @summary Register user
+         * @param {User} [user] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerUser(user?: User, options?: any): AxiosPromise<void> {
+            return localVarFp.registerUser(user, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Resend confirmation to user.
+         * @summary Resend confirmation
+         * @param {ResendEmailRequest} [resendEmailRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resendEmail(resendEmailRequest?: ResendEmailRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.resendEmail(resendEmailRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Define if sessions will be recorded.
          * @summary Set session record
          * @param {string} tenant Namespace\&#39;s tenant ID
@@ -13062,15 +8369,15 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.setSessionRecord(tenant, setSessionRecordRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update a user.
-         * @summary Update user
-         * @param {string} id 
-         * @param {UserAdminRequest} [userAdminRequest] 
+         * Update user password from a recovery token got from email.
+         * @summary Update user password
+         * @param {string} uid User\&#39;s UID.
+         * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.updateUser(id, userAdminRequest, options).then((request) => request(axios, basePath));
+        updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Update user\'s data.
@@ -13105,44 +8412,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
  */
 export class UsersApi extends BaseAPI {
     /**
-     * Create a User.
-     * @summary Create a User admin
-     * @param {UserAdminRequest} [userAdminRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public createUserAdmin(userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).createUserAdmin(userAdminRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Delete a user.
-     * @summary Delete user
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public deleteUser(id: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).deleteUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Export users to csv file.
-     * @summary export users
-     * @param {string} [filter] User\&#39;s filter   Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;namespaces&#x60; where the value should be &#x60;eq&#x60; to &#x60;0&#x60;.  An example of JSON object will looks like this:  &#x60;&#x60;&#x60;json   [     {       \&quot;type\&quot;:\&quot;property\&quot;,       \&quot;params\&quot;:         {           \&quot;name\&quot;:\&quot;namespace\&quot;,           \&quot;operator\&quot;:\&quot;eq\&quot;,           \&quot;value\&quot;:\&quot;0\&quot;         }     }   ] &#x60;&#x60;&#x60;  So, the output encoded string will result on: &#x60;W3sidHlwZSI6InByb3BlcnR5IiwicGFyYW1zIjp7Im5hbWUiOiJuYW1lc3BhY2VzIiwib3BlcmF0b3IiOiJndCIsInZhbHVlIjoiMCJ9fV0&#x3D;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public exportUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).exportUsers(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get status from if `session record` feature is enable.
      * @summary Get session record
      * @param {*} [options] Override http request option.
@@ -13166,41 +8435,15 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
-     * Get a user.
-     * @summary Get user
-     * @param {string} id 
+     * Validate the activation link for user.
+     * @summary Validate activation link
+     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUser(id: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUser(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get user JWT token to login.
-     * @summary Get user token
-     * @param {string} id User\&#39;s ID
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public getUserTokenAdmin(id: string, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUserTokenAdmin(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get a list of users.
-     * @summary Get users
-     * @param {string} [filter] Filter field receives a base64 enconded JSON object for limit a search. The JSON object should have a property called &#x60;type&#x60;, it will filter by a &#x60;property&#x60; called &#x60;confirmed&#x60; where the value is &#x60;eq&#x60; to &#x60;true&#x60;.   This is a example to filter and get only the confirmed users. &#x60;&#x60;&#x60;json  [   {   \&quot;type\&quot;: \&quot;property\&quot;,   \&quot;params\&quot;: {       \&quot;name\&quot;: \&quot;confirmed\&quot;,       \&quot;operator\&quot;: \&quot;eq\&quot;,       \&quot;value\&quot;: true       }   } ]  &#x60;&#x60;&#x60;    So, the output enconded string will result on:     &#x60;&#x60;&#x60;WwogICAgewogICAgInR5cGUiOiAicHJvcGVydHkiLAogICAgInBhcmFtcyI6IHsKICAgICAgICAibmFtZSI6ICJjb25maXJtZWQiLAogICAgICAgICJvcGVyYXRvciI6ICJlcSIsCiAgICAgICAgInZhbHVlIjogdHJ1ZQogICAgICAgIH0KICAgIH0KXQ&#x3D;&#x3D;&#x60;&#x60;&#x60; 
-     * @param {number} [page] Pagination page number
-     * @param {number} [perPage] Pagination items per page
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public getUsers(filter?: string, page?: number, perPage?: number, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getUsers(filter, page, perPage, options).then((request) => request(this.axios, this.basePath));
+    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -13228,6 +8471,42 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
+     * Send a recovery email to the user.
+     * @summary Recover password
+     * @param {RecoverPasswordRequest} [recoverPasswordRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public recoverPassword(recoverPasswordRequest?: RecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).recoverPassword(recoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Register user
+     * @summary Register user
+     * @param {User} [user] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public registerUser(user?: User, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).registerUser(user, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Resend confirmation to user.
+     * @summary Resend confirmation
+     * @param {ResendEmailRequest} [resendEmailRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public resendEmail(resendEmailRequest?: ResendEmailRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).resendEmail(resendEmailRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Define if sessions will be recorded.
      * @summary Set session record
      * @param {string} tenant Namespace\&#39;s tenant ID
@@ -13241,16 +8520,16 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
-     * Update a user.
-     * @summary Update user
-     * @param {string} id 
-     * @param {UserAdminRequest} [userAdminRequest] 
+     * Update user password from a recovery token got from email.
+     * @summary Update user password
+     * @param {string} uid User\&#39;s UID.
+     * @param {UpdateRecoverPasswordRequest} [updateRecoverPasswordRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public updateUser(id: string, userAdminRequest?: UserAdminRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).updateUser(id, userAdminRequest, options).then((request) => request(this.axios, this.basePath));
+    public updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

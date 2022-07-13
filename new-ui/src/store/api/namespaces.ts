@@ -1,27 +1,33 @@
 import http from '../helpers/http';
+import { namespacesApi } from "../../api/http";
 
-export const postNamespace = async (data : any) => http().post('/namespaces', {
-  name: data.name,
-});
 
-export const fetchNamespaces = async () => http().get('/namespaces');
+export const postNamespace = async (data : any) => namespacesApi.createNamespace(data.name);
 
-export const getNamespace = async (id : any) => http().get(`/namespaces/${id}`);
 
-export const removeNamespace = async (id : any) => http().delete(`/namespaces/${id}`);
+export const fetchNamespaces = async (
+  page : any,
+  perPage: any,
+  filter : any,
+) => {
+  if (filter) return namespacesApi.getNamespaces(filter, page, perPage);
 
-export const putNamespace = async (data : any) => http().put(`/namespaces/${data.id}`, {
-  name: data.name,
-});
+  return namespacesApi.getNamespaces(filter, page, perPage);
+};
 
-export const addUserToNamespace = async (data : any) => http().post(`/namespaces/${data.tenant_id}/members`, {
+export const getNamespace = async (id : any) => namespacesApi.getNamespace(id);
+
+export const removeNamespace = async (id : any) => namespacesApi.deleteNamespace(id);
+
+export const putNamespace = async (data : any) => namespacesApi.editNamespace(data.id, data.name);
+
+export const addUserToNamespace = async (data : any) => namespacesApi.addNamespaceMember(data.tenant_id, {
   username: data.username,
   role: data.role,
 });
 
-export const editUserToNamespace = async (data : any) => http().patch(`/namespaces/${data.tenant_id}/members/${data.user_id}`, {
-  role: data.role,
-});
+export const editUserToNamespace = async (data : any) => namespacesApi.updateNamespaceMember(data.tenant_id, data.user_id, data.role);
 
-export const removeUserFromNamespace = async (data : any) => http().delete(`/namespaces/${data.tenant_id}/members/${data.user_id}`);
-export const tenantSwitch = async (data : any) => http().get(`/auth/token/${data.tenant_id}`);
+export const removeUserFromNamespace = async (data : any) => namespacesApi.removeNamespaceMember(data.tenant_id, data.user_id);
+
+export const tenantSwitch = async (data : any) => http().get(`/auth/token/${data.tenant_id}`); // TODO

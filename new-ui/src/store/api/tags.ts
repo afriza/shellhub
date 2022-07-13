@@ -1,7 +1,7 @@
-import http from '../helpers/http';
+import { tagsApi } from "../../api/http";
 
-export const updateTag = async (data : any) => http().put(`tags/${data.oldTag}`, { tag: data.newTag });
+export const updateTag = async (data : any) => tagsApi.renameTag(data.oldTag, data.tag);
 
-export const removeTag = async (tag : any) => http().delete(`tags/${tag}`);
+export const removeTag = async (tag : any) => tagsApi.deleteTag(tag);
 
-export const getTags = async () => http().get('/tags');
+export const getTags = async () => tagsApi.getTags();

@@ -1,5 +1,5 @@
-import http from '../helpers/http';
+import { usersApi, defaultApi } from "../../api/http";
 
-export const login = async (user : any) => http().post('/login', user);
+export const login = async (user: any) =>  usersApi.login(user);
 
-export const info = async () => http().get('/auth/user');
+export const info = async () => defaultApi.getInfo();

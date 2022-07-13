@@ -1,3 +1,5 @@
-import http from '../helpers/http';
+import { devicesApi } from "../../api/http";
 
-export default async () => http().get('/stats');
+const getStats = async () => devicesApi.getStatusDevices();
+
+export default getStats;

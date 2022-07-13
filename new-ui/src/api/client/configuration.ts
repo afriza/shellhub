@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * ShellHub Enterprise
- * ShellHub Enterprise.  It documents all routes provided by ShellHub Enterprise.   NOTICE: THE API IS NOT STABLE YET; ERROR AND INCONSISTENCIES MAY OCCUR. 
+ * ShellHub Cloud
+ * ShellHub Cloud documentation.  It documents all routes provided by ShellHub Cloud.   NOTICE: THE API IS NOT STABLE YET; ERROR AND INCONSISTENCIES MAY OCCUR. 
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: contato@ossystems.com.br

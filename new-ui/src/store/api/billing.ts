@@ -1,5 +1,5 @@
 import http from '../helpers/http';
-
+// TODO
 export const subscritionPaymentMethod = async (data: any) => http().post('/billing/subscription', data);
 
 export const postDevicesChooser = async (data: any) => http().post('/billing/devices-choice', data);
