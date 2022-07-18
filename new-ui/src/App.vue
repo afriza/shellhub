@@ -1,30 +1,36 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view :key="currentRoute.value.path"></router-view>
-    </v-main>
+    <component :is="layout" :data-test="layout + '-component'" />
   </v-app>
 </template>
 
 <script lang="ts">
-import { computed } from "@vue/reactivity";
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
+import AppLayout from "./layouts/AppLayout.vue";
+import SimpleLayout from "./layouts/SimpleLayout.vue";
 import { useStore } from "./store";
 
 export default defineComponent({
   name: "App",
+  components: {
+    appLayout: AppLayout,
+    simpleLayout: SimpleLayout,
+  },
   setup() {
     const store = useStore();
     const router = useRouter();
 
+    const layout = computed(() => store.getters["layout/getLayout"]);
+
+    const currentRoute = computed(() => router.currentRoute.value.path);
+
     onMounted(() => {
-      console.log(store.getters["layout/getLayout"]);
+      store.dispatch("layout/setLayout", "appLayout"); // To test layout is changing 
     });
 
-    const currentRoute = computed(() => router.currentRoute);
-
     return {
+      layout,
       currentRoute,
     };
   },

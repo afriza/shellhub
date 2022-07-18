@@ -1,7 +1,6 @@
 <template>
   <h1>Teste !</h1>
   <v-btn>Hello</v-btn>
-  <!-- <p>{{ sessions }}</p> -->
   <p>{{ stats }}</p>
   <router-link to="/teste">Teste</router-link>
 </template>
@@ -21,7 +20,6 @@ export default defineComponent({
     })
 
     const stats = computed(() => store.getters["stats/stats"]);
-
 
     return {
       stats

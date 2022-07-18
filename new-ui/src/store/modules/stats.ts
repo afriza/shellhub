@@ -1,9 +1,11 @@
 import { Module } from "vuex";
 import { State } from "./../index";
 import getStats from "../api/stats";
+import { IStats } from "../../interfaces/IStats";
+import { AxiosResponse } from "axios";
 
 export interface StatsState {
-  stats: any; // TODO: define type
+  stats: IStats | Object;
 }
 
 export const stats: Module<StatsState, State> = {
@@ -17,7 +19,7 @@ export const stats: Module<StatsState, State> = {
   },
 
   mutations: {
-    setStats: (state, res) => {
+    setStats: (state, res : AxiosResponse) => {
       state.stats = res.data;
     },
 
