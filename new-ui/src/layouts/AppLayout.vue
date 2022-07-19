@@ -171,10 +171,8 @@ export default {
     const defaultSize = ref(24);
     const drawer = ref(true);
     const store = useStore();
-    const getStatusDarkMode = ref("dark");
-    // computed(
-    //   () => store.getters["layout/getStatusDarkMode"]
-    // );
+
+    const getStatusDarkMode =  computed(() => store.getters["layout/getStatusDarkMode"]);
     const isDarkMode = ref(getStatusDarkMode.value === "dark");
 
     const currentRoute = computed(() => router.currentRoute);
@@ -198,6 +196,12 @@ export default {
         default:
           break;
       }
+    };
+
+    const logout = async () => {
+      await store.dispatch("auth/logout");
+      await router.push("/login");
+      store.dispatch("layout/setLayout", "simpleLayout");
     };
 
     const toggleDarkMode = () => {
@@ -228,7 +232,8 @@ export default {
           title: "Logout",
           type: "method",
           icon: "mdi-logout",
-          method: "logout",
+          path: "",
+          method: logout,
         },
       ],
     };

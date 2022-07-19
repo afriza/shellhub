@@ -14,12 +14,15 @@
     "@rushstack/eslint-patch": "^1.1.4",
     "@vue/eslint-config-typescript": "^11.0.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "roboto-fontface": "*",
+    "vee-validate": "^4.6.2",
     "vue": "^3.2.25",
     "vue-router": "4",
     "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.2",
-    "webfontloader": "^1.0.0"
+    "webfontloader": "^1.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/webfontloader": "^1.0.0",

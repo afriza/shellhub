@@ -7,8 +7,8 @@
 <script lang="ts">
 import { defineComponent, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
-import AppLayout from "./layouts/AppLayout.vue";
 import SimpleLayout from "./layouts/SimpleLayout.vue";
+import AppLayout from "./layouts/AppLayout.vue";
 import { useStore } from "./store";
 
 export default defineComponent({
@@ -23,15 +23,35 @@ export default defineComponent({
 
     const layout = computed(() => store.getters["layout/getLayout"]);
 
+    const isLoggedIn = computed(() => store.getters["auth/isLoggedIn"]);
+
     const currentRoute = computed(() => router.currentRoute.value.path);
 
-    onMounted(() => {
-      store.dispatch("layout/setLayout", "appLayout"); // To test layout is changing 
+    onMounted(async () => {
+      if (!isLoggedIn.value) {
+        try {
+          await store.dispatch("auth/logout");
+          store.dispatch("layout/setLayout", "simpleLayout");
+          router.push("/login");
+        } catch {
+          store.dispatch("snackbar/showSnackbarErrorAction", "INotificationsError.namespaceLoad");
+        }
+      }
+
+      if (isLoggedIn.value && currentRoute.value !== "/login") {
+        const license = await store.dispatch("license/get");
+
+        if (!license || license.expired) {
+          store.dispatch("snackbar/showSnackbarErrorAction", "INotificationsError.license");
+          store.dispatch("layout/setLayout", "appLayout");
+          router.push("/license");
+        }
+        store.dispatch("layout/setLayout", "appLayout");
+      }
     });
 
     return {
       layout,
-      currentRoute,
     };
   },
 });

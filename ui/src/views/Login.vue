@@ -11,7 +11,7 @@
       xl2
     >
       <v-card
-        v-if="showMessage && !$env.isCloud"
+        v-if="showMessage && !true"
         data-test="unknownReason-card"
       >
         <v-card-text>
@@ -107,7 +107,7 @@
           </v-card-actions>
 
           <v-card-subtitle
-            v-if="$env.isCloud"
+            v-if="true"
             class="d-flex align-center justify-center pa-4 mx-auto pt-8 pb-0"
             data-test="forgotPassword-card"
           >
@@ -121,7 +121,7 @@
           </v-card-subtitle>
 
           <v-card-subtitle
-            v-if="$env.isCloud"
+            v-if="true"
             class="d-flex align-center justify-center pa-4 mx-auto"
             data-test="isCloud-card"
           >
@@ -138,7 +138,7 @@
       </v-card>
 
       <AccountCreated
-        v-if="$env.isCloud"
+        v-if="true"
         :show="showMessage"
         :username="username"
         data-test="accountCreated-component"
