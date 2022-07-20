@@ -6,10 +6,13 @@ import router from "./router";
 
 import { loadFonts } from './plugins/webfontloader'
 
+import SnackbarComponent from "./components/Snackbar/Snackbar.vue";
+
 loadFonts()
 
 createApp(App)
   .use(vuetify)
   .use(router)
   .use(store, key)
+  .component("SnackbarComponent", SnackbarComponent)
   .mount('#app')

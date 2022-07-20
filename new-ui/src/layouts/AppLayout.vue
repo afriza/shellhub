@@ -41,6 +41,8 @@
       </v-list>
     </v-navigation-drawer>
 
+    <SnackbarComponent />
+
     <v-app-bar flat floating>
       <v-app-bar-nav-icon
         class="hidden-lg-and-up"
