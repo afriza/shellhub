@@ -25,7 +25,6 @@ export default defineComponent({
 
     const isLoggedIn = computed(() => store.getters["auth/isLoggedIn"]);
 
-    const currentRoute = computed(() => router.currentRoute.value.path);
 
     onMounted(async () => {
       if (!isLoggedIn.value) {
@@ -36,17 +35,6 @@ export default defineComponent({
         } catch {
           store.dispatch("snackbar/showSnackbarErrorAction", "INotificationsError.namespaceLoad");
         }
-      }
-
-      if (isLoggedIn.value && currentRoute.value !== "/login") {
-        const license = await store.dispatch("license/get");
-
-        if (!license || license.expired) {
-          store.dispatch("snackbar/showSnackbarErrorAction", "INotificationsError.license");
-          store.dispatch("layout/setLayout", "appLayout");
-          router.push("/license");
-        }
-        store.dispatch("layout/setLayout", "appLayout");
       }
     });
 

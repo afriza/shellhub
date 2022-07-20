@@ -16,13 +16,13 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "roboto-fontface": "*",
+    "sass": "^1.53.0",
     "vee-validate": "^4.6.2",
     "vue": "^3.2.25",
     "vue-router": "4",
     "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.2",
-    "webfontloader": "^1.0.0",
-    "yup": "^0.32.11"
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@types/webfontloader": "^1.0.0",
@@ -38,6 +38,7 @@
     "vite-plugin-vuetify": "^1.0.0-alpha.0",
     "vitest": "^0.17.0",
     "vue-cli-plugin-vuetify": "~2.5.1",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.34.7",
+    "yup": "^0.32.11"
   }
 }
