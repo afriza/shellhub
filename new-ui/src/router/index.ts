@@ -2,7 +2,7 @@ import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import SignUp from "../views/SignUp.vue";
-import Home from "../views/Home.vue";
+import Dashboard from "../views/Dashboard.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -22,8 +22,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Dashboard",
+    component: Dashboard,
   },
   {
     path: "/teste",

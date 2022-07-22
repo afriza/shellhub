@@ -13,7 +13,7 @@ export default defineComponent({
     const store = useStore();
 
     onMounted(() => {
-      console.log(store.getters["layout/getLayout"]);
+      // console.log(store.getters["layout/getLayout"]);
     })
     return {
       //
