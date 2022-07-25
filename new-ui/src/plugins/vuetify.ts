@@ -11,10 +11,12 @@ const light = {
   colors: {
     primary: "#667acc",
     secondary: "#c4c4c4",
-    background: "#FFFFFF",
-    tabs: "#FFFFFF",
-    foreground: "#FFFFFF",
-    paymentForm: "#FFFFFF",
+    background: "#F5F5F5",
+    tabs: "#F5F5F5",
+    foreground: "#F5F5F5",
+    paymentForm: "#F5F5F5",
+    "v-theme-background":" #FFFFFF",
+    "v-theme-surface":  "#FFFFFF",
   },
 };
 
@@ -27,6 +29,8 @@ const dark = {
     tabs: "#1E1E1E",
     foreground: "#1E1E1E",
     paymentForm: "#E0E0E0",
+    "v-theme-background":" #1E2127",
+    "v-theme-surface":  "#1E2127",
   },
 };
 

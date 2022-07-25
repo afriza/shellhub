@@ -1,6 +1,6 @@
 <template>
   <v-app :theme="getStatusDarkMode">
-    <v-navigation-drawer theme="dark" v-model="drawer" app>
+    <v-navigation-drawer theme="dark" v-model="drawer" app class="bg-v-theme-surface">
       <v-app-bar-title>
         <router-link to="/" class="text-decoration-none">
           <div class="d-flex justify-center pa-4 pb-2">
@@ -20,7 +20,7 @@
         <v-divider class="ma-2" />
       </div>
 
-      <v-list>
+      <v-list class="bg-v-theme-surface">
         <v-list-item
           v-for="item in visibleItems"
           :key="item.title"
@@ -43,7 +43,7 @@
 
     <SnackbarComponent />
 
-    <v-app-bar flat floating>
+    <v-app-bar flat floating class="bg-background">
       <v-app-bar-nav-icon
         class="hidden-lg-and-up"
         @click.stop="drawer = !drawer"

@@ -1,6 +1,6 @@
 <template>
   <v-hover v-slot="{ isHovering, props }">
-    <v-card class="pa-1 mb-2 border" v-bind="props" :elevation="isHovering ? 24 : 8" density="compact" variant="flat">
+    <v-card class="pa-1 mb-2 border bg-v-theme-surface" v-bind="props" :elevation="isHovering ? 24 : 8" density="compact" variant="flat">
       <v-list-item :data-test="nameUseTest" lines="three">
         <v-list-item-content>
           <p class="text-overline mb-1" :title-test="title">
@@ -18,7 +18,7 @@
 
         <template v-slot:append>
           <v-list-item-avatar end class="mt-4">
-            <v-icon :icon="icon" size="x-large" :iconName-test="icon" />
+            <v-icon :icon="icon" size="x-large" color="white" :iconName-test="icon" />
           </v-list-item-avatar>
         </template>
       </v-list-item>
@@ -85,7 +85,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
   .border {
     border: thin solid rgba(255, 255, 255, 0.12);
   }
