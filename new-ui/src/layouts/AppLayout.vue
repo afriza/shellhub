@@ -67,7 +67,7 @@
           <v-btn color="primary" v-bind="props" class="d-flex align-center justify-center">
             <v-icon :size="defaultSize" class="mr-2" left> mdi-account </v-icon>
 
-            <div>Antony</div>
+            <div>{{ currentUser || "USER"}}</div>
 
             <v-icon :size="defaultSize" class="ml-1 mr-1" right>
               mdi-chevron-down
@@ -100,9 +100,10 @@
               label="Dark Mode"
               :model-value="isDarkMode"
               @change="toggleDarkMode"
-              density="compact"
               data-test="dark-mode-switch"
+              density="comfortable"
               color="primary"
+              inset
               hide-details
             />
           </v-list-item>
@@ -180,6 +181,8 @@ export default {
     const isDarkMode = ref(getStatusDarkMode.value === "dark");
 
     const currentRoute = computed(() => router.currentRoute);
+    const currentUser = computed(() => store.getters["auth/currentUser"]);
+
 
     const visibleItems = computed(() => items.filter((item) => !item.hidden));
 
@@ -218,6 +221,7 @@ export default {
       drawer,
       isDarkMode,
       currentRoute,
+      currentUser,
       getStatusDarkMode,
       visibleItems,
       defaultSize,
