@@ -52,15 +52,15 @@ export default defineComponent({
         await store.dispatch("stats/get");
         items.value = [
           {
-            id: 0,
-            title: "Registered Users",
-            fieldObject: "registered_users",
-            content: "Registered users",
-            icon: "mdi-account-group",
-            stats: itemsStats.value.registered_users ?? 0,
-            buttonName: "View all Users",
-            pathName: "users",
-            nameUseTest: "viewUsers-btn",
+            id: 1,
+            title: "Registered Devices",
+            fieldObject: "registered_devices",
+            content: "Registered devices into the tenancy account",
+            icon: "mdi-devices",
+            stats: itemsStats.value.registered_devices ?? 0,
+            buttonName: "View all Devices",
+            pathName: "devices",
+            nameUseTest: "viewRegisteredDevices-btn",
           },
           {
             id: 2,

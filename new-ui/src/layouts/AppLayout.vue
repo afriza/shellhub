@@ -25,10 +25,12 @@
           v-for="item in visibleItems"
           :key="item.title"
           :to="item.path"
+          lines="two"
+          class="mb-2"
         >
           <div class="d-flex align-center">
-            <v-list-item-avatar>
-              <v-icon>
+            <v-list-item-avatar class="mr-3">
+              <v-icon color="white" >
                 {{ item.icon }}
               </v-icon>
             </v-list-item-avatar>
