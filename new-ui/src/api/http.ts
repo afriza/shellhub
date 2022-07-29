@@ -13,5 +13,16 @@ const namespacesApi = new axiosTs.NamespacesApi(configuration);
 const sshApi = new axiosTs.SshApi(configuration);
 const tagsApi = new axiosTs.TagsApi(configuration);
 const usersApi = new axiosTs.UsersApi(configuration);
+const billingApi = new axiosTs.BillingApi(configuration);
 
-export { sessionsApi, devicesApi, defaultApi, namespacesApi, sshApi, tagsApi, usersApi };
+// devicesApi.updateDeviceStatus()
+// namespacesApi.getNamespaceToken()
+
+// sessionsApi.recordSession()
+// sessionsApi.clsoeSession()
+
+// usersApi.getValidateAccount(email, token)
+// usersApi.setSessionRecord(tenant)
+// usersApi.getSessionRecord()
+
+export { sessionsApi, devicesApi, defaultApi, namespacesApi, sshApi, tagsApi, usersApi, billingApi };

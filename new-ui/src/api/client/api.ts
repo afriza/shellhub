@@ -43,6 +43,19 @@ export interface AddNamespaceMemberRequest {
 /**
  * 
  * @export
+ * @interface AddPaymentMethod200Response
+ */
+export interface AddPaymentMethod200Response {
+    /**
+     * Payment method\'s ID.
+     * @type {string}
+     * @memberof AddPaymentMethod200Response
+     */
+    'id'?: string;
+}
+/**
+ * 
+ * @export
  * @interface AddTagPublicKeyRequest
  */
 export interface AddTagPublicKeyRequest {
@@ -56,6 +69,32 @@ export interface AddTagPublicKeyRequest {
 /**
  * 
  * @export
+ * @interface ChoiceDevicesRequest
+ */
+export interface ChoiceDevicesRequest {
+    /**
+     * Device\'s list.
+     * @type {Array<string>}
+     * @memberof ChoiceDevicesRequest
+     */
+    'choices': Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface ClsoeSessionRequest
+ */
+export interface ClsoeSessionRequest {
+    /**
+     * Device\'s UID
+     * @type {string}
+     * @memberof ClsoeSessionRequest
+     */
+    'device': string;
+}
+/**
+ * 
+ * @export
  * @interface CreateDeviceTagRequest
  */
 export interface CreateDeviceTagRequest {
@@ -65,6 +104,112 @@ export interface CreateDeviceTagRequest {
      * @memberof CreateDeviceTagRequest
      */
     'tag': string;
+}
+/**
+ * 
+ * @export
+ * @interface CreatePublicKey200Response
+ */
+export interface CreatePublicKey200Response {
+    /**
+     * Public key\'s data.  The `data` field receives the public key enconded as `base64` string. 
+     * @type {string}
+     * @memberof CreatePublicKey200Response
+     */
+    'data'?: string;
+    /**
+     * Public key\'s fingerprint.
+     * @type {string}
+     * @memberof CreatePublicKey200Response
+     */
+    'fingerprint'?: string;
+    /**
+     * Namespace\'s tenant ID
+     * @type {string}
+     * @memberof CreatePublicKey200Response
+     */
+    'tenant_id'?: string;
+    /**
+     * Public key\'s name.
+     * @type {string}
+     * @memberof CreatePublicKey200Response
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {PublicKeyFilter}
+     * @memberof CreatePublicKey200Response
+     */
+    'filter'?: PublicKeyFilter;
+    /**
+     * Public key\'s regex username.   The `username` field define which user, in the device, may be access through this public key. 
+     * @type {string}
+     * @memberof CreatePublicKey200Response
+     */
+    'username'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateSubscription200Response
+ */
+export interface CreateSubscription200Response {
+    /**
+     * Subscription\'s ID.
+     * @type {string}
+     * @memberof CreateSubscription200Response
+     */
+    'id'?: string;
+    /**
+     * Subscription\'s status.
+     * @type {string}
+     * @memberof CreateSubscription200Response
+     */
+    'status'?: string;
+    /**
+     * Subscription\'s cureency period end.
+     * @type {string}
+     * @memberof CreateSubscription200Response
+     */
+    'currency_period_end'?: string;
+    /**
+     * 
+     * @type {CreateSubscription200ResponseCustomer}
+     * @memberof CreateSubscription200Response
+     */
+    'customer'?: CreateSubscription200ResponseCustomer;
+    /**
+     * Payment method\'s ID.
+     * @type {string}
+     * @memberof CreateSubscription200Response
+     */
+    'payment_method_id'?: string;
+}
+/**
+ * Subscription\'s customer.
+ * @export
+ * @interface CreateSubscription200ResponseCustomer
+ */
+export interface CreateSubscription200ResponseCustomer {
+    /**
+     * Customer\'s ID.
+     * @type {string}
+     * @memberof CreateSubscription200ResponseCustomer
+     */
+    'id'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateSubscriptionRequest
+ */
+export interface CreateSubscriptionRequest {
+    /**
+     * Payment method ID.
+     * @type {string}
+     * @memberof CreateSubscriptionRequest
+     */
+    'payment_method_id': string;
 }
 /**
  * 
@@ -426,6 +571,19 @@ export interface GetSessionData401Response {
 /**
  * 
  * @export
+ * @interface GetSessionData500Response
+ */
+export interface GetSessionData500Response {
+    /**
+     * Error message.
+     * @type {string}
+     * @memberof GetSessionData500Response
+     */
+    'message'?: string;
+}
+/**
+ * 
+ * @export
  * @interface GetStatusDevices200Response
  */
 export interface GetStatusDevices200Response {
@@ -463,21 +621,58 @@ export interface GetStatusDevices200Response {
 /**
  * 
  * @export
- * @interface GetValidateAccountRequest
+ * @interface GetSubscription200Response
  */
-export interface GetValidateAccountRequest {
+export interface GetSubscription200Response {
     /**
-     * User\'s email.
-     * @type {string}
-     * @memberof GetValidateAccountRequest
+     * Invoice\'s list.
+     * @type {Array<GetSubscription200ResponseInvoicesInner>}
+     * @memberof GetSubscription200Response
      */
-    'email': string;
+    'invoices'?: Array<GetSubscription200ResponseInvoicesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface GetSubscription200ResponseInvoicesInner
+ */
+export interface GetSubscription200ResponseInvoicesInner {
     /**
-     * User\'s recovery token.    It is the token from the email sent to user when the user request password reset.
-     * @type {string}
-     * @memberof GetValidateAccountRequest
+     * Invoice\'s paid.
+     * @type {boolean}
+     * @memberof GetSubscription200ResponseInvoicesInner
      */
-    'token': string;
+    'paid'?: boolean;
+    /**
+     * Invoice\'s status.
+     * @type {string}
+     * @memberof GetSubscription200ResponseInvoicesInner
+     */
+    'status'?: string;
+    /**
+     * Invoice\'s amount due.
+     * @type {string}
+     * @memberof GetSubscription200ResponseInvoicesInner
+     */
+    'amount_due'?: string;
+    /**
+     * Invoice\'s due date.
+     * @type {string}
+     * @memberof GetSubscription200ResponseInvoicesInner
+     */
+    'due_date'?: string;
+    /**
+     * Invoice\'s PDF.
+     * @type {string}
+     * @memberof GetSubscription200ResponseInvoicesInner
+     */
+    'pdf'?: string;
+    /**
+     * Invoice\'s URL.
+     * @type {string}
+     * @memberof GetSubscription200ResponseInvoicesInner
+     */
+    'url'?: string;
 }
 /**
  * 
@@ -831,6 +1026,50 @@ export interface PublicKeyResponse {
      * @memberof PublicKeyResponse
      */
     'username'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface RecordSession422Response
+ */
+export interface RecordSession422Response {
+    /**
+     * Error\'s message.
+     * @type {string}
+     * @memberof RecordSession422Response
+     */
+    'message'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface RecordSessionRequest
+ */
+export interface RecordSessionRequest {
+    /**
+     * Session\'s UID.
+     * @type {string}
+     * @memberof RecordSessionRequest
+     */
+    'uid': string;
+    /**
+     * Session\'s data.
+     * @type {string}
+     * @memberof RecordSessionRequest
+     */
+    'message': string;
+    /**
+     * Session\'s pty width.
+     * @type {number}
+     * @memberof RecordSessionRequest
+     */
+    'width': number;
+    /**
+     * Session\'s pty height.
+     * @type {number}
+     * @memberof RecordSessionRequest
+     */
+    'height': number;
 }
 /**
  * 
@@ -1313,11 +1552,748 @@ export interface UserAuth {
 }
 
 /**
+ * BillingApi - axios parameter creator
+ * @export
+ */
+export const BillingApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices: async (choiceDevicesRequest?: ChoiceDevicesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/device-choice`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(choiceDevicesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription: async (createSubscriptionRequest?: CreateSubscriptionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createSubscriptionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deattachPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/devices-most-used`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the subscription.
+         * @summary Get subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updatePaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * BillingApi - functional programming interface
+ * @export
+ */
+export const BillingApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = BillingApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async cancelSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.choiceDevices(choiceDevicesRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(createSubscriptionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deattachPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deattachPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDevicesMostUsed(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesMostUsed(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get the subscription.
+         * @summary Get subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * BillingApi - factory interface
+ * @export
+ */
+export const BillingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = BillingApiFp(configuration)
+    return {
+        /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.addPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription(options?: any): AxiosPromise<void> {
+            return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.choiceDevices(choiceDevicesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: any): AxiosPromise<CreateSubscription200Response> {
+            return localVarFp.createSubscription(createSubscriptionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.deattachPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed(options?: any): AxiosPromise<Array<Device>> {
+            return localVarFp.getDevicesMostUsed(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the subscription.
+         * @summary Get subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubscription(options?: any): AxiosPromise<GetSubscription200Response> {
+            return localVarFp.getSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.updatePaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * BillingApi - object-oriented interface
+ * @export
+ * @class BillingApi
+ * @extends {BaseAPI}
+ */
+export class BillingApi extends BaseAPI {
+    /**
+     * Add a new payment method.
+     * @summary Add payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public addPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).addPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Cancel the subscription.
+     * @summary Cancel subscription
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public cancelSubscription(options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).cancelSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Choice devices when device\'s limit is rechead.
+     * @summary Choice devices
+     * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).choiceDevices(choiceDevicesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create the subscription.
+     * @summary Create subscription
+     * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).createSubscription(createSubscriptionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deattach a payment method.
+     * @summary Deattach payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public deattachPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).deattachPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the most used devices.
+     * @summary Get devices most used
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public getDevicesMostUsed(options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).getDevicesMostUsed(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the subscription.
+     * @summary Get subscription
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public getSubscription(options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).getSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the payment method.
+     * @summary Update payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BillingApi
+     */
+    public updatePaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return BillingApiFp(this.configuration).updatePaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * CloudApi - axios parameter creator
  * @export
  */
 export const CloudApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices: async (choiceDevicesRequest?: ChoiceDevicesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/device-choice`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(choiceDevicesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession: async (uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('clsoeSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/close`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(clsoeSessionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Create a firewall rule.
          * @summary Create firewall rule
@@ -1357,6 +2333,82 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription: async (createSubscriptionRequest?: CreateSubscriptionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createSubscriptionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deattachPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -1376,6 +2428,40 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/devices-most-used`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -1515,14 +2601,13 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/user/validation_account`;
+        getSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1540,12 +2625,99 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount: async (email: string, token: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            assertParamExists('getValidateAccount', 'email', email)
+            // verify required parameter 'token' is not null or undefined
+            assertParamExists('getValidateAccount', 'token', token)
+            const localVarPath = `/api/user/validation_account`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+            if (token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession: async (uid: string, recordSessionRequest?: RecordSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('recordSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/record`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(recordSessionRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1823,6 +2995,44 @@ export const CloudApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updatePaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -1875,6 +3085,50 @@ export const CloudApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CloudApiAxiosParamCreator(configuration)
     return {
         /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async cancelSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.choiceDevices(choiceDevicesRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.clsoeSession(uid, clsoeSessionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Create a firewall rule.
          * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -1886,6 +3140,28 @@ export const CloudApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(createSubscriptionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deattachPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deattachPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -1894,6 +3170,16 @@ export const CloudApiFp = function(configuration?: Configuration) {
          */
         async deleteFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRule(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDevicesMostUsed(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesMostUsed(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1931,14 +3217,37 @@ export const CloudApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
+        async getSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getValidateAccount(email: string, token: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(email, token, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recordSession(uid, recordSessionRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2023,6 +3332,17 @@ export const CloudApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -2045,6 +3365,46 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = CloudApiFp(configuration)
     return {
         /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.addPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription(options?: any): AxiosPromise<void> {
+            return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.choiceDevices(choiceDevicesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a firewall rule.
          * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -2055,6 +3415,26 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createFirewallRule(firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: any): AxiosPromise<CreateSubscription200Response> {
+            return localVarFp.createSubscription(createSubscriptionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.deattachPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -2063,6 +3443,15 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
          */
         deleteFirewallRule(id: number, options?: any): AxiosPromise<void> {
             return localVarFp.deleteFirewallRule(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed(options?: any): AxiosPromise<Array<Device>> {
+            return localVarFp.getDevicesMostUsed(options).then((request) => request(axios, basePath));
         },
         /**
          * Get a firewall rule.
@@ -2096,14 +3485,35 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getSessionData(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
+        getSubscription(options?: any): AxiosPromise<GetSubscription200Response> {
+            return localVarFp.getSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount(email: string, token: string, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(email, token, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recordSession(uid, recordSessionRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * Send a recovery email to the user.
@@ -2180,6 +3590,16 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.updatePaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -2201,6 +3621,54 @@ export const CloudApiFactory = function (configuration?: Configuration, basePath
  */
 export class CloudApi extends BaseAPI {
     /**
+     * Add a new payment method.
+     * @summary Add payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public addPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).addPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Cancel the subscription.
+     * @summary Cancel subscription
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public cancelSubscription(options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).cancelSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Choice devices when device\'s limit is rechead.
+     * @summary Choice devices
+     * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).choiceDevices(choiceDevicesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Close a session.
+     * @summary Close session
+     * @param {string} uid 
+     * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Create a firewall rule.
      * @summary Create firewall rule
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -2213,6 +3681,30 @@ export class CloudApi extends BaseAPI {
     }
 
     /**
+     * Create the subscription.
+     * @summary Create subscription
+     * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).createSubscription(createSubscriptionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deattach a payment method.
+     * @summary Deattach payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public deattachPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).deattachPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a firewall rule.
      * @summary Delete firewall rule
      * @param {number} id 
@@ -2222,6 +3714,17 @@ export class CloudApi extends BaseAPI {
      */
     public deleteFirewallRule(id: number, options?: AxiosRequestConfig) {
         return CloudApiFp(this.configuration).deleteFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the most used devices.
+     * @summary Get devices most used
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getDevicesMostUsed(options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getDevicesMostUsed(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2262,15 +3765,40 @@ export class CloudApi extends BaseAPI {
     }
 
     /**
-     * Validate the activation link for user.
-     * @summary Validate activation link
-     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+     * Get the subscription.
+     * @summary Get subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CloudApi
      */
-    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
-        return CloudApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
+    public getSubscription(options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Validate the activation link for user.
+     * @summary Validate activation link
+     * @param {string} email User\&#39;s email.
+     * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public getValidateAccount(email: string, token: string, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).getValidateAccount(email, token, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Record data about session session.
+     * @summary Record session
+     * @param {string} uid 
+     * @param {RecordSessionRequest} [recordSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).recordSession(uid, recordSessionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2359,6 +3887,18 @@ export class CloudApi extends BaseAPI {
      */
     public updateFirewallRule(id: number, firewallRulesRequest?: FirewallRulesRequest, options?: AxiosRequestConfig) {
         return CloudApiFp(this.configuration).updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the payment method.
+     * @summary Update payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CloudApi
+     */
+    public updatePaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return CloudApiFp(this.configuration).updatePaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2730,10 +4270,6 @@ export const DevicesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            // authentication jwt required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -3393,6 +4929,116 @@ export class DevicesApi extends BaseAPI {
 export const ExternalApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('addPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices: async (choiceDevicesRequest?: ChoiceDevicesRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/device-choice`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(choiceDevicesRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create a firewall rule.
          * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -3431,6 +5077,82 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription: async (createSubscriptionRequest?: CreateSubscriptionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createSubscriptionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deattachPaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -3450,6 +5172,40 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/devices-most-used`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -3589,14 +5345,13 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/user/validation_account`;
+        getSubscription: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/billing/subscription`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -3614,12 +5369,57 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount: async (email: string, token: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            assertParamExists('getValidateAccount', 'email', email)
+            // verify required parameter 'token' is not null or undefined
+            assertParamExists('getValidateAccount', 'token', token)
+            const localVarPath = `/api/user/validation_account`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+            if (token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -3897,6 +5697,44 @@ export const ExternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updatePaymentMethod', 'id', id)
+            const localVarPath = `/api/billing/{id}/payment-method`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -3949,6 +5787,38 @@ export const ExternalApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ExternalApiAxiosParamCreator(configuration)
     return {
         /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async cancelSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.choiceDevices(choiceDevicesRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Create a firewall rule.
          * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -3960,6 +5830,28 @@ export const ExternalApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(createSubscriptionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deattachPaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deattachPaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -3968,6 +5860,16 @@ export const ExternalApiFp = function(configuration?: Configuration) {
          */
         async deleteFirewallRule(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFirewallRule(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDevicesMostUsed(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Device>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDevicesMostUsed(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -4005,14 +5907,25 @@ export const ExternalApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
+        async getSubscription(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetSubscription200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscription(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getValidateAccount(email: string, token: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(email, token, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -4097,6 +6010,17 @@ export const ExternalApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePaymentMethod(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AddPaymentMethod200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePaymentMethod(id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -4119,6 +6043,35 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = ExternalApiFp(configuration)
     return {
         /**
+         * Add a new payment method.
+         * @summary Add payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.addPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Cancel the subscription.
+         * @summary Cancel subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelSubscription(options?: any): AxiosPromise<void> {
+            return localVarFp.cancelSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Choice devices when device\'s limit is rechead.
+         * @summary Choice devices
+         * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.choiceDevices(choiceDevicesRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a firewall rule.
          * @summary Create firewall rule
          * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -4129,6 +6082,26 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.createFirewallRule(firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create the subscription.
+         * @summary Create subscription
+         * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: any): AxiosPromise<CreateSubscription200Response> {
+            return localVarFp.createSubscription(createSubscriptionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deattach a payment method.
+         * @summary Deattach payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deattachPaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.deattachPaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a firewall rule.
          * @summary Delete firewall rule
          * @param {number} id 
@@ -4137,6 +6110,15 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
          */
         deleteFirewallRule(id: number, options?: any): AxiosPromise<void> {
             return localVarFp.deleteFirewallRule(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the most used devices.
+         * @summary Get devices most used
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDevicesMostUsed(options?: any): AxiosPromise<Array<Device>> {
+            return localVarFp.getDevicesMostUsed(options).then((request) => request(axios, basePath));
         },
         /**
          * Get a firewall rule.
@@ -4170,14 +6152,24 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getSessionData(uid, options).then((request) => request(axios, basePath));
         },
         /**
-         * Validate the activation link for user.
-         * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * Get the subscription.
+         * @summary Get subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
+        getSubscription(options?: any): AxiosPromise<GetSubscription200Response> {
+            return localVarFp.getSubscription(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Validate the activation link for user.
+         * @summary Validate activation link
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getValidateAccount(email: string, token: string, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(email, token, options).then((request) => request(axios, basePath));
         },
         /**
          * Send a recovery email to the user.
@@ -4254,6 +6246,16 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.updateFirewallRule(id, firewallRulesRequest, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update the payment method.
+         * @summary Update payment method
+         * @param {string} id Payment method ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePaymentMethod(id: string, options?: any): AxiosPromise<AddPaymentMethod200Response> {
+            return localVarFp.updatePaymentMethod(id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update user password from a recovery token got from email.
          * @summary Update user password
          * @param {string} uid User\&#39;s UID.
@@ -4275,6 +6277,41 @@ export const ExternalApiFactory = function (configuration?: Configuration, baseP
  */
 export class ExternalApi extends BaseAPI {
     /**
+     * Add a new payment method.
+     * @summary Add payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public addPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).addPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Cancel the subscription.
+     * @summary Cancel subscription
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public cancelSubscription(options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).cancelSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Choice devices when device\'s limit is rechead.
+     * @summary Choice devices
+     * @param {ChoiceDevicesRequest} [choiceDevicesRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public choiceDevices(choiceDevicesRequest?: ChoiceDevicesRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).choiceDevices(choiceDevicesRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Create a firewall rule.
      * @summary Create firewall rule
      * @param {FirewallRulesRequest} [firewallRulesRequest] 
@@ -4287,6 +6324,30 @@ export class ExternalApi extends BaseAPI {
     }
 
     /**
+     * Create the subscription.
+     * @summary Create subscription
+     * @param {CreateSubscriptionRequest} [createSubscriptionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public createSubscription(createSubscriptionRequest?: CreateSubscriptionRequest, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).createSubscription(createSubscriptionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deattach a payment method.
+     * @summary Deattach payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public deattachPaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).deattachPaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a firewall rule.
      * @summary Delete firewall rule
      * @param {number} id 
@@ -4296,6 +6357,17 @@ export class ExternalApi extends BaseAPI {
      */
     public deleteFirewallRule(id: number, options?: AxiosRequestConfig) {
         return ExternalApiFp(this.configuration).deleteFirewallRule(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the most used devices.
+     * @summary Get devices most used
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public getDevicesMostUsed(options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getDevicesMostUsed(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4336,15 +6408,27 @@ export class ExternalApi extends BaseAPI {
     }
 
     /**
-     * Validate the activation link for user.
-     * @summary Validate activation link
-     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+     * Get the subscription.
+     * @summary Get subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ExternalApi
      */
-    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
-        return ExternalApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
+    public getSubscription(options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getSubscription(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Validate the activation link for user.
+     * @summary Validate activation link
+     * @param {string} email User\&#39;s email.
+     * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public getValidateAccount(email: string, token: string, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).getValidateAccount(email, token, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -4436,6 +6520,18 @@ export class ExternalApi extends BaseAPI {
     }
 
     /**
+     * Update the payment method.
+     * @summary Update payment method
+     * @param {string} id Payment method ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ExternalApi
+     */
+    public updatePaymentMethod(id: string, options?: AxiosRequestConfig) {
+        return ExternalApiFp(this.configuration).updatePaymentMethod(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Update user password from a recovery token got from email.
      * @summary Update user password
      * @param {string} uid User\&#39;s UID.
@@ -4446,6 +6542,200 @@ export class ExternalApi extends BaseAPI {
      */
     public updateRecoverPassword(uid: string, updateRecoverPasswordRequest?: UpdateRecoverPasswordRequest, options?: AxiosRequestConfig) {
         return ExternalApiFp(this.configuration).updateRecoverPassword(uid, updateRecoverPasswordRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * InternalApi - axios parameter creator
+ * @export
+ */
+export const InternalApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession: async (uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('clsoeSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/close`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(clsoeSessionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession: async (uid: string, recordSessionRequest?: RecordSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('recordSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/record`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(recordSessionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * InternalApi - functional programming interface
+ * @export
+ */
+export const InternalApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = InternalApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.clsoeSession(uid, clsoeSessionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recordSession(uid, recordSessionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * InternalApi - factory interface
+ * @export
+ */
+export const InternalApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = InternalApiFp(configuration)
+    return {
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recordSession(uid, recordSessionRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * InternalApi - object-oriented interface
+ * @export
+ * @class InternalApi
+ * @extends {BaseAPI}
+ */
+export class InternalApi extends BaseAPI {
+    /**
+     * Close a session.
+     * @summary Close session
+     * @param {string} uid 
+     * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig) {
+        return InternalApiFp(this.configuration).clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Record data about session session.
+     * @summary Record session
+     * @param {string} uid 
+     * @param {RecordSessionRequest} [recordSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalApi
+     */
+    public recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig) {
+        return InternalApiFp(this.configuration).recordSession(uid, recordSessionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -4661,11 +6951,13 @@ export const NamespacesApiAxiosParamCreator = function (configuration?: Configur
         /**
          * This route works like a login\'s one; returns a JWT token and extra information about namespace.  You can use this route to swap between namespaces. 
          * @summary Get a new namespace\'s token
-         * @param {string} [tenant] Namespace Tenant
+         * @param {string} tenant Namespace\&#39;s tenant ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNamespaceToken: async (tenant?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getNamespaceToken: async (tenant: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenant' is not null or undefined
+            assertParamExists('getNamespaceToken', 'tenant', tenant)
             const localVarPath = `/api/auth/token/{tenant}`
                 .replace(`{${"tenant"}}`, encodeURIComponent(String(tenant)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4902,11 +7194,11 @@ export const NamespacesApiFp = function(configuration?: Configuration) {
         /**
          * This route works like a login\'s one; returns a JWT token and extra information about namespace.  You can use this route to swap between namespaces. 
          * @summary Get a new namespace\'s token
-         * @param {string} [tenant] Namespace Tenant
+         * @param {string} tenant Namespace\&#39;s tenant ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getNamespaceToken(tenant?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserAuth>> {
+        async getNamespaceToken(tenant: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserAuth>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNamespaceToken(tenant, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -5014,11 +7306,11 @@ export const NamespacesApiFactory = function (configuration?: Configuration, bas
         /**
          * This route works like a login\'s one; returns a JWT token and extra information about namespace.  You can use this route to swap between namespaces. 
          * @summary Get a new namespace\'s token
-         * @param {string} [tenant] Namespace Tenant
+         * @param {string} tenant Namespace\&#39;s tenant ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNamespaceToken(tenant?: string, options?: any): AxiosPromise<UserAuth> {
+        getNamespaceToken(tenant: string, options?: any): AxiosPromise<UserAuth> {
             return localVarFp.getNamespaceToken(tenant, options).then((request) => request(axios, basePath));
         },
         /**
@@ -5132,12 +7424,12 @@ export class NamespacesApi extends BaseAPI {
     /**
      * This route works like a login\'s one; returns a JWT token and extra information about namespace.  You can use this route to swap between namespaces. 
      * @summary Get a new namespace\'s token
-     * @param {string} [tenant] Namespace Tenant
+     * @param {string} tenant Namespace\&#39;s tenant ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof NamespacesApi
      */
-    public getNamespaceToken(tenant?: string, options?: AxiosRequestConfig) {
+    public getNamespaceToken(tenant: string, options?: AxiosRequestConfig) {
         return NamespacesApiFp(this.configuration).getNamespaceToken(tenant, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5834,6 +8126,48 @@ export class RulesApi extends BaseAPI {
 export const SessionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession: async (uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('clsoeSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/close`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(clsoeSessionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get a session.
          * @summary Get session
          * @param {string} uid 
@@ -5988,6 +8322,48 @@ export const SessionsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession: async (uid: string, recordSessionRequest?: RecordSessionRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uid' is not null or undefined
+            assertParamExists('recordSession', 'uid', uid)
+            const localVarPath = `/api/sessions/{uid}/record`
+                .replace(`{${"uid"}}`, encodeURIComponent(String(uid)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication jwt required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(recordSessionRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
@@ -6082,6 +8458,18 @@ export const SessionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SessionsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.clsoeSession(uid, clsoeSessionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get a session.
          * @summary Get session
          * @param {string} uid 
@@ -6126,6 +8514,18 @@ export const SessionsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.recordSession(uid, recordSessionRequest, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
@@ -6159,6 +8559,17 @@ export const SessionsApiFp = function(configuration?: Configuration) {
 export const SessionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SessionsApiFp(configuration)
     return {
+        /**
+         * Close a session.
+         * @summary Close session
+         * @param {string} uid 
+         * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(axios, basePath));
+        },
         /**
          * Get a session.
          * @summary Get session
@@ -6200,6 +8611,17 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getSessions(page, perPage, options).then((request) => request(axios, basePath));
         },
         /**
+         * Record data about session session.
+         * @summary Record session
+         * @param {string} uid 
+         * @param {RecordSessionRequest} [recordSessionRequest] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.recordSession(uid, recordSessionRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Set session authentication status.
          * @summary Set session authentication status
          * @param {string} uid 
@@ -6231,6 +8653,19 @@ export const SessionsApiFactory = function (configuration?: Configuration, baseP
  * @extends {BaseAPI}
  */
 export class SessionsApi extends BaseAPI {
+    /**
+     * Close a session.
+     * @summary Close session
+     * @param {string} uid 
+     * @param {ClsoeSessionRequest} [clsoeSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SessionsApi
+     */
+    public clsoeSession(uid: string, clsoeSessionRequest?: ClsoeSessionRequest, options?: AxiosRequestConfig) {
+        return SessionsApiFp(this.configuration).clsoeSession(uid, clsoeSessionRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Get a session.
      * @summary Get session
@@ -6277,6 +8712,19 @@ export class SessionsApi extends BaseAPI {
      */
     public getSessions(page?: number, perPage?: number, options?: AxiosRequestConfig) {
         return SessionsApiFp(this.configuration).getSessions(page, perPage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Record data about session session.
+     * @summary Record session
+     * @param {string} uid 
+     * @param {RecordSessionRequest} [recordSessionRequest] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SessionsApi
+     */
+    public recordSession(uid: string, recordSessionRequest?: RecordSessionRequest, options?: AxiosRequestConfig) {
+        return SessionsApiFp(this.configuration).recordSession(uid, recordSessionRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6669,7 +9117,7 @@ export const SshApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createPublicKey(publicKeyRequest?: PublicKeyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicKeyResponse>> {
+        async createPublicKey(publicKeyRequest?: PublicKeyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePublicKey200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPublicKey(publicKeyRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -6772,7 +9220,7 @@ export const SshApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPublicKey(publicKeyRequest?: PublicKeyRequest, options?: any): AxiosPromise<PublicKeyResponse> {
+        createPublicKey(publicKeyRequest?: PublicKeyRequest, options?: any): AxiosPromise<CreatePublicKey200Response> {
             return localVarFp.createPublicKey(publicKeyRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -7752,11 +10200,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Validate the activation link for user.
          * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount: async (getValidateAccountRequest?: GetValidateAccountRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getValidateAccount: async (email: string, token: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            assertParamExists('getValidateAccount', 'email', email)
+            // verify required parameter 'token' is not null or undefined
+            assertParamExists('getValidateAccount', 'token', token)
             const localVarPath = `/api/user/validation_account`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7773,14 +10226,19 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+            if (token !== undefined) {
+                localVarQueryParameter['token'] = token;
+            }
+
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(getValidateAccountRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -8157,12 +10615,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * Validate the activation link for user.
          * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(getValidateAccountRequest, options);
+        async getValidateAccount(email: string, token: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidateAccount(email, token, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -8300,12 +10759,13 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * Validate the activation link for user.
          * @summary Validate activation link
-         * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+         * @param {string} email User\&#39;s email.
+         * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.getValidateAccount(getValidateAccountRequest, options).then((request) => request(axios, basePath));
+        getValidateAccount(email: string, token: string, options?: any): AxiosPromise<void> {
+            return localVarFp.getValidateAccount(email, token, options).then((request) => request(axios, basePath));
         },
         /**
          * Get data about a user
@@ -8437,13 +10897,14 @@ export class UsersApi extends BaseAPI {
     /**
      * Validate the activation link for user.
      * @summary Validate activation link
-     * @param {GetValidateAccountRequest} [getValidateAccountRequest] 
+     * @param {string} email User\&#39;s email.
+     * @param {string} token User\&#39;s recovery token.    It is the token from the email sent to user when the user request password reset.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getValidateAccount(getValidateAccountRequest?: GetValidateAccountRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).getValidateAccount(getValidateAccountRequest, options).then((request) => request(this.axios, this.basePath));
+    public getValidateAccount(email: string, token: string, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getValidateAccount(email, token, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
