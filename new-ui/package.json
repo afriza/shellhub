@@ -15,6 +15,8 @@
     "@vue/eslint-config-typescript": "^11.0.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "font-logos": "^1.0.0",
+    "moment": "^2.29.4",
     "roboto-fontface": "*",
     "sass": "^1.53.0",
     "vee-validate": "^4.6.2",

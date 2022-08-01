@@ -12,14 +12,11 @@ export const postResendEmail = async (username : any) => usersApi.resendEmail(us
 
 export const postRecoverPassword = async (email : any) => usersApi.recoverPassword(email);
 
-export const postValidationAccount = async (data : any) => usersApi.getValidateAccount({email : data.email, token : data.token});
+export const postValidationAccount = async (data : any) => usersApi.getValidateAccount(data.email, data.token);
 
-// TODO
-export const putSecurity = async (data : any) => http().put(`/users/security/${data.id}`, {
-  session_record: data.status,
-});
+export const putSecurity = async (data : any) => usersApi.setSessionRecord(data.tenant_id, data.session_record);
 
-export const getSecurity = async () => http().get('/users/security'); // TODO
+export const getSecurity = async () =>  usersApi.getSessionRecord();
 
 export const postUpdatePassword = async (data : any) =>usersApi.updateUserPassword(data.id, {
   current_password: data.password,

@@ -58,9 +58,9 @@ export default defineComponent({
             content: "Registered devices into the tenancy account",
             icon: "mdi-devices",
             stats: itemsStats.value.registered_devices ?? 0,
-            buttonName: "View all Devices",
+            buttonName: "Add Device",
             pathName: "devices",
-            nameUseTest: "viewRegisteredDevices-btn",
+            nameUseTest: "registeredDevices-btn",
           },
           {
             id: 2,

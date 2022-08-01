@@ -10,7 +10,7 @@ const light = {
   dark: false,
   colors: {
     primary: "#667acc",
-    secondary: "#c4c4c4",
+    secondary: "#FFFFFF",
     background: "#F5F5F5",
     tabs: "#F5F5F5",
     foreground: "#F5F5F5",

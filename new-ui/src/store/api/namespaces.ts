@@ -30,4 +30,4 @@ export const editUserToNamespace = async (data : any) => namespacesApi.updateNam
 
 export const removeUserFromNamespace = async (data : any) => namespacesApi.removeNamespaceMember(data.tenant_id, data.user_id);
 
-export const tenantSwitch = async (data : any) => http().get(`/auth/token/${data.tenant_id}`); // TODO
+export const tenantSwitch = async (data : any) => namespacesApi.getNamespaceToken(data.tenant_id);

@@ -136,7 +136,7 @@ const items = [
   {
     icon: "mdi-cellphone-link",
     title: "Devices",
-    path: "/teste",
+    path: "/devices",
   },
   {
     icon: "mdi-history",

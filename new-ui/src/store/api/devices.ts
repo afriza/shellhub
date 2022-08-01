@@ -12,9 +12,7 @@ export const fetchDevices = async (
   sortStatusField : any,
   sortStatusString : any,
 ) => {
-  if (filter) return devicesApi.getDevices(filter, page, perPage);
-
-  if (status) return devicesApi.getDevices(filter, page, perPage. status);
+  if (filter && !status) return devicesApi.getDevices(filter, page, perPage, status);
 
   if (sortStatusField && sortStatusString) {
     return devicesApi.getDevices(
@@ -27,7 +25,7 @@ export const fetchDevices = async (
     );
   }
 
-  return devicesApi.getDevices(filter, page, perPage);
+  return devicesApi.getDevices(filter, page, perPage, status);
 };
 
 export const getDevice = async (uid : any) =>  devicesApi.getDevice(uid);
@@ -35,9 +33,9 @@ export const getDevice = async (uid : any) =>  devicesApi.getDevice(uid);
 
 export const renameDevice = async (data : any) =>  devicesApi.updateDeviceName(data.uid, data.name);
 
-export const acceptDevice = async (uid : any) => http().patch(`/devices/${uid}/accept`); // TODO
+export const acceptDevice = async (uid : any) => devicesApi.updateDeviceStatus(uid ,"accept");
 
-export const rejectDevice = async (uid : any) => http().patch(`/devices/${uid}/reject`); // TODO
+export const rejectDevice = async (uid : any) => devicesApi.updateDeviceStatus(uid ,"reject");
 
 export const updateDeviceTag = async (data : any) => devicesApi.updateTagsDevice(data.uid, data.tags);
 

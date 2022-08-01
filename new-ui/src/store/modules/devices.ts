@@ -124,8 +124,8 @@ export const devices: Module<DevicesState, State> = {
     fetch: async (context, data) => {
       try {
         const res = await apiDevice.fetchDevices(
-          data.perPage,
           data.page,
+          data.perPage,
           data.filter,
           data.status,
           data.sortStatusField,

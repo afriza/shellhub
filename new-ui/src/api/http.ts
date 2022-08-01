@@ -15,14 +15,4 @@ const tagsApi = new axiosTs.TagsApi(configuration);
 const usersApi = new axiosTs.UsersApi(configuration);
 const billingApi = new axiosTs.BillingApi(configuration);
 
-// devicesApi.updateDeviceStatus()
-// namespacesApi.getNamespaceToken()
-
-// sessionsApi.recordSession()
-// sessionsApi.clsoeSession()
-
-// usersApi.getValidateAccount(email, token)
-// usersApi.setSessionRecord(tenant)
-// usersApi.getSessionRecord()
-
 export { sessionsApi, devicesApi, defaultApi, namespacesApi, sshApi, tagsApi, usersApi, billingApi };

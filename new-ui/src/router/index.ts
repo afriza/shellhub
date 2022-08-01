@@ -3,6 +3,7 @@ import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import SignUp from "../views/SignUp.vue";
 import Dashboard from "../views/Dashboard.vue";
+import Devices from "../views/Devices.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +25,36 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/devices",
+    name: "devices",
+    component: () => import("../views/Devices.vue"),
+    redirect: {
+      name: "listDevices",
+    },
+    children: [
+      {
+        path: "",
+        name: "listDevices",
+        component: () => import("../components/Devices/DeviceList.vue"),
+      },
+      {
+        path: "pending",
+        name: "pendingDevices",
+        component: () => import("../components/Devices/DevicePendingList.vue"),
+      },
+      {
+        path: "rejected",
+        name: "rejectedDevices",
+        component: () => import("../components/Devices/DeviceRejectedList.vue"),
+      },
+    ],
+  },
+  {
+    path: '/device/:id',
+    name: 'detailsDevice',
+    component: () => import('../views/DetailsDevice.vue'),
   },
   {
     path: "/teste",

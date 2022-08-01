@@ -1,17 +1,17 @@
-import http from '../helpers/http';
-// TODO
-export const subscritionPaymentMethod = async (data: any) => http().post('/billing/subscription', data);
+import { billingApi } from '../../api/http';
 
-export const postDevicesChooser = async (data: any) => http().post('/billing/devices-choice', data);
+export const subscritionPaymentMethod = async (data: any) => billingApi.addPaymentMethod(data); 
 
-export const getSubscriptionInfo = async () => http().get('/billing/subscription');
+export const postDevicesChooser = async (data: any) => billingApi.choiceDevices(data); 
 
-export const getDevicesMostUsed = async () => http().get('/billing/devices-most-used');
+export const getSubscriptionInfo = async () => billingApi.getSubscription(); 
 
-export const updatePaymentMethod = async (id : string) => http().patch(`/billing/${id}/payment-method`);
+export const getDevicesMostUsed = async () => billingApi.getDevicesMostUsed(); 
 
-export const addPaymentMethod = async (id : string) => http().post(`/billing/${id}/payment-method`);
+export const updatePaymentMethod = async (id : string) =>  billingApi.updatePaymentMethod(id); 
 
-export const removePaymentMethod = async (id : string) => http().delete(`/billing/${id}/payment-method`);
+export const addPaymentMethod = async (id : string) => billingApi.addPaymentMethod(id); 
 
-export const cancelSubscription = async () => http().delete('/billing/subscription');
+export const removePaymentMethod = async (id : string) => billingApi.deattachPaymentMethod(id);
+
+export const cancelSubscription = async () => billingApi.cancelSubscription();
