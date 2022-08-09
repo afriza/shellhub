@@ -4,7 +4,8 @@ import { store } from "..";
 
 export default () => {
   const axios = Axios.create({
-    baseURL: `${window.location.protocol}//${window.location.host}/api`,
+    // baseURL: `${window.location.protocol}//${window.location.host}/api`,
+    baseURL: `${window.location.protocol}//localhost:4010/api`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },

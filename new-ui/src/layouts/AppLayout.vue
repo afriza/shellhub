@@ -141,7 +141,7 @@ const items = [
   {
     icon: "mdi-history",
     title: "Sessions",
-    path: "/teste",
+    path: "/sessions",
   },
   {
     icon: "mdi-security",

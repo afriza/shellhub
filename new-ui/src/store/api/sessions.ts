@@ -14,8 +14,8 @@ export const fetchSessions = async (
 export const getSession = async (uid : string) =>  sessionsApi.getSession(uid);
 
 
-export const deleteSessionLogs = async (uid : any) => sessionsApi.clsoeSession(uid); // http().delete(`/sessions/${uid}/record`);
+export const deleteSessionLogs = async (uid : string) => sessionsApi.clsoeSession(uid); // http().delete(`/sessions/${uid}/record`);
 
 export const closeSession = async (session : any) => http().post(`/sessions/${session.uid}/close`, { device: session.device_uid }); // TODO
 
-export const getLog = async (uid : any) => sessionsApi.recordSession(uid); // http().get(`/sessions/${uid}/play`);
+export const getLog = async (uid : string) =>  http().get(`/sessions/${uid}/play`);

@@ -24,7 +24,9 @@
     "vue-router": "4",
     "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.2",
-    "webfontloader": "^1.0.0"
+    "webfontloader": "^1.0.0",
+    "xterm": "^4.19.0",
+    "xterm-addon-fit": "^0.5.0"
   },
   "devDependencies": {
     "@types/webfontloader": "^1.0.0",
