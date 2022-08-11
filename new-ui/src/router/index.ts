@@ -67,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/DetailsSessions.vue'),
   },
   {
+    path: '/firewall/rules',
+    name: 'firewalls',
+    component: () => import('../views/FirewallRules.vue'),
+  },
+  {
     path: "/teste",
     name: "Teste",
     component: () => import("../views/Teste.vue"),

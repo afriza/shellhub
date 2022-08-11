@@ -17,7 +17,7 @@ export const firewallRules: Module<FirewallRulesState, State> = {
     firewalls: [],
     firewall: {},
     numberFirewalls: 0,
-    page: 0,
+    page: 1,
     perPage: 10,
     filter: null,
   },
@@ -41,7 +41,10 @@ export const firewallRules: Module<FirewallRulesState, State> = {
     },
 
     removeFirewalls: (state, id) => {
-      state.firewalls.splice(state.firewalls.findIndex((d) => d.id === id), 1);
+      state.firewalls.splice(
+        state.firewalls.findIndex((d) => d.id === id),
+        1
+      );
     },
 
     setPagePerpageFilter: (state, data) => {
@@ -76,8 +79,12 @@ export const firewallRules: Module<FirewallRulesState, State> = {
           data.perPage,
           data.page
         );
-        context.commit("setFirewalls", res);
-        context.commit("setPagePerpageFilter", data);
+        if (res.data.length) {
+          context.commit("setFirewalls", res);
+          context.commit("setPagePerpageFilter", data);
+          return true;
+        }
+        return false;
       } catch (error) {
         context.commit("clearListFirewalls");
         throw error;
@@ -108,6 +115,7 @@ export const firewallRules: Module<FirewallRulesState, State> = {
     },
 
     put: async (context, data) => {
+      console.log("put", data);
       await apiFirewallRule.putFirewall(data);
     },
 

@@ -112,7 +112,7 @@ import { useRoute } from "vue-router";
 import { IDevice } from "../interfaces/IDevice";
 import { useStore } from "../store";
 import { formatDate } from "..//utils/formateDate";
-import displayOnlyTenCharacters from "../utils/string";
+import { displayOnlyTenCharacters } from "../utils/string";
 import showTag from "../utils/tag";
 import DeviceIcon from "../components/Devices/DeviceIcon.vue";
 import TagFormUpdate from "../components/Tags/TagFormUpdate.vue";

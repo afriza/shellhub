@@ -14,21 +14,20 @@
       </div>
     </v-card-title>
 
-    <div class="d-flex justify-center">
+    <div class="d-flex justify-center flex-column">
       <v-list-item
         v-for="(item, i) in text()"
         :key="i"
         class="text-center listText"
       >
         <v-list-item-content
-          :class="{ 'justify-center': true, 'pt-2': i > 0 }"
           :data-test="i + '-boxMessage-text'"
           v-text="item"
         />
       </v-list-item>
     </div>
 
-    <div class="d-flex justify-center">
+    <div class="d-flex justify-center flex-column">
       <!-- eslint-disable vue/no-v-html -->
       <v-list-item
         v-for="(item, index) in textWithLink()"
@@ -47,16 +46,15 @@
     <v-card-actions class="justify-center pt-8 pb-0">
       <DeviceAdd v-if="typeMessage == 'device'" />
 
-      <!-- <span
+      <span
           v-if="typeMessage == 'firewall'"
-          @click="firewallRuleCreateShow = !firewallRuleCreateShow"
         >
-          <FirewallRuleFormDialogAdd
+          <FirewallRuleAdd
             @update="refreshFirewallRule"
           />
         </span>
 
-        <span
+        <!-- <span
           v-else-if="typeMessage == 'publicKey'"
           @click="publicKeyCreateShow = !publicKeyCreateShow"
         >
@@ -71,7 +69,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "../../store";
 import DeviceAdd from "../Devices/DeviceAdd.vue";
+import FirewallRuleAdd from "../firewall/FirewallRuleAdd.vue";
 
 const items = {
   device: {
@@ -193,15 +193,27 @@ export default defineComponent({
           return null;
       }
     };
+
+    const store = useStore();
+
+    const refreshFirewallRule = async () => {
+      try {
+        await store.dispatch('firewallRules/refresh');
+      } catch {
+        store.dispatch('snackbar/showSnackbarErrorLoading', "errors.snackbar.firewallRuleList");
+      }
+    };      
+
     return {
       items,
       icon,
       title,
       text,
       textWithLink,
+      refreshFirewallRule,
     };
   },
-  components: { DeviceAdd },
+  components: { DeviceAdd, FirewallRuleAdd },
 });
 </script>
 

@@ -152,7 +152,7 @@ import hasPermission from "../../utils/permission";
 import { actions, authorizer } from "../../authorizer";
 import { useStore } from "../../store";
 import { formatDateCompact, lastSeen } from "../../utils/formateDate";
-import displayOnlyTenCharacters from "../../utils/string";
+import { displayOnlyTenCharacters } from "../../utils/string";
 import showTag from "../../utils/tag";
 import DataTable from "../DataTable.vue";
 import TagFormUpdate from "../Tags/TagFormUpdate.vue";

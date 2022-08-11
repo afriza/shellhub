@@ -106,7 +106,7 @@ import { useStore } from "../../store";
 import DataTable from "../DataTable.vue";
 import DeviceIcon from "./DeviceIcon.vue";
 import { formatDate } from "../../utils/formateDate";
-import displayOnlyTenCharacters from "../../utils/string";
+import { displayOnlyTenCharacters } from "../../utils/string";
 import showTag from "../../utils/tag";
 
 export default defineComponent({

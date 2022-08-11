@@ -403,7 +403,7 @@ export default defineComponent({
         // @ts-ignore
         const interval = future - nowTimerDisplay;
         // @ts-ignore
-        iterativePrinting = setTimeout(print.bind(null, i + 1, logsArray),  interval * (1 / defaultSpeed.value));
+        iterativePrinting.value = setTimeout(print.bind(null, i + 1, logsArray),  interval * (1 / defaultSpeed.value));
       }
     };
 

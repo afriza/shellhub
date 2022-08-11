@@ -106,7 +106,7 @@ import { defineComponent, ref, onMounted, watch, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "../../store";
 import { formatDate } from "../../utils/formateDate";
-import displayOnlyTenCharacters from "../../utils/string";
+import {displayOnlyTenCharacters} from "../../utils/string";
 import showTag from "../../utils/tag";
 import DataTable from "../DataTable.vue";
 import DeviceIcon from "./DeviceIcon.vue";
@@ -139,7 +139,6 @@ export default defineComponent({
           sortStatusField: "",
           sortStatusString: "",
         });
-        console.log("devices", devices.value);
       } catch {
         store.dispatch("snackbar/showSnackbarErrorAction", "device list");
       } finally {

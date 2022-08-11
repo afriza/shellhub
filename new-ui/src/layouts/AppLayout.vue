@@ -146,8 +146,8 @@ const items = [
   {
     icon: "mdi-security",
     title: "Firewall Rules",
-    path: "/teste",
-    hidden: true, // TODO
+    path: "/firewall/rules",
+    hidden: false,// !process.env.isEnterprise, // TODO
   },
   {
     icon: "mdi-key",
