@@ -23,6 +23,6 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/router/index.js"
-  ],
+, "src/sshpk.js"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

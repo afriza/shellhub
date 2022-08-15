@@ -72,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/FirewallRules.vue'),
   },
   {
+    path: '/sshkeys/public-keys',
+    name: 'publicKeys',
+    component: () => import('../views/PublicKeys.vue'),
+  },
+  {
     path: "/teste",
     name: "Teste",
     component: () => import("../views/Teste.vue"),

@@ -152,7 +152,7 @@ const items = [
   {
     icon: "mdi-key",
     title: "Public Keys",
-    path: "/teste",
+    path: "/sshkeys/public-keys",
   },
   {
     icon: "mdi-cog",

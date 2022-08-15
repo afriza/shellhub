@@ -18,7 +18,7 @@
       <v-list-item
         v-for="(item, i) in text()"
         :key="i"
-        class="text-center listText"
+        class="text-center listText mg-fix"
       >
         <v-list-item-content
           :data-test="i + '-boxMessage-text'"
@@ -32,7 +32,7 @@
       <v-list-item
         v-for="(item, index) in textWithLink()"
         :key="index"
-        class="text-center listText mt-n3"
+        class="text-center listText mg-fix mt-n3"
       >
         <v-list-item-content
           class="justify-center"
@@ -54,15 +54,13 @@
           />
         </span>
 
-        <!-- <span
+        <span
           v-else-if="typeMessage == 'publicKey'"
-          @click="publicKeyCreateShow = !publicKeyCreateShow"
         >
-          <PublicKeyFormDialogAdd
-            :show.sync="publicKeyCreateShow"
+          <PublicKeyAdd
             @update="refreshPublicKey"
           />
-        </span> -->
+        </span>
     </v-card-actions>
   </v-card>
 </template>
@@ -72,6 +70,7 @@ import { defineComponent } from "vue";
 import { useStore } from "../../store";
 import DeviceAdd from "../Devices/DeviceAdd.vue";
 import FirewallRuleAdd from "../firewall/FirewallRuleAdd.vue";
+import PublicKeyAdd from "../PublicKeys/PublicKeyAdd.vue";
 
 const items = {
   device: {
@@ -202,7 +201,15 @@ export default defineComponent({
       } catch {
         store.dispatch('snackbar/showSnackbarErrorLoading', "errors.snackbar.firewallRuleList");
       }
-    };      
+    };
+    
+    const refreshPublicKey = async () => {
+      try {
+        await store.dispatch('publicKeys/refresh');
+      } catch {
+        store.dispatch('snackbar/showSnackbarErrorLoading', "errors.snackbar.publicKeyList");
+      }
+    };
 
     return {
       items,
@@ -211,14 +218,18 @@ export default defineComponent({
       text,
       textWithLink,
       refreshFirewallRule,
+      refreshPublicKey,
     };
   },
-  components: { DeviceAdd, FirewallRuleAdd },
+  components: { DeviceAdd, FirewallRuleAdd, PublicKeyAdd },
 });
 </script>
 
 <style lang="scss">
 .listText {
   min-height: 0px !important;
+}
+.mg-fix {
+  margin: 0 auto;
 }
 </style>

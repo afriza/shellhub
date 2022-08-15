@@ -16,7 +16,7 @@ export const publicKeys: Module<PublicKeysState, State> = {
     publicKeys: [],
     publicKey: {},
     numberPublicKeys: 0,
-    page: 0,
+    page: 1,
     perPage: 10,
   },
 
@@ -69,9 +69,13 @@ export const publicKeys: Module<PublicKeysState, State> = {
 
     fetch: async (context, data) => {
       try {
-        const res = await apiPublicKey.fetchPublicKeys(data.perPage, data.page);
-        context.commit('setPublicKeys', res);
-        context.commit('setPagePerpage', data);
+        const res = await apiPublicKey.fetchPublicKeys(data.page, data.perPage);
+        if (res.data.length) {
+          context.commit('setPublicKeys', res);
+          context.commit('setPagePerpage', data);
+          return true;
+        } 
+        return false;
       } catch (error) {
         context.commit('clearListPublicKeys');
         throw error;
@@ -81,8 +85,8 @@ export const publicKeys: Module<PublicKeysState, State> = {
     refresh: async (context) => {
       try {
         const res = await apiPublicKey.fetchPublicKeys(
-          context.state.perPage,
           context.state.page,
+          context.state.perPage,
         );
         context.commit('setPublicKeys', res);
       } catch (error) {

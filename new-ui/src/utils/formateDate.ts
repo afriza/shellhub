@@ -21,6 +21,13 @@ export const formatDateWithoutDayAndHours = (date : string) => {
   return null;
 };
 
+export const formatDateFullAbrevied = (date : string) => {
+  if (date) {
+    return moment(date).format("ddd, MMM Do YY, h:mm:ss a");
+  }
+  return null;
+}
+
 const lastSeen = (date: string) => {
   if (date) {
     return moment(date).fromNow();

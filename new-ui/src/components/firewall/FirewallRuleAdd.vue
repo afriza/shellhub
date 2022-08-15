@@ -162,7 +162,6 @@ import { actions, authorizer } from "../../authorizer";
 import hasPermission from "../../utils/permission";
 import { useStore } from "../../store";
 import { useField } from "vee-validate";
-import { Field, Form } from "vee-validate";
 import * as yup from "yup";
 
 export interface FirewallRuleType {
@@ -181,10 +180,6 @@ export default defineComponent({
       default: "default",
       required: false,
     },
-  },
-  components: {
-    Field,
-    Form,
   },
   emits: ["update"],
   setup(props, ctx) {

@@ -1,5 +1,5 @@
 <template>
-  <v-list-item @click="showDialog = true">
+  <v-list-item @click="showDialog = true" :disabled="notHasAuthorization">
     <div class="d-flex align-center">
       <v-list-item-avatar class="mr-2">
         <v-icon color="white"> mdi-delete </v-icon>
@@ -19,7 +19,7 @@
       <v-divider />
 
       <v-card-text class="mt-4 mb-0 pb-1">
-        <p class="text-body-2 mb-2">You are about to remove this firewall rule.</p>
+        <p class="text-body-2 mb-2">You are about to remove this public key.</p>
 
         <p class="text-body-2 mb-2">
           After confirming this action cannot be redone.
@@ -45,8 +45,12 @@ import { useStore } from "../../store";
 
 export default defineComponent({
   props: {
-    id: {
+    fingerprint: {
       type: String,
+      required: true,
+    },
+    notHasAuthorization: {
+      type: Boolean,
       required: true,
     },
   },
@@ -57,17 +61,17 @@ export default defineComponent({
 
     const remove = async () => {
       try {
-        await store.dispatch("firewallRules/remove", props.id);
+        await store.dispatch("publicKeys/remove", props.fingerprint);
 
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "Firewall Rule"
+          "Public Key"
         );
         ctx.emit("update");
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "Firewall Rule"
+          "Public Key"
         );
       } finally {
         showDialog.value = false;
