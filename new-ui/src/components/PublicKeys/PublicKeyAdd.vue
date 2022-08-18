@@ -134,7 +134,7 @@ import { actions, authorizer } from "../../authorizer";
 import { useStore } from "../../store";
 import hasPermission from "../../utils/permission";
 import * as yup from "yup";
-import { validateKey } from "../../utils/validate";
+// import { validateKey } from "../../utils/validate";
 
 export default defineComponent({
   props: {
@@ -252,9 +252,9 @@ export default defineComponent({
         setPublicKeyDataError("Field is required");
       }
 
-      if (await validateKey("public", publicKeyData.value)) {
-        setPublicKeyDataError("This is not valid key");
-      }
+      // if (await validateKey("public", publicKeyData.value)) {
+      //   setPublicKeyDataError("This is not valid key");
+      // }
     });
 
     const chooseUsername = () => {

@@ -1,5 +1,5 @@
 <template>
-<h1>its working</h1>
+  <h1>Settings Billing</h1>
 </template>
 
 <script lang="ts">

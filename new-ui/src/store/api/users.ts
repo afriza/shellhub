@@ -14,7 +14,7 @@ export const postRecoverPassword = async (email : any) => usersApi.recoverPasswo
 
 export const postValidationAccount = async (data : any) => usersApi.getValidateAccount(data.email, data.token);
 
-export const putSecurity = async (data : any) => usersApi.setSessionRecord(data.tenant_id, data.session_record);
+export const putSecurity = async (data : any) => usersApi.setSessionRecord(data.id, { session_record: data.status });
 
 export const getSecurity = async () =>  usersApi.getSessionRecord();
 

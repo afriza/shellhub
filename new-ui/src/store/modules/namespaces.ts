@@ -100,6 +100,7 @@ export const namespaces: Module<NamespacesState, State> = {
     },
 
     put: async (context, data) => {
+      console.log(data);
       await apiNamespace.putNamespace(data);
     },
 

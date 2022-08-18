@@ -157,7 +157,7 @@ const items = [
   {
     icon: "mdi-cog",
     title: "Settings",
-    path: "/teste",
+    path: "/settings",
   },
 ];
 
