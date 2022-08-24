@@ -49,6 +49,11 @@ export const snackbar: Module<SnackbarState, State> = {
       state.snackbarSuccess = false;
     },
 
+    setSnackbarSuccessNotRequest: (state, data) => {
+      state.snackbarMessageAndContentType = data;
+      state.snackbarSuccess = true;
+    },
+
     setSnackbarErrorLoadingOrAction: (state, data) => {
       state.snackbarMessageAndContentType = data;
       state.snackbarError = true;
@@ -90,6 +95,11 @@ export const snackbar: Module<SnackbarState, State> = {
 
     unsetShowStatusSnackbarSuccess: ({ commit }) => {
       commit("unsetSnackbarSuccess");
+    },
+
+    showSnackbarSuccessNotRequest: (context, value) => {
+      const data = { typeMessage: 'notRequest', typeContent: value };
+      context.commit('setSnackbarSuccessNotRequest', data);
     },
 
     showSnackbarErrorLoading: ({ commit }, value) => {

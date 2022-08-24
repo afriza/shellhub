@@ -232,9 +232,9 @@ export default {
         {
           title: "Settings",
           type: "path",
-          path: "/teste",
+          path: "/settings",
           icon: "mdi-cog",
-          items: [{ title: "Profile", path: "/teste" }],
+          items: [{ title: "Profile", path: "/settings" }],
         },
         {
           title: "Logout",

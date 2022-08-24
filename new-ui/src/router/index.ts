@@ -4,6 +4,7 @@ import ForgotPassword from "../views/ForgotPassword.vue";
 import SignUp from "../views/SignUp.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Devices from "../views/Devices.vue";
+import { envVariables } from "../envVariables";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -108,11 +109,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'billing',
         name: 'billingSettings',
         beforeEnter: (to, from, next) => {
-          const enabled = process.env.VUE_APP_SHELLHUB_BILLING === 'true';
+          const enabled =  envVariables.billingEnable;
           if (enabled) {
             next();
           } else {
-            next('/teste');
+            next('/invalid');
           }
         },
         component: () => import('../components/Setting/SettingBilling.vue'),

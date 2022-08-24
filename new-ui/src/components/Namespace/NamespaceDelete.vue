@@ -64,7 +64,7 @@ import { actions, authorizer } from "../../authorizer";
 import { envVariables } from "../../envVariables";
 import { useRouter } from "vue-router";
 import { displayOnlyTenCharacters } from "../../utils/string";
-import  formatCurrency  from "../../utils/currency";
+import  { formatCurrency }  from "../../utils/currency";
 
 export default defineComponent({
   props: {

@@ -54,12 +54,13 @@ export default defineComponent({
       },
       {
         title: "Billing",
-        path: "/teste",
-        hidden: !(
-          envVariables.billingEnable &&
-          envVariables.isCloud &&
-          hasNamespace.value
-        ),
+        path: "/settings/billing",
+        hidden: false,
+        // hidden: !(
+        //   envVariables.billingEnable &&
+        //   envVariables.isCloud &&
+        //   hasNamespace.value
+        // ),
       },
     ]);
 

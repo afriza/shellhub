@@ -68,7 +68,6 @@
 </template>
 
 <script lang="ts">
-import { error } from "console";
 import { defineComponent, onMounted, ref } from "vue";
 import { IMember } from "../../interfaces/IMember";
 import { useStore } from "../../store";

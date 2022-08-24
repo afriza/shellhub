@@ -2,7 +2,7 @@ import { Module } from "vuex";
 import { State } from "./../index";
 import * as apiBilling from "../api/billing";
 import { namespaces, NamespacesState } from "./namespaces";
-// import infoExtract from '@/helpers/billInfoExtract'; // TODO this
+import infoExtract from "../../utils/billInfoExtract";
 
 export const billing: Module<NamespacesState, State> = {
   namespaced: true,
@@ -90,7 +90,8 @@ export const billing: Module<NamespacesState, State> = {
 
   actions: {
     subscritionPaymentMethod: async (context, data) => {
-      const res = await apiBilling.subscritionPaymentMethod(data);
+      const { payment_method_id } = data;
+      const res = await apiBilling.subscritionPaymentMethod(payment_method_id);
       if (res.status === 200) {
         context.commit("setSubscription", {
           ...res.data,
@@ -103,8 +104,8 @@ export const billing: Module<NamespacesState, State> = {
       const res = await apiBilling.getSubscriptionInfo();
       if (res.status === 200) {
         const { billing } = context.state;
-        // const data = infoExtract(res.data, billing.current_period_end); // TODO
-        context.commit("setGetSubscription", res.data);
+        const data = infoExtract(res.data, billing.current_period_end); // TODO
+        context.commit("setGetSubscription", data);
       }
       return new Error("failed to get subscrition");
     },
