@@ -19,7 +19,9 @@
       <v-divider />
 
       <v-card-text class="mt-4 mb-0 pb-1">
-        <p class="text-body-2 mb-2">You are about to remove this firewall rule.</p>
+        <p class="text-body-2 mb-2">
+          You are about to remove this firewall rule.
+        </p>
 
         <p class="text-body-2 mb-2">
           After confirming this action cannot be redone.
@@ -40,6 +42,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, ref } from "vue";
 import { useStore } from "../../store";
 
@@ -61,13 +67,13 @@ export default defineComponent({
 
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "Firewall Rule"
+          INotificationsSuccess.firewallRuleDeleting
         );
         ctx.emit("update");
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "Firewall Rule"
+          INotificationsError.firewallRuleDeleting
         );
       } finally {
         showDialog.value = false;

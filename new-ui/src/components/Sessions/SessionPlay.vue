@@ -128,6 +128,7 @@ import { Terminal } from "xterm";
 import { FitAddon } from "xterm-addon-fit";
 import moment from "moment";
 import { useStore } from "../../store";
+import { INotificationsError } from "../../interfaces/INotifications";
 // import "moment-duration-format";
 // import "xterm/css/xterm.css";
 
@@ -225,7 +226,7 @@ export default defineComponent({
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorLoading",
-          "$errors.snackbar.sessionPlay"
+          INotificationsError.sessionPlay
         );
       }
     };
@@ -296,7 +297,9 @@ export default defineComponent({
         // @ts-ignore
         const now = new Date(logs.value[i - 1].time);
         // @ts-ignore
-        const interval = moment.duration(future - now, "milliseconds").asMilliseconds();
+        const interval = moment
+          .duration(future - now, "milliseconds")
+          .asMilliseconds();
         time += interval;
         // @ts-ignore
         message += logs.value[i].message;
@@ -403,10 +406,12 @@ export default defineComponent({
         // @ts-ignore
         const interval = future - nowTimerDisplay;
         // @ts-ignore
-        iterativePrinting.value = setTimeout(print.bind(null, i + 1, logsArray),  interval * (1 / defaultSpeed.value));
+        iterativePrinting.value = setTimeout(
+          print.bind(null, i + 1, logsArray),
+          interval * (1 / defaultSpeed.value)
+        );
       }
     };
-
 
     return {
       showDialog,

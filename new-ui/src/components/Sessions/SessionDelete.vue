@@ -46,6 +46,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, ref } from "vue";
 import { useStore } from "../../store";
 
@@ -71,13 +75,13 @@ export default defineComponent({
         showDialog.value = false;
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "$success.sessionRemoveRecord"
+          INotificationsSuccess.sessionRemoveRecord
         );
         ctx.emit("update");
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "$errors.snackbar.sessionRemoveRecord"
+          INotificationsError.sessionRemoveRecord
         );
       }
     };

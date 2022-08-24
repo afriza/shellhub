@@ -22,7 +22,6 @@
               </v-chip>
             </template>
             <v-list class="bg-v-theme-surface" lines="two" density="compact">
-
               <v-tooltip location="bottom" :disabled="hasAuthorizationEdit()">
                 <template v-slot:activator="{ props }">
                   <TagEdit
@@ -34,7 +33,6 @@
                 </template>
                 <span> You don't have this kind of authorization. </span>
               </v-tooltip>
-
 
               <v-tooltip location="bottom" :disabled="hasAuthorizationRemove()">
                 <template v-slot:activator="{ props }">
@@ -65,6 +63,7 @@ import { actions, authorizer } from "../../authorizer";
 import hasPermission from "../../utils/permission";
 import TagRemove from "./TagRemove.vue";
 import TagEdit from "./TagEdit.vue";
+import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -98,7 +97,7 @@ export default defineComponent({
       } catch (error) {
         store.dispatch(
           "snackbar/showSnackbarErrorLoading",
-          "$errors.snackbar.deviceTagList"
+          INotificationsError.deviceTagList
         );
       }
     };

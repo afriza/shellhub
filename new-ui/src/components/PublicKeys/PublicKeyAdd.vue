@@ -135,6 +135,10 @@ import { useStore } from "../../store";
 import hasPermission from "../../utils/permission";
 import * as yup from "yup";
 import { validateKey } from "../../utils/validate";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -252,7 +256,10 @@ export default defineComponent({
         setPublicKeyDataError("Field is required");
       }
 
-        console.log("valid key", await validateKey("public", publicKeyData.value));
+      console.log(
+        "valid key",
+        await validateKey("public", publicKeyData.value)
+      );
       if (await validateKey("public", publicKeyData.value)) {
         setPublicKeyDataError("This is not valid key");
       }
@@ -344,10 +351,10 @@ export default defineComponent({
             name: name.value,
           };
           console.log(keySend);
-          await store.dispatch('publicKeys/post', keySend);
+          await store.dispatch("publicKeys/post", keySend);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "success.publicKeyCreating"
+            INotificationsSuccess.publicKeyCreating
           );
           update();
         } catch (error: any) {
@@ -356,7 +363,7 @@ export default defineComponent({
           } else {
             store.dispatch(
               "snackbar/showSnackbarErrorAction",
-              "snackbar.publicKeyCreating"
+              INotificationsError.publicKeyCreating
             );
           }
         }

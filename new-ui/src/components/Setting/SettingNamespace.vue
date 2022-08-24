@@ -77,7 +77,7 @@
             </v-col>
 
             <v-col md="auto" class="ml-auto mb-4">
-              <NamespaceDelete :nsTenant="tenant"/>
+              <NamespaceDelete :nsTenant="tenant" />
             </v-col>
           </v-row>
         </div>
@@ -95,6 +95,10 @@ import NamespaceMemberAdd from "../Namespace/NamespaceMemberAdd.vue";
 import NamespaceMemberList from "../Namespace/NamespaceMemberList.vue";
 import SettingSecurity from "./SettingSecurity.vue";
 import NamespaceDelete from "../Namespace/NamespaceDelete.vue";
+import {
+  INotificationsCopy,
+  INotificationsError,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -108,7 +112,7 @@ export default defineComponent({
         navigator.clipboard.writeText(value);
         store.dispatch(
           "snackbar/showSnackbarCopy",
-          "INotificationsCopy.tenantId"
+          INotificationsCopy.tenantId
         );
       }
     };
@@ -126,7 +130,7 @@ export default defineComponent({
         } else {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "snackbar.namespaceLoad"
+            INotificationsError.namespaceLoad
           );
         }
       }
@@ -156,8 +160,8 @@ export default defineComponent({
     NamespaceMemberAdd,
     NamespaceMemberList,
     SettingSecurity,
-    NamespaceDelete
-},
+    NamespaceDelete,
+  },
 });
 </script>
 

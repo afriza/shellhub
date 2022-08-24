@@ -142,6 +142,7 @@ import { defineComponent, ref, computed, onMounted } from "vue";
 import { useStore } from "../../store";
 import { useField } from "vee-validate";
 import * as yup from "yup";
+import { INotificationsSuccess } from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -181,21 +182,21 @@ export default defineComponent({
       value: currentPassword,
       errorMessage: currentPasswordError,
       setErrors: setCurrentPasswordError,
-    } = useField<string>(
-      "currentPassword",
-      yup.string().required(),
-      {
-        initialValue: "",
-      }
-    );
+    } = useField<string>("currentPassword", yup.string().required(), {
+      initialValue: "",
+    });
 
     const {
       value: newPassword,
       errorMessage: newPasswordError,
       setErrors: setNewPasswordError,
-    } = useField<string>("newPassword", yup.string().required().min(5).max(30), {
-      initialValue: "",
-    });
+    } = useField<string>(
+      "newPassword",
+      yup.string().required().min(5).max(30),
+      {
+        initialValue: "",
+      }
+    );
 
     const {
       value: newPasswordConfirm,
@@ -203,7 +204,14 @@ export default defineComponent({
       setErrors: setNewPasswordConfirmError,
     } = useField<string>(
       "newPasswordConfirm",
-      yup.string().required().test("passwords-match", "Passwords do not match", (value) => newPassword.value === value),
+      yup
+        .string()
+        .required()
+        .test(
+          "passwords-match",
+          "Passwords do not match",
+          (value) => newPassword.value === value
+        ),
       {
         initialValue: "",
       }
@@ -245,7 +253,7 @@ export default defineComponent({
           store.dispatch("auth/changeUserData", data);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "success.profileData"
+            INotificationsSuccess.profileData
           );
           enableEdit("data");
         } catch (error: any) {
@@ -293,10 +301,10 @@ export default defineComponent({
           await store.dispatch("users/patchPassword", data);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "success.profilePassword"
+            INotificationsSuccess.profilePassword
           );
           enableEdit("password");
-        } catch (error : any) {
+        } catch (error: any) {
           if (error.response.status === 403) {
             // failed password
             setNewPasswordError("Your password doesn't match");

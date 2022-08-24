@@ -40,6 +40,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, ref } from "vue";
 import { useStore } from "../../store";
 
@@ -65,13 +69,13 @@ export default defineComponent({
 
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "Tag"
+          INotificationsSuccess.deviceTagDelete
         );
         ctx.emit("update");
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "Tag"
+          INotificationsError.deviceTagDelete
         );
       } finally {
         showDialog.value = false;

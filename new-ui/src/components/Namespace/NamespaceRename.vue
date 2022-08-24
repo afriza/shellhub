@@ -3,7 +3,7 @@
     <v-col>
       <h3>Namespace</h3>
     </v-col>
-    
+
     <v-spacer />
 
     <v-col md="auto" class="ml-auto">
@@ -47,6 +47,10 @@ import * as yup from "yup";
 import { useStore } from "../../store";
 import hasPermission from "../../utils/permission";
 import { actions, authorizer } from "../../authorizer";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -99,7 +103,7 @@ export default defineComponent({
           await store.dispatch("namespaces/get", tenant.value);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.namespaceEdit"
+            INotificationsSuccess.namespaceEdit
           );
         } catch (error: any) {
           if (error.response.status === 400) {
@@ -109,7 +113,7 @@ export default defineComponent({
           } else {
             store.dispatch(
               "snackbar/showSnackbarErrorAction",
-              "errors.snackbar.namespaceEdit"
+              INotificationsError.namespaceEdit
             );
           }
         }

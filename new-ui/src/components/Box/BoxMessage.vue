@@ -46,26 +46,19 @@
     <v-card-actions class="justify-center pt-8 pb-0">
       <DeviceAdd v-if="typeMessage == 'device'" />
 
-      <span
-          v-if="typeMessage == 'firewall'"
-        >
-          <FirewallRuleAdd
-            @update="refreshFirewallRule"
-          />
-        </span>
+      <span v-if="typeMessage == 'firewall'">
+        <FirewallRuleAdd @update="refreshFirewallRule" />
+      </span>
 
-        <span
-          v-else-if="typeMessage == 'publicKey'"
-        >
-          <PublicKeyAdd
-            @update="refreshPublicKey"
-          />
-        </span>
+      <span v-else-if="typeMessage == 'publicKey'">
+        <PublicKeyAdd @update="refreshPublicKey" />
+      </span>
     </v-card-actions>
   </v-card>
 </template>
 
 <script lang="ts">
+import { INotificationsError } from "../../interfaces/INotification";
 import { defineComponent } from "vue";
 import { useStore } from "../../store";
 import DeviceAdd from "../Devices/DeviceAdd.vue";
@@ -197,17 +190,23 @@ export default defineComponent({
 
     const refreshFirewallRule = async () => {
       try {
-        await store.dispatch('firewallRules/refresh');
+        await store.dispatch("firewallRules/refresh");
       } catch {
-        store.dispatch('snackbar/showSnackbarErrorLoading', "errors.snackbar.firewallRuleList");
+        store.dispatch(
+          "snackbar/showSnackbarErrorLoading",
+          INotificationsError.firewallRuleList
+        );
       }
     };
-    
+
     const refreshPublicKey = async () => {
       try {
-        await store.dispatch('publicKeys/refresh');
+        await store.dispatch("publicKeys/refresh");
       } catch {
-        store.dispatch('snackbar/showSnackbarErrorLoading', "errors.snackbar.publicKeyList");
+        store.dispatch(
+          "snackbar/showSnackbarErrorLoading",
+          INotificationsError.publicKeyList
+        );
       }
     };
 

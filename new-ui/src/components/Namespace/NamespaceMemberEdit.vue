@@ -68,6 +68,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, onMounted, ref } from "vue";
 import { IMember } from "../../interfaces/IMember";
 import { useStore } from "../../store";
@@ -123,7 +127,7 @@ export default defineComponent({
 
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "$success.namespaceEditMember"
+          INotificationsSuccess.namespaceEditMember
         );
         update();
       } catch (error: any) {
@@ -137,7 +141,7 @@ export default defineComponent({
         } else {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.namespaceEditMember"
+            INotificationsError.namespaceEditMember
           );
         }
       }

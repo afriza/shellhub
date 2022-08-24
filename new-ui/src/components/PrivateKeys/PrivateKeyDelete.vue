@@ -19,7 +19,9 @@
       <v-divider />
 
       <v-card-text class="mt-4 mb-0 pb-1">
-        <p class="text-body-2 mb-2">You are about to remove this ptivate key.</p>
+        <p class="text-body-2 mb-2">
+          You are about to remove this ptivate key.
+        </p>
 
         <p class="text-body-2 mb-2">
           After confirming this action cannot be redone.
@@ -40,6 +42,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, ref } from "vue";
 import { useStore } from "../../store";
 
@@ -60,13 +66,13 @@ export default defineComponent({
         await store.dispatch("privateKey/remove", props.fingerprint);
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "Private Key"
+          INotificationsSuccess.privateKeyDeleting
         );
         ctx.emit("update");
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "Private Key"
+          INotificationsError.privateKeyDeleting
         );
       } finally {
         showDialog.value = false;

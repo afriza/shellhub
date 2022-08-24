@@ -1,8 +1,5 @@
 <template>
-  <v-list-item
-    @click="showDialog = true"
-    v-bind="$props"
-  >
+  <v-list-item @click="showDialog = true" v-bind="$props">
     <div class="d-flex align-center">
       <v-list-item-avatar class="mr-2">
         <v-icon color="white"> mdi-pencil </v-icon>
@@ -40,7 +37,7 @@
             variant="underlined"
             data-test="data-field"
             rows="5"
-            :style="{cursor: 'not-allowed'}"
+            :style="{ cursor: 'not-allowed' }"
           />
         </v-card-text>
 
@@ -82,6 +79,10 @@ import {
 import { useStore } from "../../store";
 import * as yup from "yup";
 import { IPublicKey } from "../../interfaces/IPublicKey";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 // import { validateKey } from "../../utils/validate";
 
 export default defineComponent({
@@ -108,10 +109,9 @@ export default defineComponent({
       "Supports RSA, DSA, ECDSA (nistp-*) and ED25519 key types, in PEM (PKCS#1, PKCS#8) and OpenSSH formats."
     );
 
-    const {
-      value: name,
-      errorMessage: nameError,
-    } = useField<string | undefined>("name", yup.string().required(), {
+    const { value: name, errorMessage: nameError } = useField<
+      string | undefined
+    >("name", yup.string().required(), {
       initialValue: props.keyObject.name,
     });
 
@@ -124,7 +124,7 @@ export default defineComponent({
     });
 
     const setPrivateKey = () => {
-      keyLocal.value = { ...props.keyObject};
+      keyLocal.value = { ...props.keyObject };
     };
 
     const edit = async () => {
@@ -136,13 +136,13 @@ export default defineComponent({
           await store.dispatch("privateKey/edit", keySend);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.publicKeyEditing"
+            INotificationsSuccess.privateKeyEditing
           );
           update();
         } catch {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.publicKeyEditing"
+            INotificationsError.publicKeyEditing
           );
         }
       }

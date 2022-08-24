@@ -60,6 +60,10 @@ import hasPermission from "../../utils/permission";
 import * as yup from "yup";
 import { useStore } from "../../store";
 import { actions, authorizer } from "../../authorizer";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   emits: ["update"],
@@ -133,7 +137,7 @@ export default defineComponent({
 
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.namespaceNewMember"
+            INotificationsSuccess.namespaceNewMember
           );
           update();
         } catch (error: any) {
@@ -146,7 +150,7 @@ export default defineComponent({
           } else {
             store.dispatch(
               "snackbar/showSnackbarErrorAction",
-              "$errors.snackbar.namespaceNewMember"
+              INotificationsError.namespaceNewMember
             );
           }
         }

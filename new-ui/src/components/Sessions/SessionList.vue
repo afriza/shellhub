@@ -100,10 +100,7 @@
                   </div>
                 </v-list-item>
 
-                <v-tooltip
-                  location="bottom"
-                  :disabled="hasAuthorizationPlay()"
-                >
+                <v-tooltip location="bottom" :disabled="hasAuthorizationPlay()">
                   <template v-slot:activator="{ props }">
                     <SessionPlay
                       v-if="session.authenticated && session.recorded"
@@ -158,6 +155,7 @@ import DataTable from "../DataTable.vue";
 import TagFormUpdate from "../Tags/TagFormUpdate.vue";
 import SessionClose from "./SessionClose.vue";
 import SessionPlay from "./SessionPlay.vue";
+import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -194,7 +192,7 @@ export default defineComponent({
           } else {
             store.dispatch(
               "snackbar/showSnackbarErrorLoading",
-              "$errors.snackbar.sessionList"
+              INotificationsError.sessionList
             );
           }
         } finally {
@@ -250,12 +248,9 @@ export default defineComponent({
     };
 
     const hasAuthorizationPlay = () => {
-      const role = store.getters['auth/role'];
-      if (role !== '') {
-        return hasPermission(
-          authorizer.role[role],
-          actions.session["play"],
-        );
+      const role = store.getters["auth/role"];
+      if (role !== "") {
+        return hasPermission(authorizer.role[role], actions.session["play"]);
       }
 
       return false;

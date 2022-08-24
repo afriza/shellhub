@@ -163,6 +163,10 @@ import hasPermission from "../../utils/permission";
 import { useStore } from "../../store";
 import { useField } from "vee-validate";
 import * as yup from "yup";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export interface FirewallRuleType {
   policy?: string;
@@ -411,13 +415,13 @@ export default defineComponent({
           await store.dispatch("firewallRules/post", ruleFirewall.value);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "this.$success.firewallRuleCreating"
+            INotificationsSuccess.firewallRuleCreating
           );
           update();
         } catch {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "this.$errors.snackbar.firewallRuleCreating"
+            INotificationsError.firewallRuleCreating
           );
         }
       }

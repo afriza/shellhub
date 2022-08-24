@@ -24,7 +24,7 @@
             <span>{{ item.info.pretty_name }}</span>
           </td>
           <td class="text-center">
-            <v-chip >
+            <v-chip>
               <v-tooltip location="bottom">
                 <template v-slot:activator="{ props }">
                   <span
@@ -48,7 +48,7 @@
                   <v-icon v-bind="props">mdi-dots-horizontal</v-icon>
                 </v-chip>
               </template>
-              <v-list class="bg-v-theme-surface" lines="two" density="compact" >
+              <v-list class="bg-v-theme-surface" lines="two" density="compact">
                 <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
                     <v-list-item-avatar class="mr-2">
@@ -61,7 +61,7 @@
                   </div>
                 </v-list-item>
 
-                <v-list-item  @click="redirectToDevice(item)">
+                <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
                     <v-list-item-avatar class="mr-2">
                       <v-icon color="white"> mdi-tag </v-icon>
@@ -73,7 +73,7 @@
                   </div>
                 </v-list-item>
 
-                <v-list-item @click="redirectToDevice(item)"> 
+                <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
                     <v-list-item-avatar class="mr-2">
                       <v-icon color="white"> mdi-delete </v-icon>
@@ -94,20 +94,18 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  onMounted,
-  watch,
-  computed,
-} from "vue";
+import { defineComponent, ref, onMounted, watch, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "../../store";
 import DataTable from "../DataTable.vue";
 import DeviceIcon from "./DeviceIcon.vue";
 import { formatDate } from "../../utils/formateDate";
 import { displayOnlyTenCharacters } from "../../utils/string";
-import showTag from "../../utils/tag"; 
+import showTag from "../../utils/tag";
+import {
+  INotificationsCopy,
+  INotificationsError,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -136,7 +134,10 @@ export default defineComponent({
         });
         console.log("devices", devices.value);
       } catch {
-        store.dispatch("snackbar/showSnackbarErrorAction", "device list");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceRejecting
+        );
       } finally {
         loading.value = false;
       }
@@ -160,7 +161,10 @@ export default defineComponent({
 
         loading.value = false;
       } catch (error) {
-        store.dispatch("snackbar/showSnackbarErrorAction", "device list");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceRejecting
+        );
       }
     };
 
@@ -216,7 +220,7 @@ export default defineComponent({
         navigator.clipboard.writeText(value);
         store.dispatch(
           "snackbar/showSnackbarCopy",
-          "INotificationsCopy.tenantId"
+          INotificationsCopy.tenantId
         );
       }
     };

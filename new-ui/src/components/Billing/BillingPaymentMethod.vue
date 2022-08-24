@@ -86,6 +86,10 @@ import { defineComponent, ref, computed, onBeforeMount, onMounted } from "vue";
 import { formatCurrency } from "../../utils/currency";
 import { StripeElements, StripeElement } from "vue-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -106,7 +110,9 @@ export default defineComponent({
     const elementError = ref("");
     const store = useStore();
 
-    const currentQuantity = computed(() => store.getters["stats/stats"].registered_devices);
+    const currentQuantity = computed(
+      () => store.getters["stats/stats"].registered_devices
+    );
 
     const stripeKey = ref("pk_test_daOQ5URsElI0aQdJWU8E9xTz");
     const stripeLoaded = ref(false);
@@ -239,12 +245,12 @@ export default defineComponent({
           });
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.subscription"
+            INotificationsSuccess.subscription
           );
         } catch (error: any) {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.subscription"
+            INotificationsError.subscription
           );
           const { status } = error.response;
           if (status === 400 || status === 423) {
@@ -273,14 +279,14 @@ export default defineComponent({
           );
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.updateSubscription"
+            INotificationsSuccess.updateSubscription
           );
           ctx.emit("update");
           dialog.value = false;
         } catch (error: any) {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.updatePaymentMethod"
+            INotificationsError.updatePaymentMethod
           );
 
           const { status } = error.response;

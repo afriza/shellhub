@@ -71,6 +71,10 @@ import { useField } from "vee-validate";
 import * as yup from "yup";
 import Logo from "../assets/logo-inverted.png";
 import { useStore } from "../store";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -84,9 +88,15 @@ export default defineComponent({
       if (!emailError.value) {
         try {
           store.dispatch("users/recoverPassword", email.value);
-          store.dispatch("snackbar/showSnackbarSuccessAction", "sucess");
+          store.dispatch(
+            "snackbar/showSnackbarSuccessAction",
+            INotificationsSuccess.recoverPassword
+          );
         } catch {
-          store.dispatch("snackbar/showSnackbarErrorAction", "error");
+          store.dispatch(
+            "snackbar/showSnackbarErrorAction",
+            INotificationsError.recoverPassword
+          );
         }
       }
     };

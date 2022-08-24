@@ -216,6 +216,7 @@ import { formatDateWithoutDayAndHours } from "../../utils/formateDate";
 import BillingInvoiceList from "../Billing/BillingInvoiceList.vue";
 import { loadStripe } from "@stripe/stripe-js";
 import BillingCancel from "../Billing/BillingCancel.vue";
+import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -314,7 +315,7 @@ export default defineComponent({
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorLoading",
-          "$errors.snackbar.namespaceLoad"
+          INotificationsError.namespaceLoad
         );
       }
     };
@@ -341,7 +342,7 @@ export default defineComponent({
     BillingPaymentMethod,
     BillingInvoiceList,
     BillingInvoiceList,
-    BillingCancel
-},
+    BillingCancel,
+  },
 });
 </script>

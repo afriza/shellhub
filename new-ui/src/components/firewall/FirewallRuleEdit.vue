@@ -164,6 +164,10 @@ import { defineComponent, ref, watch, onMounted, computed } from "vue";
 import { useStore } from "../../store";
 import * as yup from "yup";
 import { FirewallRuleType } from "./FirewallRuleAdd.vue";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -359,7 +363,6 @@ export default defineComponent({
       } = props.firewallRule;
       console.log(fr);
 
-
       if (fr.source_ip !== ".*") {
         choiceIP.value = "ipDetails";
         sourceIp.value = fr.source_ip;
@@ -445,13 +448,13 @@ export default defineComponent({
           await store.dispatch("firewallRules/put", ruleFirewallLocal.value);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "this.$success.firewallRuleCreating"
+            INotificationsSuccess.firewallRuleCreating
           );
           update();
         } catch {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "this.$errors.snackbar.firewallRuleCreating"
+            INotificationsError.firewallRuleCreating
           );
         }
       }

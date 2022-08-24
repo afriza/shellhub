@@ -20,7 +20,7 @@
         Are you sure?
       </v-card-title>
 
-      <v-card-text  class="mt-4 mb-3 pb-1">
+      <v-card-text class="mt-4 mb-3 pb-1">
         <p
           v-if="hasAuthorization && billingActive && billingInfo != undefined"
           data-test="contentSubscription-p"
@@ -64,7 +64,11 @@ import { actions, authorizer } from "../../authorizer";
 import { envVariables } from "../../envVariables";
 import { useRouter } from "vue-router";
 import { displayOnlyTenCharacters } from "../../utils/string";
-import  { formatCurrency }  from "../../utils/currency";
+import { formatCurrency } from "../../utils/currency";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -130,12 +134,12 @@ export default defineComponent({
         await router.push({ name: "login" });
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "$success.namespaceDelete"
+          INotificationsSuccess.namespaceDelete
         );
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "$errors.snackbar.namespaceDelete"
+          INotificationsError.namespaceDelete
         );
       }
     };

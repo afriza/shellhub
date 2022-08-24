@@ -48,6 +48,10 @@ import { defineComponent, ref } from "vue";
 import { useField } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "../../store";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -88,7 +92,7 @@ export default defineComponent({
         close();
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "success.deviceRename"
+          INotificationsSuccess.deviceRename
         );
       } catch (error: any) {
         if (error.response.status === 400) {
@@ -98,7 +102,7 @@ export default defineComponent({
         } else {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "errors.snackbar.deviceRename"
+            INotificationsError.deviceRename
           );
         }
       }

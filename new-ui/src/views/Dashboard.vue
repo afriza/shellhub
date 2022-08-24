@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import { INotificationsError } from "../interfaces/INotifications";
 import { computed, defineComponent, onMounted, ref } from "vue";
 import Card from "../components/Card/Card.vue";
 import { useStore } from "../store";
@@ -87,7 +88,10 @@ export default defineComponent({
         ];
       } catch {
         hasStatus.value = true;
-        store.dispatch("snackbar/showSnackbarErrorAction","error");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.dashboard
+        );
       }
     });
 

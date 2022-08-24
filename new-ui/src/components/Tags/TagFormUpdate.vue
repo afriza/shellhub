@@ -63,6 +63,10 @@ import { useField } from "vee-validate";
 import * as yup from "yup";
 import { useStore } from "../../store";
 import { AxiosError } from "axios";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -95,45 +99,55 @@ export default defineComponent({
 
     const save = async () => {
       try {
-        tagsError.value = '';
+        tagsError.value = "";
         console.log(inputTags.value);
-        await store.dispatch('devices/updateDeviceTag', {
+        await store.dispatch("devices/updateDeviceTag", {
           uid: props.deviceUid,
-          tags: { tags: inputTags.value},
+          tags: { tags: inputTags.value },
         });
 
-        await store.dispatch('tags/setTags', {
+        await store.dispatch("tags/setTags", {
           data: inputTags.value,
           headers: {
-            'x-total-count': inputTags.value.length,
+            "x-total-count": inputTags.value.length,
           },
         });
         showDialog.value = false;
-        store.dispatch('snackbar/showSnackbarSuccessAction', "$success.deviceTagUpdate");
+        store.dispatch(
+          "snackbar/showSnackbarSuccessAction",
+          INotificationsSuccess.deviceTagUpdate
+        );
 
         ctx.emit("update");
-      } catch (error : any){
+      } catch (error: any) {
         console.log(error.response.status);
         console.log(error.code);
-        switch (error.response.status ) {
-        // when the name the format is invalid.
-        case (400): {
-          tagsError.value = 'The format is invalid. Min 3, Max 255 characters!';
-          break;
-        }
-        // when the user is not authorized.
-        case (403): {
-          store.dispatch('snackbar/showSnackbarErrorAction', "$errors.snackbar.deviceTagUpdate");
-          break;
-        }
-        // When the array tag size reached the max capacity.
-        case (406): {
-          tagsError.value = 'The maximum capacity has reached.';
-          break;
-        }
-        default: {
-          store.dispatch('snackbar/showSnackbarErrorAction', "$errors.snackbar.deviceTagUpdate");
-        }
+        switch (error.response.status) {
+          // when the name the format is invalid.
+          case 400: {
+            tagsError.value =
+              "The format is invalid. Min 3, Max 255 characters!";
+            break;
+          }
+          // when the user is not authorized.
+          case 403: {
+            store.dispatch(
+              "snackbar/showSnackbarErrorAction",
+              INotificationsError.deviceTagUpdate
+            );
+            break;
+          }
+          // When the array tag size reached the max capacity.
+          case 406: {
+            tagsError.value = "The maximum capacity has reached.";
+            break;
+          }
+          default: {
+            store.dispatch(
+              "snackbar/showSnackbarErrorAction",
+              INotificationsError.deviceTagUpdate
+            );
+          }
         }
       }
       return false;
@@ -143,7 +157,6 @@ export default defineComponent({
       showDialog.value = false;
       inputTags.value = props.tagsList;
     };
-    
 
     return {
       inputTags,

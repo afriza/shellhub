@@ -19,7 +19,9 @@
       <v-divider />
 
       <v-card-text class="mt-4 mb-0 pb-1">
-        <p class="text-body-2 mb-2">You are about to remove this user from the namespace.</p>
+        <p class="text-body-2 mb-2">
+          You are about to remove this user from the namespace.
+        </p>
 
         <p class="text-body-2 mb-2">
           After confirming this action cannot be redone.
@@ -40,6 +42,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, ref } from "vue";
 import { useStore } from "../../store";
 
@@ -66,16 +72,22 @@ export default defineComponent({
 
     const remove = async () => {
       try {
-        const tenant = store.getters['auth/tenant'];
-        await store.dispatch('namespaces/removeUser', {
+        const tenant = store.getters["auth/tenant"];
+        await store.dispatch("namespaces/removeUser", {
           user_id: props.member.id,
           tenant_id: tenant,
         });
 
         update();
-        store.dispatch('snackbar/showSnackbarSuccessAction', "namespaceRemoveUser");
+        store.dispatch(
+          "snackbar/showSnackbarSuccessAction",
+          INotificationsSuccess.namespaceDelete
+        );
       } catch {
-        store.dispatch('snackbar/showSnackbarErrorAction', "snackbar.namespaceRemoveUser");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.namespaceRemoveUser
+        );
       }
     };
 

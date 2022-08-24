@@ -162,6 +162,7 @@ import { authorizer, actions } from "../authorizer";
 import SessionDelete from "../components/Sessions/SessionDelete.vue";
 import SessionClose from "../components/Sessions/SessionClose.vue";
 import SessionPlay from "../components/Sessions/SessionPlay.vue";
+import { INotificationsError } from "../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -177,7 +178,7 @@ export default defineComponent({
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "INotificationsError.session"
+          INotificationsError.sessionDetails
         );
       }
     });
@@ -193,7 +194,7 @@ export default defineComponent({
         await store.dispatch("sessions/get", sessionId.value);
         session.value = store.getters["sessions/get"];
       } catch {
-        store.dispatch("snackbar/showSnackbarErrorAction", "session");
+        store.dispatch("snackbar/showSnackbarErrorAction", INotificationsError.sessionDetails);
       }
     };
 

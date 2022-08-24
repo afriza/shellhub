@@ -139,6 +139,10 @@ import {
 import { useStore } from "../../store";
 import * as yup from "yup";
 import { IPublicKey } from "../../interfaces/IPublicKey";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 // import { validateKey } from "../../utils/validate";
 
 export default defineComponent({
@@ -377,13 +381,13 @@ export default defineComponent({
           await store.dispatch("publicKeys/put", keySend);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            "$success.publicKeyEditing"
+            INotificationsSuccess.publicKeyEditing
           );
           update();
         } catch {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.publicKeyEditing"
+            INotificationsError.publicKeyEditing
           );
         }
       }

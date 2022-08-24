@@ -55,6 +55,10 @@ import { useField } from "vee-validate";
 import { defineComponent, onMounted, ref } from "vue";
 import { useStore } from "../../store";
 import * as yup from "yup";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -104,12 +108,12 @@ export default defineComponent({
           update();
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",
-            " $success.deviceTagEdit"
+            INotificationsSuccess.deviceTagEdit
           );
         } catch {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.deviceTagEdit"
+            INotificationsError.deviceTagEdit
           );
         }
       }

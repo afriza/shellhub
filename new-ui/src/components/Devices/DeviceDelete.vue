@@ -1,10 +1,10 @@
 <template>
-  <v-list-item  @click="showDialog = true">
+  <v-list-item @click="showDialog = true">
     <div class="d-flex align-center">
       <v-list-item-avatar class="mr-2">
         <v-icon color="white"> mdi-delete </v-icon>
       </v-list-item-avatar>
-  
+
       <v-list-item-title data-test="mdi-information-list-item">
         Remove
       </v-list-item-title>
@@ -19,14 +19,11 @@
       <v-divider />
 
       <v-card-text class="mt-4 mb-0 pb-1">
-        <p class="text-body-2 mb-2">
-            You are about to remove this device.
-        </p>
+        <p class="text-body-2 mb-2">You are about to remove this device.</p>
 
         <p class="text-body-2 mb-2">
-            After confirming this action cannot be redone.
+          After confirming this action cannot be redone.
         </p>
-
       </v-card-text>
 
       <v-card-actions>
@@ -34,13 +31,19 @@
 
         <v-btn variant="text" @click="showDialog = false"> Close </v-btn>
 
-        <v-btn color="red darken-1" variant="text" @click="remove()"> Remove </v-btn>
+        <v-btn color="red darken-1" variant="text" @click="remove()">
+          Remove
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotification";
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "../../store";
@@ -65,23 +68,28 @@ export default defineComponent({
 
     const remove = async () => {
       try {
-        await store.dispatch('devices/remove', props.uid);
+        await store.dispatch("devices/remove", props.uid);
 
         if (props.redirect) {
-          router.push('/devices');
+          router.push("/devices");
         } else {
-          await store.dispatch('tags/fetch');
+          await store.dispatch("tags/fetch");
         }
 
-        store.dispatch('snackbar/showSnackbarSuccessAction', "success.deviceDelete");
-        ctx.emit('update');
+        store.dispatch(
+          "snackbar/showSnackbarSuccessAction",
+          INotificationsSuccess.deviceDelete
+        );
+        ctx.emit("update");
       } catch {
-        store.dispatch('snackbar/showSnackbarErrorAction', "errors.snackbar.deviceDelete");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceDelete
+        );
       } finally {
         showDialog.value = false;
       }
     };
-
 
     return {
       showDialog,

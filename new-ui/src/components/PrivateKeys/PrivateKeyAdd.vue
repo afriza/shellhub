@@ -77,7 +77,10 @@ import { actions, authorizer } from "../../authorizer";
 import { useStore } from "../../store";
 import hasPermission from "../../utils/permission";
 import * as yup from "yup";
-// import { validateKey } from "../../utils/validate";
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -142,7 +145,7 @@ export default defineComponent({
           });
           store.dispatch(
             "snackbar/showSnackbarSuccessNotRequest",
-            "$success.privateKeyCreating"
+            INotificationsSuccess.privateKeyCreating
           );
           ctx.emit("update");
           close();
@@ -164,7 +167,7 @@ export default defineComponent({
             default: {
               store.dispatch(
                 "snackbar/showSnackbarErrorNotRequest",
-                "$errors.snackbar.privateKeyCreating"
+                INotificationsError.privateKeyCreating
               );
             }
           }

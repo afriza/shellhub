@@ -28,6 +28,7 @@ import { defineComponent, computed, onMounted, ref, watch } from "vue";
 import hasPermission from "../../utils/permission";
 import { actions, authorizer } from "../../authorizer";
 import { useStore } from "../../store";
+import { INotificationsSuccess } from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -50,7 +51,7 @@ export default defineComponent({
         await store.dispatch("security/set", data);
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "success.namespaceEdit"
+          INotificationsSuccess.namespaceEdit
         );
       } catch {
         store.dispatch("snackbar/showSnackbarErrorDefault");

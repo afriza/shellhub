@@ -89,7 +89,11 @@
                   </div>
                 </v-list-item>
 
-                <TagFormUpdate :device-uid="item.uid" :tagsList="item.tags" @update="refreshUsers" />
+                <TagFormUpdate
+                  :device-uid="item.uid"
+                  :tagsList="item.tags"
+                  @update="refreshUsers"
+                />
 
                 <DeviceDelete :uid="item.uid" @update="refreshUsers" />
               </v-list>
@@ -106,12 +110,16 @@ import { defineComponent, ref, onMounted, watch, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "../../store";
 import { formatDate } from "../../utils/formateDate";
-import {displayOnlyTenCharacters} from "../../utils/string";
+import { displayOnlyTenCharacters } from "../../utils/string";
 import showTag from "../../utils/tag";
 import DataTable from "../DataTable.vue";
 import DeviceIcon from "./DeviceIcon.vue";
 import DeviceDelete from "./DeviceDelete.vue";
 import TagFormUpdate from "../Tags/TagFormUpdate.vue";
+import {
+  INotificationsCopy,
+  INotificationsError,
+} from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -140,7 +148,10 @@ export default defineComponent({
           sortStatusString: "",
         });
       } catch {
-        store.dispatch("snackbar/showSnackbarErrorAction", "device list");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceList
+        );
       } finally {
         loading.value = false;
       }
@@ -164,7 +175,10 @@ export default defineComponent({
 
         loading.value = false;
       } catch (error) {
-        store.dispatch("snackbar/showSnackbarErrorAction", "device list");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceList
+        );
       }
     };
 
@@ -220,7 +234,7 @@ export default defineComponent({
         navigator.clipboard.writeText(value);
         store.dispatch(
           "snackbar/showSnackbarCopy",
-          "INotificationsCopy.tenantId"
+          INotificationsCopy.tenantId
         );
       }
     };

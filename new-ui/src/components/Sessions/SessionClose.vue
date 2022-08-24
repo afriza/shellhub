@@ -46,6 +46,10 @@
 </template>
 
 <script lang="ts">
+import {
+  INotificationsError,
+  INotificationsSuccess,
+} from "../../interfaces/INotifications";
 import { defineComponent, PropType, ref } from "vue";
 import { IDevice } from "../../interfaces/IDevice";
 import { useStore } from "../../store";
@@ -72,15 +76,21 @@ export default defineComponent({
 
     const closeSession = async () => {
       try {
-        await store.dispatch('sessions/close', {
+        await store.dispatch("sessions/close", {
           uid: props.uid,
           device_uid: props.device.uid,
         });
         showDialog.value = false;
-        store.dispatch('snackbar/showSnackbarSuccessAction', "success.sessionClose");
-        ctx.emit('update');
+        store.dispatch(
+          "snackbar/showSnackbarSuccessAction",
+          INotificationsSuccess.sessionClose
+        );
+        ctx.emit("update");
       } catch {
-        store.dispatch('snackbar/showSnackbarErrorAction', "errors.snackbar.sessionClose");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.sessionClose
+        );
       }
     };
 

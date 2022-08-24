@@ -10,6 +10,7 @@ import { useRouter } from "vue-router";
 import SimpleLayout from "./layouts/SimpleLayout.vue";
 import AppLayout from "./layouts/AppLayout.vue";
 import { useStore } from "./store";
+import { INotificationsError } from "./interfaces/INotification";
 
 export default defineComponent({
   name: "App",
@@ -33,7 +34,7 @@ export default defineComponent({
           store.dispatch("layout/setLayout", "simpleLayout");
           router.push("/login");
         } catch {
-          store.dispatch("snackbar/showSnackbarErrorAction", "INotificationsError.namespaceLoad");
+          store.dispatch("snackbar/showSnackbarErrorAction", INotificationsError.namespaceLoad);
         }
       }
     });

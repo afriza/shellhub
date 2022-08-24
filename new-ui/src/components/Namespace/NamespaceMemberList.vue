@@ -95,6 +95,7 @@ import hasPermission from "../../utils/permission";
 import { actions, authorizer } from "../../authorizer";
 import NamespaceMemberDelete from "./NamespaceMemberDelete.vue";
 import NamespaceMemberEdit from "./NamespaceMemberEdit.vue";
+import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
   props: {
@@ -136,7 +137,7 @@ export default defineComponent({
         } else {
           store.dispatch(
             "snackbar/showSnackbarErrorAction",
-            "$errors.snackbar.namespaceLoad"
+            INotificationsError.namespaceLoad
           );
         }
       }

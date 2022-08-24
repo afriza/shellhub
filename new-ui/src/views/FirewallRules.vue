@@ -43,6 +43,7 @@ import { useStore } from "../store";
 import BoxMessage from "../components/Box/BoxMessage.vue";
 import FirewallRuleList from "../components/firewall/FirewallRuleList.vue";
 import FirewallRuleAdd from "../components/firewall/FirewallRuleAdd.vue";
+import { INotificationsError } from "../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -68,7 +69,7 @@ export default defineComponent({
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorLoading",
-          "$errors.snackbar.firewallRuleList"
+          INotificationsError.firewallRuleList
         );
       }
     };

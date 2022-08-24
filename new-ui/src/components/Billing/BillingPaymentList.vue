@@ -51,6 +51,7 @@
 </template>
 
 <script lang="ts">
+import { INotificationsError, INotificationsSuccess } from "../../interfaces/INotification";
 import { defineComponent, computed } from "vue";
 import { useStore } from "../../store";
 import BillingIcon from "./BillingIcon.vue";
@@ -71,13 +72,13 @@ export default defineComponent({
         await store.dispatch("billing/updatePaymentMethod", paymentMethodId);
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "$success.updateSubscription"
+          INotificationsSuccess.updateSubscription
         );
         ctx.emit("update");
       } catch (error) {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "snackbar.updateSubscription"
+          INotificationsError.subscription
         );
       }
     };
@@ -86,13 +87,13 @@ export default defineComponent({
         await store.dispatch("billing/removePaymentMethod", paymentMethodId);
         store.dispatch(
           "snackbar/showSnackbarSuccessAction",
-          "$success.updateSubscription"
+          INotificationsSuccess.updateSubscription
         );
         ctx.emit("update");
       } catch (error) {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "$errors.snackbar.deletePaymentMethod"
+          INotificationsError.deletePaymentMethod
         );
       }
     };

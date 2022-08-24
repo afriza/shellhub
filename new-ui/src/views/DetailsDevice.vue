@@ -22,8 +22,11 @@
             </v-chip>
           </template>
           <v-list class="bg-v-theme-surface" lines="two" density="compact">
-            
-            <DeviceRename :uid="device.uid" :name="device.name" @newHostname="receiveName"/>
+            <DeviceRename
+              :uid="device.uid"
+              :name="device.name"
+              @newHostname="receiveName"
+            />
 
             <TagFormUpdate
               :device-uid="device.uid"
@@ -118,6 +121,7 @@ import DeviceIcon from "../components/Devices/DeviceIcon.vue";
 import TagFormUpdate from "../components/Tags/TagFormUpdate.vue";
 import DeviceDelete from "../components/Devices/DeviceDelete.vue";
 import DeviceRename from "../components/Devices/DeviceRename.vue";
+import { INotificationsError } from "../interfaces/INotifications";
 
 export default defineComponent({
   name: "DeviceDetails",
@@ -134,7 +138,7 @@ export default defineComponent({
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",
-          "INotificationsError.deviceDetails"
+          INotificationsError.deviceDetails
         );
       }
     });
@@ -149,11 +153,14 @@ export default defineComponent({
         await store.dispatch("devices/get", deviceId.value);
         device.value = store.getters["devices/get"];
       } catch {
-        store.dispatch("snackbar/showSnackbarErrorAction", "device");
+        store.dispatch(
+          "snackbar/showSnackbarErrorAction",
+          INotificationsError.deviceDetails
+        );
       }
     };
 
-    const receiveName = (params : string) => {
+    const receiveName = (params: string) => {
       device.value.name = params;
     };
 

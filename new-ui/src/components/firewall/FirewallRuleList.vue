@@ -49,26 +49,26 @@
             </div>
             <div v-else>
               <v-tooltip
-              v-for="(tag, index) in item.filter.tags"
-              :key="index"
-              bottom
-              :disabled="!showTag(tag)"
-            >
-              <template #activator="{ props }">
-                <v-chip
-                  class="mr-1"
-                  density="compact"
-                  outlined
-                  v-bind="props"
-                >
-                  {{ displayOnlyTenCharacters(tag) }}
-                </v-chip>
-              </template>
+                v-for="(tag, index) in item.filter.tags"
+                :key="index"
+                bottom
+                :disabled="!showTag(tag)"
+              >
+                <template #activator="{ props }">
+                  <v-chip
+                    class="mr-1"
+                    density="compact"
+                    outlined
+                    v-bind="props"
+                  >
+                    {{ displayOnlyTenCharacters(tag) }}
+                  </v-chip>
+                </template>
 
-              <span v-if="showTag(tag)">
-                {{ tag }}
-              </span>
-            </v-tooltip>
+                <span v-if="showTag(tag)">
+                  {{ tag }}
+                </span>
+              </v-tooltip>
             </div>
           </td>
 
@@ -80,7 +80,6 @@
                 </v-chip>
               </template>
               <v-list class="bg-v-theme-surface" lines="two" density="compact">
-
                 <v-tooltip
                   location="bottom"
                   :disabled="hasAuthorizationFormDialogEdit()"
@@ -97,7 +96,10 @@
                   <span> You don't have this kind of authorization. </span>
                 </v-tooltip>
 
-                <FirewallRuleDelete :id="item.id" @update="refreshFirewallRules" />
+                <FirewallRuleDelete
+                  :id="item.id"
+                  @update="refreshFirewallRules"
+                />
               </v-list>
             </v-menu>
           </td>
@@ -119,7 +121,7 @@ import hasPermission from "../../utils/permission";
 import DataTable from "../DataTable.vue";
 import FirewallRuleDelete from "./FirewallRuleDelete.vue";
 import FirewallRuleEdit from "./FirewallRuleEdit.vue";
-
+import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
   setup() {
@@ -130,7 +132,9 @@ export default defineComponent({
 
     const firewallRules = computed(() => store.getters["firewallRules/list"]);
 
-    const getNumberFirewallRules = computed(() => store.getters["firewallRules/getNumberFirewalls"]);
+    const getNumberFirewallRules = computed(
+      () => store.getters["firewallRules/getNumberFirewalls"]
+    );
 
     onMounted(() => {
       getFirewalls(itemsPerPage.value, page.value);
@@ -155,7 +159,7 @@ export default defineComponent({
           } else {
             store.dispatch(
               "snackbar/showSnackbarErrorLoading",
-              "firewall rules"
+              INotificationsError.firewallRuleList
             );
           }
         } finally {
@@ -188,30 +192,30 @@ export default defineComponent({
       await getFirewalls(itemsPerPage.value, page.value);
     });
 
-    const refreshFirewallRules = async  () => {
+    const refreshFirewallRules = async () => {
       await store.dispatch("firewallRules/refresh");
       getFirewalls(itemsPerPage.value, page.value);
     };
 
     const formatSourceIP = (ip: string) => (ip === ".*" ? "Any IP" : ip);
 
-    const formatUsername = (username: string) => username === ".*" ? "All users" : username;
+    const formatUsername = (username: string) =>
+      username === ".*" ? "All users" : username;
 
-    const formatHostnameFilter = (filter: filterType) => filter.hostname === ".*" ? "All devices" : filter.hostname;
+    const formatHostnameFilter = (filter: filterType) =>
+      filter.hostname === ".*" ? "All devices" : filter.hostname;
 
-    const isHostname = (filter: filterType) => Object.prototype.hasOwnProperty.call(filter, "hostname");
+    const isHostname = (filter: filterType) =>
+      Object.prototype.hasOwnProperty.call(filter, "hostname");
 
     const hasAuthorizationFormDialogEdit = () => {
-      const role = store.getters['auth/role'];
-      if (role !== '') {
-        return hasPermission(
-          authorizer.role[role],
-          actions.firewall["edit"],
-        );
+      const role = store.getters["auth/role"];
+      if (role !== "") {
+        return hasPermission(authorizer.role[role], actions.firewall["edit"]);
       }
 
       return false;
-    }
+    };
 
     return {
       headers: [
@@ -264,6 +268,11 @@ export default defineComponent({
       hasAuthorizationFormDialogEdit,
     };
   },
-  components: { DataTable, FirewallRuleDelete, FirewallRuleDelete, FirewallRuleEdit },
+  components: {
+    DataTable,
+    FirewallRuleDelete,
+    FirewallRuleDelete,
+    FirewallRuleEdit,
+  },
 });
 </script>
