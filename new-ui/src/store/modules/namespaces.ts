@@ -80,12 +80,13 @@ export const namespaces: Module<NamespacesState, State> = {
 
   actions: {
     post: async (context, data) => {
+      console.log(data)
       const res = await apiNamespace.postNamespace(data);
       return res;
     },
 
-    fetch: async (context) => {
-      const res = await apiNamespace.fetchNamespaces();
+    fetch: async (context, data) => {
+      const res = await apiNamespace.fetchNamespaces(data.page, data.perPage, data.filter);
       context.commit("setNamespaces", res);
     },
 

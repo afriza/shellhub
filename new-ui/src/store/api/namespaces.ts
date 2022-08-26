@@ -1,8 +1,10 @@
 import http from "../helpers/http";
 import { namespacesApi } from "../../api/http";
 
-export const postNamespace = async (data: any) =>
-  namespacesApi.createNamespace(data.name);
+export const postNamespace = async (data: any) => http().post('/namespaces', {
+  name: data.name,
+});
+  // namespacesApi.createNamespace(data.tenant_id, { name: data.name });
 
 export const fetchNamespaces = async (page: any, perPage: any, filter: any) => {
   if (filter) return namespacesApi.getNamespaces(filter, page, perPage);

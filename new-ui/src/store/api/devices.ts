@@ -1,4 +1,3 @@
-import http from '../helpers/http';
 import { devicesApi, tagsApi } from "../../api/http";
 
 

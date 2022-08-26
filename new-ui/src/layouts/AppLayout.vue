@@ -15,8 +15,8 @@
         <v-divider class="ma-2" />
       </v-app-bar-title>
 
-      <div>
-        <h3 class="d-flex justify-center pa-4 pb-2">NameSpaces here</h3>
+      <div class="pa-2">
+          <Namespace data-test="namespace-component" />
         <v-divider class="ma-2" />
       </div>
 
@@ -119,6 +119,9 @@
       </slot>
     </v-main>
   </v-app>
+
+  <UserWarning data-test="userWarning-component" />
+
 </template>
 
 <script lang="ts">
@@ -126,6 +129,8 @@ import { computed, ref } from "vue";
 import { RouteLocationRaw, useRouter } from "vue-router";
 import Logo from "../assets/logo-inverted.png";
 import { useStore } from "../store";
+import UserWarning from "../components/User/UserWarning.vue";
+import Namespace from "../../src/components/Namespace/Namespace.vue";
 
 const items = [
   {
@@ -170,81 +175,70 @@ type MenuItem = {
 };
 
 export default {
-  name: "AppLayout",
-  setup() {
-    const router = useRouter();
-    const defaultSize = ref(24);
-    const drawer = ref(true);
-    const store = useStore();
-
-    const getStatusDarkMode =  computed(() => store.getters["layout/getStatusDarkMode"]);
-    const isDarkMode = ref(getStatusDarkMode.value === "dark");
-
-    const currentRoute = computed(() => router.currentRoute);
-    const currentUser = computed(() => store.getters["auth/currentUser"]);
-
-
-    const visibleItems = computed(() => items.filter((item) => !item.hidden));
-
-    const hasNamespaces = computed(
-      () => store.getters["namespaces/getNumberNamespaces"] !== 0
-    );
-
-    const disableItem = (item: any) => !hasNamespaces && item !== "dashboard";
-
-    const triggerClick = (item: MenuItem): void => {
-      switch (item.type) {
-        case "path":
-          router.push(item.path);
-          break;
-        case "method":
-          item.method();
-          break;
-        default:
-          break;
-      }
-    };
-
-    const logout = async () => {
-      await store.dispatch("auth/logout");
-      await router.push("/login");
-      store.dispatch("layout/setLayout", "simpleLayout");
-    };
-
-    const toggleDarkMode = () => {
-      isDarkMode.value = !isDarkMode.value;
-      store.dispatch("layout/setStatusDarkMode", isDarkMode.value);
-    };
-
-    return {
-      Logo,
-      drawer,
-      isDarkMode,
-      currentRoute,
-      currentUser,
-      getStatusDarkMode,
-      visibleItems,
-      defaultSize,
-      disableItem,
-      triggerClick,
-      toggleDarkMode,
-      menu: [
-        {
-          title: "Settings",
-          type: "path",
-          path: "/settings",
-          icon: "mdi-cog",
-          items: [{ title: "Profile", path: "/settings" }],
-        },
-        {
-          title: "Logout",
-          type: "method",
-          icon: "mdi-logout",
-          path: "",
-          method: logout,
-        },
-      ],
-    };
-  },
+    name: "AppLayout",
+    setup() {
+        const router = useRouter();
+        const defaultSize = ref(24);
+        const drawer = ref(true);
+        const store = useStore();
+        const getStatusDarkMode = computed(() => store.getters["layout/getStatusDarkMode"]);
+        const isDarkMode = ref(getStatusDarkMode.value === "dark");
+        const currentRoute = computed(() => router.currentRoute);
+        const currentUser = computed(() => store.getters["auth/currentUser"]);
+        const visibleItems = computed(() => items.filter((item) => !item.hidden));
+        const hasNamespaces = computed(() => store.getters["namespaces/getNumberNamespaces"] !== 0);
+        const disableItem = (item: any) => !hasNamespaces && item !== "dashboard";
+        const triggerClick = (item: MenuItem): void => {
+            switch (item.type) {
+                case "path":
+                    router.push(item.path);
+                    break;
+                case "method":
+                    item.method();
+                    break;
+                default:
+                    break;
+            }
+        };
+        const logout = async () => {
+            await store.dispatch("auth/logout");
+            await router.push("/login");
+            store.dispatch("layout/setLayout", "simpleLayout");
+        };
+        const toggleDarkMode = () => {
+            isDarkMode.value = !isDarkMode.value;
+            store.dispatch("layout/setStatusDarkMode", isDarkMode.value);
+        };
+        return {
+            Logo,
+            drawer,
+            isDarkMode,
+            currentRoute,
+            currentUser,
+            getStatusDarkMode,
+            visibleItems,
+            defaultSize,
+            disableItem,
+            triggerClick,
+            toggleDarkMode,
+            menu: [
+                {
+                    title: "Settings",
+                    type: "path",
+                    path: "/settings",
+                    icon: "mdi-cog",
+                    items: [{ title: "Profile", path: "/settings" }],
+                },
+                {
+                    title: "Logout",
+                    type: "method",
+                    icon: "mdi-logout",
+                    path: "",
+                    method: logout,
+                },
+            ],
+        };
+    },
+    components: { UserWarning, Namespace }
 };
 </script>

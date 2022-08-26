@@ -297,9 +297,7 @@ export default defineComponent({
         // @ts-ignore
         const now = new Date(logs.value[i - 1].time);
         // @ts-ignore
-        const interval = moment
-          .duration(future - now, "milliseconds")
-          .asMilliseconds();
+        const interval = moment.duration(future - now, "milliseconds").asMilliseconds();
         time += interval;
         // @ts-ignore
         message += logs.value[i].message;

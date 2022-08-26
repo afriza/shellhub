@@ -5,7 +5,7 @@
     transition="dialog-bottom-transition"
   >
     <v-card width="520" class="bg-v-theme-surface">
-      <v-card-title class="text-h5 pa-3 bg-primary">
+      <v-card-title class="pa-3 bg-primary">
         Update account
       </v-card-title>
 

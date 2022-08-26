@@ -124,7 +124,7 @@ import showTag from "../../utils/tag";
 import DataTable from "../DataTable.vue";
 import PublicKeyDelete from "./PublicKeyDelete.vue";
 import PublicKeyEdit from "./PublicKeyEdit.vue";
-import { INotificationsError } from "@/interfaces/INotification";
+import { INotificationsError } from "../../interfaces/INotification";
 
 export default defineComponent({
   setup() {
