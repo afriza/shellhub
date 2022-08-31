@@ -1,5 +1,5 @@
 <template>
-  <Welcome :show="false" data-test="welcome-component" />
+  <Welcome :show="show" data-test="welcome-component" />
 
   <NamespaceInstructions
     :show="showInstructions"
@@ -19,6 +19,7 @@ import NamespaceInstructions from "../Namespace/NamespaceInstructions.vue";
 import { INotificationsError } from "../../interfaces/INotifications";
 import { useStore } from "../../store";
 import { envVariables } from "../../envVariables";
+import BillingWarning from "../Billing/BillingWarning.vue";
 
 export default defineComponent({
   setup() {
@@ -69,7 +70,6 @@ export default defineComponent({
           }
         } else {
           // this shows the namespace instructions when the user has no namespace
-          console.log("ta quando não tem nenhum namespace");
           showInstructions.value = true;
         }
       } catch {
@@ -119,8 +119,9 @@ export default defineComponent({
     return {
       showInstructions,
       isBillingEnabled,
+      show,
     };
   },
-  components: { Welcome, NamespaceInstructions },
+  components: { Welcome, NamespaceInstructions, BillingWarning },
 });
 </script>
