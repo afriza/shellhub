@@ -11,7 +11,6 @@ export const fetchDevices = async (
   sortStatusField : any,
   sortStatusString : any,
 ) => {
-  if (filter && !status) return devicesApi.getDevices(filter, page, perPage, status);
 
   if (sortStatusField && sortStatusString) {
     return devicesApi.getDevices(

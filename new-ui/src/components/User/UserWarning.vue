@@ -1,4 +1,9 @@
 <template>
+  <DeviceChooser
+    v-if="isBillingEnabled() && hasWarning"
+    data-test="deviceChooser-component"
+  />
+
   <Welcome :show="show" data-test="welcome-component" />
 
   <NamespaceInstructions
@@ -20,6 +25,7 @@ import { INotificationsError } from "../../interfaces/INotifications";
 import { useStore } from "../../store";
 import { envVariables } from "../../envVariables";
 import BillingWarning from "../Billing/BillingWarning.vue";
+import DeviceChooser from "../Devices/DeviceChooser.vue";
 
 export default defineComponent({
   setup() {
@@ -119,9 +125,10 @@ export default defineComponent({
     return {
       showInstructions,
       isBillingEnabled,
+      hasWarning,
       show,
     };
   },
-  components: { Welcome, NamespaceInstructions, BillingWarning },
+  components: { Welcome, NamespaceInstructions, BillingWarning, DeviceChooser },
 });
 </script>

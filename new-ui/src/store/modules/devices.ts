@@ -210,16 +210,22 @@ export const devices: Module<DevicesState, State> = {
 
     setDevicesForUserToChoose: async (context, data) => {
       try {
+        console.log(data);
         const res = await apiDevice.fetchDevices(
-          data.perPage,
           data.page,
+          data.perPage,
           data.filter,
           data.status,
           data.sortStatusField,
           data.sortStatusString
         );
-        context.commit("setDevicesForUserToChoose", res);
-        context.commit("setPagePerpageFilter", data);
+        if (res.data.length) {
+          context.commit("setDevicesForUserToChoose", res);
+          context.commit("setPagePerpageFilter", data);
+          return res;
+        }
+
+        return false;
       } catch (error) {
         context.commit("clearListDevicesForUserToChoose");
         throw error;
