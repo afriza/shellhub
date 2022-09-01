@@ -89,7 +89,7 @@ export default defineComponent({
   props: {
     show: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     keyObject: {
       type: Object,

@@ -13,7 +13,7 @@
   </v-btn>
 
   <v-dialog v-model="dialog" transition="dialog-bottom-transition">
-    <v-card width="800">
+    <v-card width="800" class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-4 bg-primary">
         Registering a device
       </v-card-title>

@@ -38,7 +38,7 @@
         </td>
       </tr>
     </tbody>
-    <div v-else class="text-center">
+    <div v-else class="text-start mt-2 text-medium-emphasis">
       <span>No data avaliabe</span>
     </div>
   </v-table>

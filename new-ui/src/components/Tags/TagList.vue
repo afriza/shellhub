@@ -50,7 +50,7 @@
         </td>
       </tr>
     </tbody>
-    <div v-else class="mt-4">
+    <div v-else class="text-start mt-2 text-medium-emphasis">
       <p>No data avaliabe</p>
     </div>
   </v-table>
