@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="true">
+  <v-card v-if="true"  class="bg-v-theme-surface">
     <v-tabs background-color="secondary" stacked color="primary" centered>
       <v-tab
         v-for="item in visibleItems"

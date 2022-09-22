@@ -14,7 +14,7 @@
     <tbody v-if="getListPrivateKeys.length">
       <tr v-for="(privateKey, i) in getListPrivateKeys" :key="i">
         <td class="text-center">{{ privateKey.name }}</td>
-        <td class="text-center">{{ privateKey.data.slice(0, 15) }}</td>
+        <td class="text-center">{{ convertToFingerprint(privateKey.data, "md5") }}</td>
         <td class="text-center">
           <v-menu location="bottom" :close-on-content-click="false">
             <template v-slot:activator="{ props }">
@@ -23,8 +23,7 @@
               </v-chip>
             </template>
             <v-list class="bg-v-theme-surface" lines="two" density="compact">
-
-              <PrivateKeyEdit 
+              <PrivateKeyEdit
                 :keyObject="privateKey"
                 @update="getPrivateKeys"
               />
@@ -56,15 +55,13 @@ export default defineComponent({
     const store = useStore();
     const getListPrivateKeys = computed(() => store.getters["privateKey/list"]);
 
-
     onMounted(() => {
       getPrivateKeys();
     });
 
     const getPrivateKeys = async () => {
       await store.dispatch("privateKey/fetch");
-    }
-
+    };
 
     return {
       headers: [

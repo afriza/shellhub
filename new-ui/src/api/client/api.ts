@@ -1263,6 +1263,12 @@ export interface Session {
      * @memberof Session
      */
     'term'?: string;
+    /**
+     * 
+     * @type {SessionPosition}
+     * @memberof Session
+     */
+    'position'?: SessionPosition;
 }
 
 export const SessionTypeEnum = {
@@ -1272,6 +1278,25 @@ export const SessionTypeEnum = {
 
 export type SessionTypeEnum = typeof SessionTypeEnum[keyof typeof SessionTypeEnum];
 
+/**
+ * Session\'s geolocation position
+ * @export
+ * @interface SessionPosition
+ */
+export interface SessionPosition {
+    /**
+     * Session\'s latitude position
+     * @type {number}
+     * @memberof SessionPosition
+     */
+    'latitude'?: number;
+    /**
+     * Session\'s longitude position
+     * @type {number}
+     * @memberof SessionPosition
+     */
+    'longitude'?: number;
+}
 /**
  * 
  * @export

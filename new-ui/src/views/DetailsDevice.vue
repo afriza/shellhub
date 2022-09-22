@@ -5,12 +5,13 @@
   <v-card class="mt-2 bg-v-theme-surface" v-if="!deviceIsEmpty">
     <v-card-title class="pa-4 d-flex align-center justify-space-between">
       <div class="d-flex align-center">
-        <v-btn
-          :color="device.online ? 'success' : 'normal'"
-          variant="outlined"
-          density="comfortable"
-          >Connect</v-btn
-        >
+        <TerminalDialog
+            v-if="device.status === 'accepted'"
+            :enable-connect-button="true"
+            :uid="device.uid"
+            :online="device.online"
+            data-test="terminalDialog-component"
+          />
         <span class="ml-2">{{ device.name }}</span>
       </div>
 
@@ -122,6 +123,7 @@ import TagFormUpdate from "../components/Tags/TagFormUpdate.vue";
 import DeviceDelete from "../components/Devices/DeviceDelete.vue";
 import DeviceRename from "../components/Devices/DeviceRename.vue";
 import { INotificationsError } from "../interfaces/INotifications";
+import TerminalDialog from "../components/Terminal/TerminalDialog.vue";
 
 export default defineComponent({
   name: "DeviceDetails",
@@ -174,6 +176,6 @@ export default defineComponent({
       receiveName,
     };
   },
-  components: { DeviceIcon, TagFormUpdate, DeviceDelete, DeviceRename },
+  components: { DeviceIcon, TagFormUpdate, DeviceDelete, DeviceRename, TerminalDialog },
 });
 </script>

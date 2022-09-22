@@ -19,12 +19,12 @@
       <template v-slot:rows>
         <tr v-for="(item, i) in devices" :key="i">
           <td class="d-flex justify-center">
-            <v-btn
-              :color="item.online ? 'success' : 'normal'"
-              variant="outlined"
-              density="comfortable"
-              >Connect</v-btn
-            >
+            <TerminalDialog
+              :enable-connect-button="true"
+              :uid="item.uid"
+              :online="item.online"
+              data-test="terminalDialog-component"
+            />
           </td>
           <td class="text-center">{{ item.name }}</td>
           <td class="d-flex align-center justify-center">
@@ -92,10 +92,10 @@
                 <TagFormUpdate
                   :device-uid="item.uid"
                   :tagsList="item.tags"
-                  @update="refreshUsers"
+                  @update="refreshDevices"
                 />
 
-                <DeviceDelete :uid="item.uid" @update="refreshUsers" />
+                <DeviceDelete :uid="item.uid" @update="refreshDevices" />
               </v-list>
             </v-menu>
           </td>
@@ -120,6 +120,7 @@ import {
   INotificationsCopy,
   INotificationsError,
 } from "../../interfaces/INotifications";
+import TerminalDialog from "../Terminal/TerminalDialog.vue";
 
 export default defineComponent({
   setup() {
@@ -142,8 +143,9 @@ export default defineComponent({
         loading.value = true;
         await store.dispatch("devices/fetch", {
           perPage: itemsPerPage.value,
-          page: 1,
+          page: page.value,
           filter: "",
+          status: "accepted",
           sortStatusField: "",
           sortStatusString: "",
         });
@@ -162,8 +164,9 @@ export default defineComponent({
         loading.value = true;
 
         const hasDevices = await store.dispatch("devices/fetch", {
-          perPage: perPagaeValue,
           page: pageValue,
+          perPage: perPagaeValue,
+          status: "accepted",
           filter: filter.value,
           sortStatusField: store.getters["devices/sortStatusField"],
           sortStatusString: store.getters["devices/sortStatusString"],
@@ -234,12 +237,12 @@ export default defineComponent({
         navigator.clipboard.writeText(value);
         store.dispatch(
           "snackbar/showSnackbarCopy",
-          INotificationsCopy.tenantId
+          INotificationsCopy.deviceSSHID
         );
       }
     };
 
-    const refreshUsers = () => {
+    const refreshDevices = () => {
       getDevices(itemsPerPage.value, page.value);
     };
 
@@ -289,10 +292,16 @@ export default defineComponent({
       redirectToDevice,
       sshidAddress,
       copyText,
-      refreshUsers,
+      refreshDevices,
     };
   },
-  components: { DataTable, DeviceIcon, DeviceDelete, TagFormUpdate },
+  components: {
+    DataTable,
+    DeviceIcon,
+    DeviceDelete,
+    TagFormUpdate,
+    TerminalDialog,
+  },
 });
 </script>
 

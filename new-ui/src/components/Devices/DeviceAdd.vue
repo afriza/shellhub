@@ -98,7 +98,7 @@ export default defineComponent({
 
     const copyCommand = () => {
       navigator.clipboard.writeText(command());
-      store.dispatch("snackbar/showSnackbarCopy", INotificationsCopy.tenantId);
+      store.dispatch("snackbar/showSnackbarCopy", INotificationsCopy.command);
     };
 
     return {

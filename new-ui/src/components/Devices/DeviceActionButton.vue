@@ -1,25 +1,28 @@
 <template>
-  <v-btn
-    v-if="notificationStatus"
-    x-small
-    color="primary"
-    data-test="notification-btn"
-    @click="doAction()"
-  >
-    Accept
-  </v-btn>
-  <v-tooltip location="bottom" :disabled="hasAuthorization" v-else>
-    <template v-slot:activator="{ props }">
-      <span v-bind="props">
-        <v-list-item-title data-test="action-item" v-on="props">
-          {{ capitalizeText(action) }}
-        </v-list-item-title>
-      </span>
-    </template>
-    <span> You don't have this kind of authorization. </span>
-  </v-tooltip>
-  <v-dialog max-width="450" v-model="dialog" @click:outside="close">
-    <v-card>
+  <v-list-item @click="dialog = !dialog">
+    <v-btn
+      v-if="notificationStatus"
+      x-small
+      color="primary"
+      data-test="notification-btn"
+      @click="doAction()"
+    >
+      {{ icon }}
+      Accept
+    </v-btn>
+    <v-tooltip location="bottom" :disabled="hasAuthorization" v-else>
+      <template v-slot:activator="{ props }">
+        <span v-bind="props">
+          <v-list-item-title data-test="action-item" v-on="props">
+            {{ capitalizeText(action) }}
+          </v-list-item-title>
+        </span>
+      </template>
+      <span> You don't have this kind of authorization. </span>
+    </v-tooltip>
+  </v-list-item>
+  <v-dialog max-width="450px" v-model="dialog" @click:outside="close">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-5 bg-primary">
         Are you sure?
       </v-card-title>
@@ -36,7 +39,7 @@
 
         <v-btn variant="text" @click="close()"> Close </v-btn>
 
-        <v-btn color="red darken-1" variant="text" @click="doAction()">
+        <v-btn variant="text" @click="doAction()">
           {{ action }}
         </v-btn>
       </v-card-actions>
@@ -81,17 +84,6 @@ export default defineComponent({
   setup(props, ctx) {
     const store = useStore();
 
-    const showDialog = computed({
-      get() {
-        return props.show && hasAuthorization;
-      },
-      set(value) {
-        ctx.emit("update:show", value);
-      },
-    });
-
-    const dialog = ref(showDialog.value);
-
     const hasAuthorization = computed(() => {
       const role = store.getters["auth/role"];
       if (role !== "") {
@@ -104,18 +96,24 @@ export default defineComponent({
       return false;
     });
 
+    const dialog = ref(false);
+
     const doAction = () => {
-      switch (props.action) {
-        case "accept":
-          acceptDevice();
-          break;
-        case "reject":
-          rejectDevice();
-          break;
-        case "remove":
-          removeDevice();
-          break;
-        default:
+      if (hasAuthorization.value) {
+        switch (props.action) {
+          case "accept":
+            acceptDevice();
+            break;
+          case "reject":
+            rejectDevice();
+            break;
+          case "remove":
+            removeDevice();
+            break;
+          default:
+        }
+      } else {
+        store.dispatch("snackbar/showSnackbarErrorAssociation");
       }
     };
 
@@ -213,6 +211,7 @@ export default defineComponent({
     const icon = ref(findIcon());
 
     const close = () => {
+      dialog.value = false;
       ctx.emit("update:show", false);
     };
 

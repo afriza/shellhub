@@ -177,11 +177,12 @@ export default defineComponent({
 
     const getSessions = async (perPagaeValue: number, pageValue: number) => {
       if (!store.getters["box/getStatus"]) {
-        const data = { perPage: perPagaeValue, page: pageValue };
-
         try {
           loading.value = true;
-          const hasSessions = await store.dispatch("sessions/fetch", data);
+          const hasSessions = await store.dispatch("sessions/fetch", {
+            page: pageValue,
+            perPage: perPagaeValue,
+          });
 
           if (!hasSessions) {
             page.value--;

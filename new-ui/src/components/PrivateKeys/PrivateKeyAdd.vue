@@ -38,9 +38,11 @@
           <v-textarea
             v-model="publicKeyData"
             label="Private key data"
-            :error-messages="publicKeyDataError"
             required
             :messages="supportedKeys"
+            :error-messages="publicKeyDataError"
+            :update:modelValue="validatePublicKeyData"
+            @change="validatePublicKeyData"
             variant="underlined"
             data-test="data-field"
             rows="5"
@@ -72,7 +74,7 @@
 
 <script lang="ts">
 import { useField } from "vee-validate";
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import { actions, authorizer } from "../../authorizer";
 import { useStore } from "../../store";
 import hasPermission from "../../utils/permission";
@@ -81,6 +83,7 @@ import {
   INotificationsError,
   INotificationsSuccess,
 } from "../../interfaces/INotifications";
+import { validateKey } from "../../utils/validate";
 
 export default defineComponent({
   props: {
@@ -125,7 +128,19 @@ export default defineComponent({
         return true;
       }
 
+      if (!validateKey("private", publicKeyData.value)) {
+        setPublicKeyDataError("Not is a valid private key");
+        return true;
+      }
+
       return false;
+    };
+
+    const validatePublicKeyData = () => {
+      const isValid = validateKey("private", publicKeyData.value);
+      if (!isValid) {
+        setPublicKeyDataError("Not is a valid private key");
+      }
     };
 
     const close = () => {
@@ -194,6 +209,7 @@ export default defineComponent({
       publicKeyDataError,
       supportedKeys,
       hasAuthorization,
+      validatePublicKeyData,
       create,
       close,
     };

@@ -42,48 +42,28 @@
           </td>
 
           <td class="text-center">
-            <v-menu location="bottom">
+            <v-menu location="bottom" :close-on-content-click="false">
               <template v-slot:activator="{ props }">
                 <v-chip density="comfortable" size="small">
                   <v-icon v-bind="props">mdi-dots-horizontal</v-icon>
                 </v-chip>
               </template>
               <v-list class="bg-v-theme-surface" lines="two" density="compact">
-                <v-list-item @click="redirectToDevice(item)">
-                  <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
-                      <v-icon color="white"> mdi-information </v-icon>
-                    </v-list-item-avatar>
+                <DeviceActionButton
+                  :uid="item.uid"
+                  action="accept"
+                  :show.sync="showDeviceAcceptButton"
+                  data-test="DeviceActionButtonAccept-component"
+                  @update="refreshDevices"
+                />
 
-                    <v-list-item-title data-test="mdi-information-list-item">
-                      Details
-                    </v-list-item-title>
-                  </div>
-                </v-list-item>
-
-                <v-list-item @click="redirectToDevice(item)">
-                  <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
-                      <v-icon color="white"> mdi-tag </v-icon>
-                    </v-list-item-avatar>
-
-                    <v-list-item-title data-test="mdi-information-list-item">
-                      Edit tags
-                    </v-list-item-title>
-                  </div>
-                </v-list-item>
-
-                <v-list-item @click="redirectToDevice(item)">
-                  <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
-                      <v-icon color="white"> mdi-delete </v-icon>
-                    </v-list-item-avatar>
-
-                    <v-list-item-title data-test="mdi-information-list-item">
-                      Remove
-                    </v-list-item-title>
-                  </div>
-                </v-list-item>
+                <DeviceActionButton
+                  :uid="item.uid"
+                  action="reject"
+                  :show="showDeviceRejectButton"
+                  data-test="deviceActionButtonReject-component"
+                  @update="refreshDevices"
+                />
               </v-list>
             </v-menu>
           </td>
@@ -106,6 +86,7 @@ import {
   INotificationsCopy,
   INotificationsError,
 } from "../../interfaces/INotifications";
+import DeviceActionButton from "./DeviceActionButton.vue";
 
 export default defineComponent({
   setup() {
@@ -115,6 +96,8 @@ export default defineComponent({
     const filter = ref("");
     const itemsPerPage = ref(10);
     const page = ref(1);
+    const showDeviceAcceptButton = ref(false);
+    const showDeviceRejectButton = ref(false);
 
     const devices = computed(() => store.getters["devices/list"]);
     const numberDevices = computed(
@@ -125,7 +108,7 @@ export default defineComponent({
       try {
         loading.value = true;
         await store.dispatch("devices/fetch", {
-          page: 1,
+          page: page.value,
           perPage: itemsPerPage.value,
           filter: "",
           status: "pending",
@@ -148,9 +131,10 @@ export default defineComponent({
         loading.value = true;
 
         const hasDevices = await store.dispatch("devices/fetch", {
-          perPage: perPagaeValue,
           page: pageValue,
+          perPage: perPagaeValue,
           filter: filter.value,
+          status: "pending",
           sortStatusField: store.getters["devices/sortStatusField"],
           sortStatusString: store.getters["devices/sortStatusString"],
         });
@@ -225,6 +209,18 @@ export default defineComponent({
       }
     };
 
+    const changeDeviceAcceptButton = () => {
+      showDeviceAcceptButton.value = !showDeviceAcceptButton.value;
+    };
+
+    const changeDeviceRejectButton = () => {
+      showDeviceRejectButton.value = !showDeviceRejectButton.value;
+    };
+
+    const refreshDevices = () => {
+      getDevices(itemsPerPage.value, page.value);
+    };
+
     return {
       headers: [
         {
@@ -261,9 +257,14 @@ export default defineComponent({
       redirectToDevice,
       sshidAddress,
       copyText,
+      refreshDevices,
+      showDeviceAcceptButton,
+      showDeviceRejectButton,
+      changeDeviceAcceptButton,
+      changeDeviceRejectButton,
     };
   },
-  components: { DataTable, DeviceIcon },
+  components: { DataTable, DeviceIcon, DeviceActionButton },
 });
 </script>
 

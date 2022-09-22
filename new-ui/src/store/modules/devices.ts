@@ -131,8 +131,14 @@ export const devices: Module<DevicesState, State> = {
           data.sortStatusField,
           data.sortStatusString
         );
-        context.commit("setDevices", res);
-        context.commit("setPagePerpageFilter", data);
+        if (res.data.length) {
+          context.commit("setDevices", res);
+          context.commit("setPagePerpageFilter", data);
+          return res;
+        } else {
+          context.commit("clearListDevices");
+          return false;
+        }
       } catch (error) {
         context.commit("clearListDevices");
         throw error;
@@ -181,6 +187,24 @@ export const devices: Module<DevicesState, State> = {
           state.sortStatusString
         );
         commit("setDevices", res);
+      } catch (error) {
+        commit("clearListDevices");
+        throw error;
+      }
+    },
+
+    async search({ commit, state }, data) {
+      try {
+        const res = await apiDevice.fetchDevices(
+          data.page,
+          data.perPage,
+          data.filter,
+          state.status,
+          state.sortStatusField,
+          state.sortStatusString,
+        );
+        commit("setDevices", res);
+        commit("setFilter", data.filter);
       } catch (error) {
         commit("clearListDevices");
         throw error;
