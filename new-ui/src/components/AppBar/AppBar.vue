@@ -15,7 +15,7 @@
       icon="mdi-help-circle"
     />
 
-    <Notification data-test="notification-component"/>
+    <Notification data-test="notification-component" />
 
     <v-menu>
       <template v-slot:activator="{ props }">
@@ -42,9 +42,7 @@
           @click="triggerClick(item)"
         >
           <div class="d-flex align-center">
-            <v-list-item-avatar>
-              <v-icon :icon="item.icon"></v-icon>
-            </v-list-item-avatar>
+            <v-icon :icon="item.icon" class="mr-2"></v-icon>
 
             <v-list-item-title>
               {{ item.title }}
@@ -69,12 +67,6 @@
       </v-list>
     </v-menu>
   </v-app-bar>
-
-  <aside
-    ref="chat"
-    class="gitter-chat-embed is-collapsed"
-    data-room="shellhub-io/community"
-  />
 </template>
 
 <script lang="ts">

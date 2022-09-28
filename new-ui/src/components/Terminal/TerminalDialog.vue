@@ -284,13 +284,10 @@ export default defineComponent({
         signer.update(username.value);
         signature = encodeURIComponent(signer.sign().toString());
       } else {
+        console.log("pk", privateKeyData.data);
         const key = new RSAKey(privateKeyData.data);
-        key.setOptions({ signingScheme: "pkcs1-sha1" });
-        // key.sign(username.value, "base64");
-        signature = encodeURIComponent(
-          // @ts-ignore
-          await createSignatureOfPrivateKey(privateKeyData.data, username.value)
-        );
+        key.setOptions({ signingScheme: 'pkcs1-sha1' });
+        signature = encodeURIComponent(key.sign(username.value, 'base64'));
       }
       const fingerprintt = convertToFingerprint(privateKeyData.data, "md5");
 
