@@ -1,13 +1,11 @@
 <template>
   <v-list-item
-    @click="showDialog = true"
+    @click="showDialog = !showDialog"
     v-bind="$props"
     :disabled="notHasAuthorization"
   >
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
-        <v-icon color="white"> mdi-play </v-icon>
-      </v-list-item-avatar>
+      <v-icon color="white" class="mr-2"> mdi-play </v-icon>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Play Session
@@ -15,13 +13,8 @@
     </div>
   </v-list-item>
 
-  <v-dialog
-    :max-width="1024"
-    :min-width="500"
-    :transition="false"
-    v-model="showDialog"
-  >
-    <v-card class="bg-v-theme-surface">
+  <v-dialog :transition="false" v-model="showDialog">
+    <v-card class="bg-v-theme-surface w-100" width="100%" max-width="1024px" min-width="500px">
       <v-card-title
         class="text-h5 pa-3 bg-primary d-flex justify-space-between align-center"
       >
@@ -33,12 +26,8 @@
           @click="showDialog = false"
         />
       </v-card-title>
-      <v-divider />
 
-      <v-card-text class="mt-4 mb-0 pb-1">
-        <div :ref="terminal" id="playTerminal" />
-      </v-card-text>
-      <v-spacer />
+      <div ref="terminal" />
       <v-card-actions>
         <v-container>
           <v-row no-gutters>
@@ -82,7 +71,8 @@
                   v-model="currentTime"
                   class="ml-0"
                   min="0"
-                  :max="100"
+                  :max="totalLength"
+                  :label="`${nowTimerDisplay} - ${endTimerDisplay}`"
                   hide-details
                   color="primary"
                   data-test="time-slider"
@@ -103,8 +93,8 @@
                   data-test="speed-select"
                   variant="underlined"
                   color="primary"
-                  :update:modelValue="speedChange(defaultSpeed)"
-                ></v-select>
+                  @change="speedChange(defaultSpeed)"
+                />
               </div>
             </v-col>
           </v-row>
@@ -153,8 +143,8 @@ export default defineComponent({
     const terminal = ref<any>(null);
     const currentTime = ref(0);
     const totalLength = ref(0);
-    const endTimerDisplay = ref(0);
-    const getTimerNow = ref(0);
+    const endTimerDisplay = ref("");
+    const getTimerNow = ref("");
     const paused = ref(false);
     const previousPause = ref(false);
     const sliderChange = ref(false);
@@ -164,7 +154,7 @@ export default defineComponent({
     const defaultSpeed = ref(1);
     const transition = ref(false);
     const xterm = ref<any>();
-    const fitAddon = ref<any>();
+    const fitAddon = ref<any>(null);
     const iterativeTimer = ref<any>();
     const iterativePrinting = ref<any>();
 
@@ -183,6 +173,7 @@ export default defineComponent({
 
     onUpdated(() => {
       if (showDialog.value) {
+        console.log(currentTime.value, "currentTime.value");
         setSliderDiplayTime(currentTime.value);
       }
     });
@@ -191,24 +182,22 @@ export default defineComponent({
       if (props.recorded) {
         // receive data
         await store.dispatch("sessions/getLogSession", props.uid);
-        logs.value = store.getters["sessions/get"];
-        console.log("logs", logs.value);
-        totalLength.value = getSliderIntervalLength(null);
+        logs.value = await store.getters["sessions/get"];
+        totalLength.value = await getSliderIntervalLength(null);
         setSliderDiplayTime(null);
         setSliderDiplayTime(currentTime.value);
 
         frames.value = createFrames();
 
         xterm.value = new Terminal({
-          // instantiate Terminal
           cursorBlink: true,
           fontFamily: "monospace",
         });
-        console.log("xterm", xterm.value);
-        console.log("frames", frames.value);
 
-        fitAddon.value = new FitAddon(); // load fit
+        fitAddon.value = new FitAddon();
+        console.log(fitAddon.value, "fitAddon.value");
         xterm.value.loadAddon(fitAddon.value); // adjust screen in container
+
         if (xterm.value.element) {
           xterm.value.reset();
         }
@@ -219,7 +208,7 @@ export default defineComponent({
       // await to change dialog for the connection
       try {
         await openPlay();
-        showDialog.value = !showDialog.value;
+
         await nextTick().then(() => {
           connect();
         });
@@ -232,16 +221,18 @@ export default defineComponent({
     };
 
     const connect = async () => {
-      xterm.value.open(document.getElementById("playTerminal"));
-      fitAddon.value.fit();
-      xterm.value.focus();
-      print(0, logs.value);
-      timer();
+      if (!xterm.value.element) {
+        xterm.value.open(terminal.value);
+        fitAddon.value.fit();
+        xterm.value.focus();
+        print(0, logs.value);
+        timer();
+      }
     };
 
-    const getSliderIntervalLength = (timeMs: number | null) => {
+    const getSliderIntervalLength = async (timeMs: number | null) => {
       let interval;
-
+      console.log(timeMs, "timeMs");
       if (!timeMs) {
         // not params, will return metrics to max timelengtht
         // @ts-ignore
@@ -258,8 +249,8 @@ export default defineComponent({
       return interval;
     };
 
-    const setSliderDiplayTime = (timeMs: number | null) => {
-      const interval = getSliderIntervalLength(timeMs);
+    const setSliderDiplayTime = async (timeMs: number | null) => {
+      const interval = await getSliderIntervalLength(timeMs);
       const duration = moment.duration(interval, "milliseconds");
 
       // format according to how long
@@ -267,12 +258,12 @@ export default defineComponent({
       if (duration.asHours() > 1) hoursFormat = "h";
       else hoursFormat = "";
 
-      // @ts-ignore
-      const displayTime = duration.format(`${hoursFormat}:mm:ss`, {
-        trim: false,
-      });
+      const displayTime = moment
+        .utc(duration.asMilliseconds())
+        .format(`${hoursFormat ? hoursFormat + ":" : ""}mm:ss`);
 
       if (timeMs) {
+        console.log("getTimerNow if", displayTime);
         endTimerDisplay.value = displayTime;
       } else {
         getTimerNow.value = displayTime;
@@ -296,8 +287,10 @@ export default defineComponent({
         const future = new Date(logs.value[i].time);
         // @ts-ignore
         const now = new Date(logs.value[i - 1].time);
-        // @ts-ignore
-        const interval = moment.duration(future - now, "milliseconds").asMilliseconds();
+        const interval = moment
+          // @ts-ignore
+          .duration(future - now, "milliseconds")
+          .asMilliseconds();
         time += interval;
         // @ts-ignore
         message += logs.value[i].message;
@@ -311,7 +304,7 @@ export default defineComponent({
 
     const speedChange = (speed: number) => {
       defaultSpeed.value = speed;
-      xtermSyncFrame(currentTime.value);
+      // xtermSyncFrame(currentTime.value);
     };
 
     const timer = () => {
@@ -338,7 +331,7 @@ export default defineComponent({
 
     const close = () => {
       transition.value = true;
-      if (xterm.value) xterm.value.dispose();
+      if (xterm.value) xterm.value = null; //.dispose();
       clear();
       currentTime.value = 0;
       paused.value = false;
@@ -354,26 +347,29 @@ export default defineComponent({
     };
 
     const xtermSyncFrame = (givenTime: any) => {
-      console.log("xtem", xterm.value);
-      // xterm.value.write('\u001Bc'); // clean screen
-      const frame = searchClosestFrame(givenTime, frames.value);
-      clear();
-      xterm.value.write(frame.message); // write frame on xterm
-      iterativeTimer.value = setTimeout(timer.bind(null), 1);
-      iterativePrinting.value = setTimeout(
-        print.bind(null, frame.index + 1, logs.value),
-        // @ts-ignore
-        frame.waitForPrint * (1 / defaultSpeed.value)
-      );
+      if (xterm.value) {
+        xterm.value.write("\u001Bc"); // clean screen
+        const frame = searchClosestFrame(givenTime, frames.value);
+        console.log("frame", frame);
+        console.log("givenTime", givenTime);
+        clear();
+        xterm.value.write(frame.message); // write frame on xterm
+        iterativeTimer.value = setTimeout(timer.bind(null), 1);
+        iterativePrinting.value = setTimeout(
+          print.bind(null, frame.index + 1, logs.value),
+          // @ts-ignore
+          frame.waitForPrint * (1 / defaultSpeed.value)
+        );
+      }
     };
 
     const searchClosestFrame = (givenTime: any, frames: any) => {
       // applies a binary search to find nearest frame
-
       let between;
       let lowerBound = 0;
       let higherBound = frames.length - 1;
       let nextTimeSetPrint;
+      // console.log('frames', frames);
 
       for (; higherBound - lowerBound > 1; ) {
         // progressive increment search

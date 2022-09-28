@@ -84,6 +84,7 @@ import { RouteLocationRaw, useRouter } from "vue-router";
 import Notification from "./Notifications/Notification.vue";
 // @ts-ignore
 import GitterSidecar from "gitter-sidecar";
+import { createNewClient } from "../../api/http";
 
 type MenuItem = {
   title: string;
@@ -123,6 +124,7 @@ export default defineComponent({
     const logout = async () => {
       await store.dispatch("auth/logout");
       await router.push("/login");
+      createNewClient();
       store.dispatch("layout/setLayout", "simpleLayout");
     };
 

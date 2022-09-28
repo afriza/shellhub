@@ -96,6 +96,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useStore } from "../store";
 import Logo from "../assets/logo-inverted.png";
 import { envVariables } from "../envVariables";
+import { createNewClient } from "../api/http";
 
 export default defineComponent({
   setup() {
@@ -131,6 +132,7 @@ export default defineComponent({
             username: username.value,
             password: password.value,
           });
+          createNewClient();
           store.dispatch("layout/setLayout", "appLayout");
           if (route.query.redirect) {
             router.push(`${route.query.redirect}`);

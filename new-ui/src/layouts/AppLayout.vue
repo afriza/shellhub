@@ -60,6 +60,12 @@
         </v-container>
       </slot>
     </v-main>
+
+    <v-overlay v-model="hasSpinner">
+      <div class="full-width-height d-flex justify-center align-center">
+        <v-progress-circular indeterminate size="64" />
+      </div>
+    </v-overlay>
   </v-app>
 
   <UserWarning data-test="userWarning-component" />
@@ -133,6 +139,7 @@ export default {
         store.dispatch("layout/setStatusNavigationDrawer", status);
       },
     });
+    const hasSpinner = computed(() => store.getters["spinner/status"]);
 
     onMounted(() => {
       onResize();
@@ -147,17 +154,19 @@ export default {
     });
 
     const onResize = () => {
-      const isMobile = window.innerWidth <  1265;
+      const isMobile = window.innerWidth < 1265;
       store.dispatch("mobile/setIsMobileStatus", isMobile);
     };
 
-    const disableItem = (item: string) => !hasNamespaces && item !== "Dashboard";
+    const disableItem = (item: string) =>
+      !hasNamespaces && item !== "Dashboard";
 
     return {
       Logo,
       showNavigationDrawer,
       currentRoute,
       visibleItems,
+      hasSpinner,
       disableItem,
       getStatusDarkMode,
     };
@@ -165,3 +174,14 @@ export default {
   components: { UserWarning, Namespace, AppBar },
 };
 </script>
+
+<style lang="css" scoped>
+.admin-name {
+  color: #fff;
+  text-decoration: none;
+}
+.full-width-height {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+</style>

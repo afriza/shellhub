@@ -298,7 +298,6 @@ export default defineComponent({
     };
 
     const connect = (params: any) => {
-      console.log(params);
       if (params.passwd && !username.value && !password.value) {
         return;
       }
