@@ -3,10 +3,10 @@
     {{ actionButton(typeOperation) }}
   </v-btn>
 
-  <v-dialog v-model="dialog">
+  <v-dialog v-model="dialog" max-width="600">
     <v-card
       v-model="dialog"
-      max-width="600"
+      
       class="bg-v-theme-surface"
       data-test="BillingDialogPaymentMethod-dialog"
     >

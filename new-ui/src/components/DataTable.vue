@@ -38,8 +38,6 @@
           variant="underlined"
           hide-details
           class="mb-4"
-          no-filter
-          readonly
         />
       </div>
       <div class="d-flex align-center">

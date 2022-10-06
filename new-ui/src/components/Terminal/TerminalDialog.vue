@@ -23,13 +23,13 @@
     </span>
   </template>
 
-  <v-dialog v-model="showTerminal" @click:outside="close">
-    <v-card
-      data-test="terminal-dialog"
-      max-width="1024px"
-      min-width="55vw"
-      class="bg-v-theme-surface"
-    >
+  <v-dialog
+    v-model="showTerminal"
+    max-width="1024px"
+    min-width="55vw"
+    @click:outside="close"
+  >
+    <v-card data-test="terminal-dialog" class="bg-v-theme-surface">
       <v-card-title
         class="text-h5 pa-4 bg-primary d-flex align-center justify-center"
       >
@@ -130,7 +130,9 @@
         </v-card-text>
       </div>
     </v-card>
-    <div ref="terminal" />
+    <v-card-item class="ma-0 pa-0 w-100">
+      <div ref="terminal" class="mt-n6" />
+    </v-card-item>
   </v-dialog>
 </template>
 
@@ -141,13 +143,16 @@ import { useField } from "vee-validate";
 import { Terminal } from "xterm";
 import { AttachAddon } from "xterm-addon-attach";
 import { FitAddon } from "xterm-addon-fit";
-import RSAKey from "node-rsa";
 
 import * as yup from "yup";
 import { parsePrivateKey } from "sshpk";
-import { convertToFingerprint, passKeyToBase64, keySignToBase64, createSignatureOfPrivateKey } from "../../utils/validate";
+import {
+  createKeyFingerprint,
+  createSignatureOfPrivateKey,
+} from "../../utils/validate";
 
 export default defineComponent({
+  inheritAttrs: false,
   props: {
     enableConnectButton: {
       type: Boolean,
@@ -284,14 +289,14 @@ export default defineComponent({
         signer.update(username.value);
         signature = encodeURIComponent(signer.sign().toString());
       } else {
-        console.log("pk", privateKeyData.data);
-        const key = new RSAKey(privateKeyData.data);
-        key.setOptions({ signingScheme: 'pkcs1-sha1' });
-        signature = encodeURIComponent(key.sign(username.value, 'base64'));
+        signature = await createSignatureOfPrivateKey(
+          privateKeyData.data,
+          username.value
+        );
       }
-      const fingerprintt = convertToFingerprint(privateKeyData.data, "md5");
+      const fingerprint = await createKeyFingerprint(privateKeyData.data);
 
-      connect({ signature, fingerprintt });
+      connect({ signature, fingerprint });
     };
 
     const connect = (params: any) => {
@@ -326,6 +331,7 @@ export default defineComponent({
         ...params,
         ...webTermDimensions.value,
       };
+
       ws.value = new WebSocket(
         `${protocolConnectionURL}://localhost/ws/ssh?${encodeURLParams(wsInfo)}`
       );

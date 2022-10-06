@@ -115,7 +115,6 @@ export default defineComponent({
           sortStatusField: "",
           sortStatusString: "",
         });
-        console.log("devices", devices.value);
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",

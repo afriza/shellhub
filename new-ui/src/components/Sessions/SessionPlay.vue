@@ -13,10 +13,16 @@
     </div>
   </v-list-item>
 
-  <v-dialog :transition="false" v-model="showDialog">
-    <v-card class="bg-v-theme-surface w-100" width="100%" max-width="1024px" min-width="500px">
+  <v-dialog
+    :transition="false"
+    v-model="showDialog"
+    max-width="1024px"
+    min-width="350px"
+  >
+    <v-card class="bg-v-theme-surface">
       <v-card-title
         class="text-h5 pa-3 bg-primary d-flex justify-space-between align-center"
+        style="z-index: 999"
       >
         Watch Session
         <v-btn
@@ -27,7 +33,10 @@
         />
       </v-card-title>
 
-      <div ref="terminal" />
+      <v-card-item class="ma-0 pa-0 w-100">
+        <div ref="terminal" class="mt-n6" />
+      </v-card-item>
+
       <v-card-actions>
         <v-container>
           <v-row no-gutters>
@@ -79,6 +88,7 @@
                   @change="changeSliderTime"
                   @mousedown="(previousPause = paused), (paused = true)"
                   @mouseup="paused = previousPause"
+                  @click="setSliderDiplayTime(currentTime)"
                 />
               </div>
             </v-col>
@@ -109,7 +119,6 @@ import {
   computed,
   defineComponent,
   nextTick,
-  onMounted,
   onUpdated,
   ref,
   watch,
@@ -119,8 +128,6 @@ import { FitAddon } from "xterm-addon-fit";
 import moment from "moment";
 import { useStore } from "../../store";
 import { INotificationsError } from "../../interfaces/INotifications";
-// import "moment-duration-format";
-// import "xterm/css/xterm.css";
 
 export default defineComponent({
   props: {
@@ -173,17 +180,16 @@ export default defineComponent({
 
     onUpdated(() => {
       if (showDialog.value) {
-        console.log(currentTime.value, "currentTime.value");
         setSliderDiplayTime(currentTime.value);
       }
     });
 
     const openPlay = async () => {
       if (props.recorded) {
-        // receive data
         await store.dispatch("sessions/getLogSession", props.uid);
-        logs.value = await store.getters["sessions/get"];
-        totalLength.value = await getSliderIntervalLength(null);
+        logs.value = store.getters["sessions/get"];
+        // @ts-ignore
+        totalLength.value = getSliderIntervalLength(null);
         setSliderDiplayTime(null);
         setSliderDiplayTime(currentTime.value);
 
@@ -195,7 +201,6 @@ export default defineComponent({
         });
 
         fitAddon.value = new FitAddon();
-        console.log(fitAddon.value, "fitAddon.value");
         xterm.value.loadAddon(fitAddon.value); // adjust screen in container
 
         if (xterm.value.element) {
@@ -230,14 +235,13 @@ export default defineComponent({
       }
     };
 
-    const getSliderIntervalLength = async (timeMs: number | null) => {
+    const getSliderIntervalLength = (timeMs: number | null) => {
       let interval;
-      console.log(timeMs, "timeMs");
-      if (!timeMs) {
+      if (!timeMs && logs.value.length > 0) {
         // not params, will return metrics to max timelengtht
         // @ts-ignore
         const max = new Date(logs.value[length.value - 1].time);
-        // @ts-ignore
+        // @ts-ignore'
         const min = new Date(logs.value[0].time);
         // @ts-ignore
         interval = max - min;
@@ -250,7 +254,7 @@ export default defineComponent({
     };
 
     const setSliderDiplayTime = async (timeMs: number | null) => {
-      const interval = await getSliderIntervalLength(timeMs);
+      const interval = getSliderIntervalLength(timeMs);
       const duration = moment.duration(interval, "milliseconds");
 
       // format according to how long
@@ -261,9 +265,7 @@ export default defineComponent({
       const displayTime = moment
         .utc(duration.asMilliseconds())
         .format(`${hoursFormat ? hoursFormat + ":" : ""}mm:ss`);
-
       if (timeMs) {
-        console.log("getTimerNow if", displayTime);
         endTimerDisplay.value = displayTime;
       } else {
         getTimerNow.value = displayTime;
@@ -304,14 +306,18 @@ export default defineComponent({
 
     const speedChange = (speed: number) => {
       defaultSpeed.value = speed;
-      // xtermSyncFrame(currentTime.value);
+      xtermSyncFrame(currentTime.value);
     };
 
     const timer = () => {
       // Increments the slider
       if (!paused.value) {
-        if (currentTime.value >= totalLength.value) return;
+        if (currentTime.value >= totalLength.value) {
+          paused.value = true;
+          return;
+        }
         currentTime.value += 100;
+        setSliderDiplayTime(currentTime.value);
       }
       iterativeTimer.value = setTimeout(
         timer.bind(null),
@@ -329,9 +335,12 @@ export default defineComponent({
       xtermSyncFrame(currentTime.value);
     };
 
-    const close = () => {
+    const close = async () => {
       transition.value = true;
-      if (xterm.value) xterm.value = null; //.dispose();
+      if (xterm.value) {
+        xterm.value.reset();
+        xterm.value.element?.remove();
+      }
       clear();
       currentTime.value = 0;
       paused.value = false;
@@ -350,8 +359,6 @@ export default defineComponent({
       if (xterm.value) {
         xterm.value.write("\u001Bc"); // clean screen
         const frame = searchClosestFrame(givenTime, frames.value);
-        console.log("frame", frame);
-        console.log("givenTime", givenTime);
         clear();
         xterm.value.write(frame.message); // write frame on xterm
         iterativeTimer.value = setTimeout(timer.bind(null), 1);
@@ -369,7 +376,6 @@ export default defineComponent({
       let lowerBound = 0;
       let higherBound = frames.length - 1;
       let nextTimeSetPrint;
-      // console.log('frames', frames);
 
       for (; higherBound - lowerBound > 1; ) {
         // progressive increment search
@@ -426,6 +432,7 @@ export default defineComponent({
       nowTimerDisplay,
       changeSliderTime,
       speedChange,
+      setSliderDiplayTime,
     };
   },
 });

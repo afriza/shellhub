@@ -10,7 +10,7 @@
   </v-btn>
 
   <v-list-item-title>
-    <v-dialog v-model="showDialog" @click:outside="update">
+    <v-dialog v-model="showDialog" @click:outside="update" v-bind="$attrs">
       <v-card
         data-test="namespaceAdd-card"
         min-width="350"
@@ -57,6 +57,7 @@ import { useStore } from "../../store";
 import { AxiosError } from "axios";
 
 export default defineComponent({
+  inheritAttrs: false,
   props: {
     firstNamespace: {
       type: Boolean,
@@ -123,8 +124,7 @@ export default defineComponent({
             "snackbar/showSnackbarSuccessAction",
             INotificationsSuccess.namespaceCreating
           );
-        } catch (error: AxiosError) {
-          console.log(error);
+        } catch (error: any) {
           if (error.response.status === 400) {
             setNamespaceNameError(
               "Your namespace should be 3-30 characters long"

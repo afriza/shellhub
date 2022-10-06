@@ -155,7 +155,6 @@ export default defineComponent({
     });
     onMounted(() => {
       getPublicKeysList(itemsPerPage.value, page.value);
-      console.log(publicKeys.value);
     });
     const getPublicKeysList = async (
       perPagaeValue: number,

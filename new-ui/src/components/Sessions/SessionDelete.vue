@@ -5,9 +5,9 @@
     :disabled="notHasAuthorization"
   >
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-playlist-remove </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Delete Session Record

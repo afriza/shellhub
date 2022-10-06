@@ -19,6 +19,7 @@ import { defineComponent, ref, computed, onMounted } from "vue";
 import { INotificationsError } from "../../interfaces/INotifications";
 
 export default defineComponent({
+  inheritAttrs: false,
   setup() {
     const store = useStore();
 

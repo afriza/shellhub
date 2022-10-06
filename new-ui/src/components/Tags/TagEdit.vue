@@ -5,9 +5,9 @@
     :disabled="notHasAuthorization"
   >
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-pencil </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Edit
@@ -15,8 +15,8 @@
     </div>
   </v-list-item>
 
-  <v-dialog v-model="showDialog">
-    <v-card class="bg-v-theme-surface" min-width="300">
+  <v-dialog v-model="showDialog" min-width="300" max-width="600">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-4 bg-primary"> Update Tag </v-card-title>
       <v-divider />
 

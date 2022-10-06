@@ -54,7 +54,6 @@ export const tags: Module<TagsState, State> = {
     },
 
     setTags: (context, data) => {
-      console.log("setTags", data);
       context.commit("setTags", data);
     },
 

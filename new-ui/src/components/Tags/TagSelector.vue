@@ -21,7 +21,7 @@
           </v-btn>
         </v-badge>
       </template>
-      <v-list class="bg-v-theme-surface">
+      <v-list class="bg-v-theme-surface ma-0 pa-0" shaped density="compact" lines="one">
         <v-list-item-group :value="selectedTags" multiple>
           <v-list-item
             v-for="(item, i) in getListTags"
@@ -30,14 +30,14 @@
             :data-test="item + '-item'"
           >
             <template v-slot:default="{ isActive }">
-                <v-list-item-action density="compact">
-                  <v-checkbox
-                    :input-value="isActive"
-                    color="deep-purple accent-4"
-                    :label="item"
-                    :data-test="item + '-title'"
-                  ></v-checkbox>
-                </v-list-item-action>
+              <v-list-item-action density="compact">
+                <v-checkbox
+                  :input-value="isActive"
+                  color="deep-purple accent-4"
+                  :label="item"
+                  :data-test="item + '-title'"
+                />
+              </v-list-item-action>
             </template>
           </v-list-item>
         </v-list-item-group>
@@ -47,25 +47,81 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, defineComponent, onMounted, ref, watch } from "vue";
+import { AnyObject } from "yup/lib/object";
 import { useStore } from "../../store";
 
 export default defineComponent({
   setup() {
     const store = useStore();
 
-    const selectedTags = ref([]);
+    const prevSelectedLength = ref(0);
 
     onMounted(() => {
-      store.dispatch("tags/fetch");
+      getTags();
     });
 
     const getListTags = computed(() => store.getters["tags/list"]);
 
-    const getTags = () => {
-      console.log("getTags");
-      console.log(getListTags.value);
+    const selectedTags = computed({
+      get() {
+        return store.getters["tags/selected"];
+      },
+      set(item) {
+        store.dispatch("tags/setSelected", item);
+      },
+    });
+
+    watch(selectedTags, (item) => {
+      if (item.length > 0) {
+        getDevices(item);
+        prevSelectedLength.value = item.length;
+      } else if (prevSelectedLength.value === 1 && item.length === 0) {
+        fetchDevices();
+      }
+    });
+
+    const getTags = async () => {
+      await store.dispatch("tags/fetch");
     };
+
+    const getDevices = async (item: AnyObject) => {
+      let encodedFilter = null;
+
+      const filter = [
+        {
+          type: "property",
+          params: { name: "tags", operator: "contains", value: item },
+        },
+      ];
+      encodedFilter = btoa(JSON.stringify(filter));
+
+      await store.dispatch("devices/setFilter", encodedFilter);
+
+      try {
+        store.dispatch("devices/refresh");
+      } catch (error: any) {
+        if (error.response.status === 403) {
+          store.dispatch("snackbar/showSnackbarErrorAssociation");
+        } else {
+          store.dispatch("snackbar/showSnackbarErrorDefault");
+        }
+      }
+    };
+
+    const fetchDevices = async () => {
+      const data = {
+        perPage: store.getters["devices/getPerPage"],
+        page: store.getters["devices/getPage"],
+        status: "accepted",
+        search: null,
+        filter: "",
+        sortStatusField: null,
+      };
+
+      await store.dispatch("devices/fetch", data);
+    };
+
     return {
       selectedTags,
       getListTags,

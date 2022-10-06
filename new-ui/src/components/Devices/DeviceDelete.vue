@@ -1,9 +1,9 @@
 <template>
   <v-list-item @click="showDialog = true">
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-delete </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Remove
@@ -12,7 +12,7 @@
   </v-list-item>
 
   <v-dialog max-width="450" v-model="showDialog">
-    <v-card>
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-5 bg-primary">
         Are you sure?
       </v-card-title>

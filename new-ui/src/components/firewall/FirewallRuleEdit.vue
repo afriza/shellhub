@@ -5,9 +5,9 @@
     :disabled="notHasAuthorization"
   >
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-pencil </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Edit
@@ -15,10 +15,10 @@
     </div>
   </v-list-item>
 
-  <v-dialog v-model="showDialog" transition="dialog-bottom-transition">
-    <v-card width="520" class="bg-v-theme-surface">
+  <v-dialog v-model="showDialog"  width="520" transition="dialog-bottom-transition">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-3 bg-primary">
-        New Firewall Rule
+        Edit Firewall Rule
       </v-card-title>
       <form @submit.prevent="edit" class="mt-3">
         <v-card-text>
@@ -361,7 +361,6 @@ export default defineComponent({
         filter,
         ...fr
       } = props.firewallRule;
-      console.log(fr);
 
       if (fr.source_ip !== ".*") {
         choiceIP.value = "ipDetails";

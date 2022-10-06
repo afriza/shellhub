@@ -90,9 +90,9 @@
               <v-list class="bg-v-theme-surface" lines="two" density="compact">
                 <v-list-item @click="redirectToSession(session.uid)">
                   <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
+                    <div class="mr-2">
                       <v-icon color="white"> mdi-information </v-icon>
-                    </v-list-item-avatar>
+                    </div>
 
                     <v-list-item-title data-test="mdi-information-list-item">
                       Details
@@ -172,7 +172,6 @@ export default defineComponent({
 
     onMounted(async () => {
       await getSessions(itemsPerPage.value, page.value);
-      console.log(sessions.value);
     });
 
     const getSessions = async (perPagaeValue: number, pageValue: number) => {

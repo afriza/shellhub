@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="true" class="bg-v-theme-surface">
+  <v-card class="bg-v-theme-surface">
     <v-tabs background-color="secondary" stacked color="primary">
       <v-tab to="/devices"> Device List </v-tab>
       <v-tab to="/devices/pending"> Pending </v-tab>
@@ -11,7 +11,7 @@
   </v-card>
 
   <v-card>
-    <router-view v-if="true" />
+    <router-view />
   </v-card>
 </template>
 

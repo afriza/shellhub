@@ -8,15 +8,15 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["es5", "es6", "es7", "esnext", "dom"],
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "types": ["vitest/globals", "node"],
-    "typeRoots": [ "../node_modules/@types" ],
+    "typeRoots": ["../node_modules/@types"],
+    "isolatedModules": false,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "typeAcquisition": { "enable": true },
@@ -25,7 +25,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/router/index.js"
-, "src/sshpk.js"  ],
+    "src/router/index.js",
+    "src/sshpk.js",
+    "example.ts"
+, "src/sshpk.Js"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

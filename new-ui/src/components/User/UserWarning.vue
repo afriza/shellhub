@@ -28,6 +28,7 @@ import BillingWarning from "../Billing/BillingWarning.vue";
 import DeviceChooser from "../Devices/DeviceChooser.vue";
 
 export default defineComponent({
+  inheritAttrs: false,
   setup() {
     const store = useStore();
     const showInstructions = ref(false);
@@ -65,7 +66,6 @@ export default defineComponent({
           page: 1,
           perPage: 30,
         });
-        console.log(hasNamespaces.value);
 
         if (hasNamespaces.value) {
           await store.dispatch("stats/get");

@@ -51,7 +51,6 @@ export const privateKey: Module<PrivateKeyState, State> = {
     },
 
     set: async (context, privateKey) => {
-      console.log(privateKey);
       // @ts-ignore
       const privateKeys = JSON.parse(localStorage.getItem('privateKeys')) || [];
 

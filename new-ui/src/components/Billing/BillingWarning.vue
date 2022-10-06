@@ -3,8 +3,9 @@
     v-if="hasAuthorization"
     v-model="showMessage"
     transition="dialog-bottom-transition"
+    width="520"
   >
-    <v-card width="520" class="bg-v-theme-surface">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="pa-3 bg-primary">
         Update account
       </v-card-title>

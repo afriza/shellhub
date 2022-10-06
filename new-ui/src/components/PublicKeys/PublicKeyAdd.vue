@@ -19,8 +19,8 @@
     <span> You don't have this kind of authorization. </span>
   </v-tooltip>
 
-  <v-dialog v-model="dialog" transition="dialog-bottom-transition">
-    <v-card width="520" class="bg-v-theme-surface">
+  <v-dialog v-model="dialog" width="520" transition="dialog-bottom-transition">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-3 bg-primary">
         New Public Key
       </v-card-title>
@@ -256,10 +256,6 @@ export default defineComponent({
         setPublicKeyDataError("Field is required");
       }
 
-      console.log(
-        "valid key",
-        await validateKey("public", publicKeyData.value)
-      );
       if (await validateKey("public", publicKeyData.value)) {
         setPublicKeyDataError("This is not valid key");
       }
@@ -350,7 +346,6 @@ export default defineComponent({
             data: btoa(publicKeyData.value),
             name: name.value,
           };
-          console.log(keySend);
           await store.dispatch("publicKeys/post", keySend);
           store.dispatch(
             "snackbar/showSnackbarSuccessAction",

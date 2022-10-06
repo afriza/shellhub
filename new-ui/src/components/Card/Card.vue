@@ -17,9 +17,9 @@
         <v-spacer />
 
         <template v-slot:append>
-          <v-list-item-avatar end class="mt-4">
+          <div class="mt-4">
             <v-icon :icon="icon" size="x-large" color="white" :iconName-test="icon" />
-          </v-list-item-avatar>
+          </div>
         </template>
       </v-list-item>
 

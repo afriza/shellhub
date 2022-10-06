@@ -292,7 +292,6 @@ export default defineComponent({
 
     const mountStripeElements = async () => {
       const stripe = await loadStripe("pk_test_daOQ5URsElI0aQdJWU8E9xTz");
-      console.log("stripe", stripe?.elements());
       elements.value = stripe?.elements();
       card.value = elements.value.create("card");
     };
@@ -333,14 +332,12 @@ export default defineComponent({
       formatDateWithoutDayAndHours,
       getSubscriptionInfo,
       renderData,
-      infoBillingData,
       cardBillingData,
     };
   },
   components: {
     SettingOwnerInfo,
     BillingPaymentMethod,
-    BillingInvoiceList,
     BillingInvoiceList,
     BillingCancel,
   },

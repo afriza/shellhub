@@ -1,9 +1,9 @@
 <template>
   <v-list-item @click="showDialog = true">
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-tag </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         {{ hasTags ? "Edit tags" : "Add Tags" }}
@@ -11,8 +11,8 @@
     </div>
   </v-list-item>
 
-  <v-dialog v-model="showDialog">
-    <v-card min-width="280" max-width="450">
+  <v-dialog v-model="showDialog" min-width="280" max-width="450">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-4 bg-primary">
         {{ hasTags ? "Edit tags" : "Add Tags" }}
       </v-card-title>
@@ -100,7 +100,6 @@ export default defineComponent({
     const save = async () => {
       try {
         tagsError.value = "";
-        console.log(inputTags.value);
         await store.dispatch("devices/updateDeviceTag", {
           uid: props.deviceUid,
           tags: { tags: inputTags.value },
@@ -120,8 +119,6 @@ export default defineComponent({
 
         ctx.emit("update");
       } catch (error: any) {
-        console.log(error.response.status);
-        console.log(error.code);
         switch (error.response.status) {
           // when the name the format is invalid.
           case 400: {

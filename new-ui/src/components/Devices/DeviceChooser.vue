@@ -1,11 +1,12 @@
 <template>
-  <v-dialog v-if="hasAuthorization" v-model="show" persistent>
-    <v-card
-      class="bg-v-theme-surface"
-      data-test="deviceChooser-dialog"
-      max-width="900px"
-      min-width="45vw"
-    >
+  <v-dialog
+    v-if="hasAuthorization"
+    v-model="show"
+    persistent
+    max-width="900px"
+    min-width="45vw"
+  >
+    <v-card class="bg-v-theme-surface" data-test="deviceChooser-dialog">
       <v-card-title class="text-headline bg-primary">
         Update account or select three devices
       </v-card-title>
@@ -114,16 +115,13 @@ export default defineComponent({
     });
 
     const equalThreeDevices = computed(() => {
-      return store.getters['devices/getDevicesSelected'].length === 3;
+      return store.getters["devices/getDevicesSelected"].length === 3;
     });
 
     const hasAuthorization = computed(() => {
-      const role = store.getters['auth/role'];
-      if (role !== '') {
-        return hasPermision(
-          authorizer.role[role],
-          actions.device["chooser"],
-        );
+      const role = store.getters["auth/role"];
+      if (role !== "") {
+        return hasPermision(authorizer.role[role], actions.device["chooser"]);
       }
 
       return false;

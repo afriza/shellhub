@@ -51,9 +51,9 @@
               <v-list class="bg-v-theme-surface" lines="two" density="compact">
                 <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
+                    <div class="mr-2">
                       <v-icon color="white"> mdi-information </v-icon>
-                    </v-list-item-avatar>
+                    </div>
 
                     <v-list-item-title data-test="mdi-information-list-item">
                       Details
@@ -63,9 +63,9 @@
 
                 <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
+                    <div class="mr-2">
                       <v-icon color="white"> mdi-tag </v-icon>
-                    </v-list-item-avatar>
+                    </div>
 
                     <v-list-item-title data-test="mdi-information-list-item">
                       Edit tags
@@ -75,9 +75,9 @@
 
                 <v-list-item @click="redirectToDevice(item)">
                   <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
+                    <div class="mr-2">
                       <v-icon color="white"> mdi-delete </v-icon>
-                    </v-list-item-avatar>
+                    </div>
 
                     <v-list-item-title data-test="mdi-information-list-item">
                       Remove
@@ -132,7 +132,6 @@ export default defineComponent({
           sortStatusField: "",
           sortStatusString: "",
         });
-        console.log("devices", devices.value);
       } catch {
         store.dispatch(
           "snackbar/showSnackbarErrorAction",

@@ -234,7 +234,6 @@ export const devices: Module<DevicesState, State> = {
 
     setDevicesForUserToChoose: async (context, data) => {
       try {
-        console.log(data);
         const res = await apiDevice.fetchDevices(
           data.page,
           data.perPage,

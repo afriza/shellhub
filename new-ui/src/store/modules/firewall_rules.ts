@@ -115,7 +115,6 @@ export const firewallRules: Module<FirewallRulesState, State> = {
     },
 
     put: async (context, data) => {
-      console.log("put", data);
       await apiFirewallRule.putFirewall(data);
     },
 

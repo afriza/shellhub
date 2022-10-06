@@ -5,9 +5,9 @@
     :disabled="notHasAuthorization"
   >
     <div class="d-flex align-center">
-      <v-list-item-avatar class="mr-2">
+      <div class="mr-2">
         <v-icon color="white"> mdi-pencil </v-icon>
-      </v-list-item-avatar>
+      </div>
 
       <v-list-item-title data-test="mdi-information-list-item">
         Edit
@@ -104,7 +104,6 @@ export default defineComponent({
 
     onMounted(() => {
       setLocalVariable();
-      console.log(memberLocal.value);
     });
 
     const close = () => {

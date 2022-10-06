@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="showWelcome" :retain-focus="false" persistent>
-    <v-card max-width="800px" min-width="60vw" class="pa-6 bg-grey-darken-4">
+  <v-dialog v-model="showWelcome" max-width="800px" min-width="60vw" :retain-focus="false" persistent>
+    <v-card class="pa-6 bg-grey-darken-4 bg-v-theme-surface">
       <v-card-title class="text-center mb-4">
         <span>Step</span>
         {{ el }}

@@ -19,8 +19,8 @@
     <span> You don't have this kind of authorization. </span>
   </v-tooltip>
 
-  <v-dialog v-model="dialog" transition="dialog-bottom-transition">
-    <v-card width="520" class="bg-v-theme-surface">
+  <v-dialog v-model="dialog" width="520" transition="dialog-bottom-transition">
+    <v-card class="bg-v-theme-surface">
       <v-card-title class="text-h5 pa-3 bg-primary">
         New Ptivate Key
       </v-card-title>

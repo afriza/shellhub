@@ -31,6 +31,7 @@ import NamespaceList from "./NamespaceList.vue";
 import NamespaceAdd from "./NamespaceAdd.vue";
 
 export default defineComponent({
+  inheritAttrs: false,
   setup() {
     const store = useStore();
     const inANamespace = ref(false);

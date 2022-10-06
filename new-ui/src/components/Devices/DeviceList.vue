@@ -79,9 +79,9 @@
               <v-list class="bg-v-theme-surface" lines="two" density="compact">
                 <v-list-item @click="redirectToDevice(item.uid)">
                   <div class="d-flex align-center">
-                    <v-list-item-avatar class="mr-2">
+                    <div class="mr-2">
                       <v-icon color="white"> mdi-information </v-icon>
-                    </v-list-item-avatar>
+                    </div>
 
                     <v-list-item-title data-test="mdi-information-list-item">
                       Details

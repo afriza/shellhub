@@ -1,5 +1,5 @@
 <template>
-  <v-app :theme="getStatusDarkMode">
+  <v-app :theme="getStatusDarkMode" v-bind="$attrs">
     <v-navigation-drawer
       theme="dark"
       v-model="showNavigationDrawer"
@@ -35,11 +35,11 @@
           :disabled="disableItem(item.title)"
         >
           <div class="d-flex align-center">
-            <v-list-item-avatar class="mr-3">
+            <div class="mr-3">
               <v-icon color="white">
                 {{ item.icon }}
               </v-icon>
-            </v-list-item-avatar>
+            </div>
 
             <v-list-item-title :data-test="item.icon + '-listItem'">
               {{ item.title }}
@@ -116,6 +116,7 @@ const items = [
 
 export default {
   name: "AppLayout",
+  inheritAttrs: false,
   setup() {
     const router = useRouter();
     const store = useStore();
