@@ -1,0 +1,29 @@
+http:
+  routers:
+    porra:
+      rule: "PathPrefix(`/admin`)"
+      middlewares:
+      - dashboard-redirect
+      service: dashboard
+      priority: 40
+    dashboard:
+      rule: "PathPrefix(`/admin/dashboard`)"
+      middlewares:
+      - dashboard-trailing-slash
+      service: dashboard
+      priority: 50
+  middlewares:
+    dashboard-redirect:
+      redirectRegex:
+        regex: "(.*)/admin/?$"
+        replacement: "$1/admin/dashboard"
+        permanent: true
+    dashboard-trailing-slash:
+      replacePathRegex:
+        regex: "^/admin/dashboard/?(.*)"
+        replacement: "/admin/dashboard/$1"
+  services:
+    dashboard:
+      loadBalancer:
+        servers:
+          - url: http://dashboard:8080

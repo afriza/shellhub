@@ -1,0 +1,11 @@
+http:
+  middlewares:
+    auth:
+      forwardAuth:
+        address: "http://api:8080/internal/auth"
+        authResponseHeaders:
+          - "X-Request-ID"
+          - "X-ID"
+          - "X-Tenant-ID"
+          - "X-Username"
+          - "X-Role"

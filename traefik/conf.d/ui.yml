@@ -1,0 +1,12 @@
+http:
+  routers:
+    ui:
+      rule: "PathPrefix(`/`)"
+      service: ui
+      priority: 10
+
+  services:
+    ui:
+      loadBalancer:
+        servers:
+          - url: http://ui:8080

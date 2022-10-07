@@ -1,0 +1,26 @@
+http:
+  routers:
+    api:
+      rule: "PathPrefix(`/api`)"
+      middlewares:
+      - request-id
+      - auth
+      service: api
+      priority: 100
+    api/login:
+      rule: "Path(`/api/login`)"
+      service: api
+      priority: 101
+
+  services:
+    api:
+      loadBalancer:
+        servers:
+          - url: http://api:8080
+
+  middlewares:
+    request-id:
+      plugin:
+        requestid-plugin:
+          headerName: "X-Request-ID"
+
