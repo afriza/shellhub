@@ -16966,7 +16966,7 @@ nacl.setPRNG = function(fn) {
 
 },{"crypto":81}],57:[function(require,module,exports){
 const NodeRSA = require("node-rsa");
-var sshpk = require('sshpk');
+const sshpk = require('sshpk');
 
 const createSignatureOfPrivateKey = (
   privateKeyData,

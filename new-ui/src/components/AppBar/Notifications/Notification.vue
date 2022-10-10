@@ -68,13 +68,17 @@
         block
         size="small"
         data-test="show-btn"
-        @click="shown = false"
+        @click="show = false"
       >
         Show all Pending Devices
       </v-btn>
     </v-card>
 
-    <v-card v-else data-test="noNotifications-subheader" class="pa-2 bg-v-theme-surface">
+    <v-card
+      v-else
+      data-test="noNotifications-subheader"
+      class="pa-2 bg-v-theme-surface"
+    >
       <v-card-subtitle> You don't have notifications </v-card-subtitle>
     </v-card>
   </v-menu>
@@ -82,88 +86,118 @@
 
 <script lang="ts">
 import { useStore } from "../../../store";
-import { defineComponent, ref, computed, watch } from "vue";
+import {
+  defineComponent,
+  ref,
+  computed,
+  watch,
+  defineAsyncComponent,
+} from "vue";
 import { authorizer, actions } from "../../../authorizer";
 import hasPermission from "../../../utils/permission";
 import { INotificationsError } from "../../../interfaces/INotifications";
-import DeviceActionButton from "../../../components/Devices/DeviceActionButton.vue";
+// import DeviceActionButton from "../../../components/Devices/DeviceActionButton.vue";
 
 export default defineComponent({
-    setup() {
-        const store = useStore();
-        const listNotifications = ref([]);
-        const numberNotifications = ref(0);
-        const shown = ref(false);
-        const inANamespace = ref(false);
-        const defaultSize = ref(24);
-        const getListNotifications = computed(() => store.getters["notifications/list"]);
-        const getNumberNotifications = computed(() => store.getters["notifications/getNumberNotifications"]);
-        const showNumberNotifications = computed(() => {
-            numberNotifications.value = getNumberNotifications.value;
-            const pendingDevices = store.getters["stats/stats"].pending_devices;
-            if (numberNotifications.value === 0 && pendingDevices !== undefined) {
-                return store.getters["stats/stats"].pending_devices;
+  name: "Notification",
+  inheritAttrs: false,
+  setup() {
+    const store = useStore();
+    const numberNotifications = ref(0);
+    const show = ref(false);
+    const inANamespace = ref(false);
+    const defaultSize = ref(24);
+
+    const getListNotifications = computed(
+      () => store.getters["notifications/list"]
+    );
+
+    const getNumberNotifications = computed(
+      () => store.getters["notifications/getNumberNotifications"]
+    );
+
+    const showNumberNotifications = computed(() => {
+      const numberNotifications = getNumberNotifications.value;
+      const pendingDevices = store.getters["stats/stats"].pending_devices;
+      if (numberNotifications === 0 && pendingDevices !== undefined) {
+        return store.getters["stats/stats"].pending_devices;
+      }
+      return numberNotifications;
+    });
+
+    const getStatusNotifications = computed(() => {
+      if (getNumberNotifications.value === 0) return true;
+      return false;
+    });
+
+    const hasNamespace = computed(
+      () => store.getters["namespaces/getNumberNamespaces"] !== 0
+    );
+
+    const hasAuthorization = computed(() => {
+      const role = store.getters["auth/role"];
+      if (role !== "") {
+        return hasPermission(
+          authorizer.role[role],
+          actions.notification["view"]
+        );
+      }
+      return false;
+    });
+
+    watch(hasNamespace, (status) => {
+      inANamespace.value = status;
+    });
+
+    const getNotifications = async () => {
+      if (hasNamespace.value) {
+        try {
+          await store.dispatch("notifications/fetch");
+          show.value = true;
+        } catch (error: any) {
+          switch (true) {
+            case !inANamespace.value && error.response.status === 403: {
+              // dialog pops
+              break;
             }
-            return numberNotifications;
-        });
-        const getStatusNotifications = computed(() => {
-            if (getNumberNotifications.value === 0)
-                return true;
-            return false;
-        });
-        const hasNamespace = computed(() => store.getters["namespaces/getNumberNamespaces"] !== 0);
-        const hasAuthorization = computed(() => {
-            const role = store.getters["auth/role"];
-            if (role !== "") {
-                return hasPermission(authorizer.role[role], actions.notification["view"]);
+            case error.response.status === 403: {
+              store.dispatch("snackbar/showSnackbarErrorAssociation");
+              break;
             }
-            return false;
-        });
-        watch(hasNamespace, (status) => {
-            inANamespace.value = status;
-        });
-        const getNotifications = async () => {
-            if (hasNamespace.value) {
-                try {
-                    await store.dispatch("notifications/fetch");
-                    shown.value = true;
-                }
-                catch (error: any) {
-                    switch (true) {
-                        case !inANamespace.value && error.response.status === 403: {
-                            // dialog pops
-                            break;
-                        }
-                        case error.response.status === 403: {
-                            store.dispatch("snackbar/showSnackbarErrorAssociation");
-                            break;
-                        }
-                        default: {
-                            store.dispatch("snackbar/showSnackbarErrorLoading", INotificationsError.notificationList);
-                        }
-                    }
-                }
+            default: {
+              store.dispatch(
+                "snackbar/showSnackbarErrorLoading",
+                INotificationsError.notificationList
+              );
             }
-        };
-        const refresh = () => {
-            if (hasNamespace.value) {
-                getNotifications();
-                if (getNumberNotifications.value === 0) {
-                    store.dispatch("stats/get");
-                }
-            }
-        };
-        return {
-            showNumberNotifications,
-            getNotifications,
-            defaultSize,
-            getStatusNotifications,
-            getListNotifications,
-            hasAuthorization,
-            refresh,
-            shown,
-        };
-    },
-    components: { DeviceActionButton }
+          }
+        }
+      }
+    };
+
+    const refresh = () => {
+      if (hasNamespace.value) {
+        getNotifications();
+        if (getNumberNotifications.value === 0) {
+          store.dispatch("stats/get");
+        }
+      }
+    };
+    return {
+      showNumberNotifications,
+      getNotifications,
+      defaultSize,
+      getStatusNotifications,
+      getListNotifications,
+      hasAuthorization,
+      refresh,
+      show,
+    };
+  },
+  components: {
+    DeviceActionButton: defineAsyncComponent(
+      () => import("../../../components/Devices/DeviceActionButton.vue")
+    ),
+  },
 });
 </script>

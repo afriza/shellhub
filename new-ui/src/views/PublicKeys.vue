@@ -63,6 +63,6 @@ export default defineComponent({
       refresh,
     };
   },
-  components: { BoxMessage, PublicKeysList, PublicKeyAdd, PublicKeysList },
+  components: { BoxMessage, PublicKeysList, PublicKeyAdd },
 });
 </script>

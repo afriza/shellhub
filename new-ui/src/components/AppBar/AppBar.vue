@@ -56,7 +56,7 @@
           <v-switch
             label="Dark Mode"
             :model-value="isDarkMode"
-            @change="toggleDarkMode"
+            :onchange="toggleDarkMode"
             data-test="dark-mode-switch"
             density="comfortable"
             color="primary"
@@ -71,9 +71,14 @@
 
 <script lang="ts">
 import { useStore } from "../../store";
-import { defineComponent, computed, ref, onMounted } from "vue";
+import {
+  defineComponent,
+  computed,
+  ref,
+  onMounted,
+  defineAsyncComponent,
+} from "vue";
 import { RouteLocationRaw, useRouter } from "vue-router";
-import Notification from "./Notifications/Notification.vue";
 // @ts-ignore
 import GitterSidecar from "gitter-sidecar";
 import { createNewClient } from "../../api/http";
@@ -87,6 +92,8 @@ type MenuItem = {
 };
 
 export default defineComponent({
+  name: "AppBar",
+  inheritAttrs: true,
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -98,7 +105,6 @@ export default defineComponent({
     const drawer = ref(true);
     const isDarkMode = ref(getStatusDarkMode.value === "dark");
     const chat = ref(null);
-    const chatOpen = ref(false);
 
     const triggerClick = (item: MenuItem): void => {
       switch (item.type) {
@@ -163,7 +169,11 @@ export default defineComponent({
       updateDrawer,
     };
   },
-  components: { Notification },
+  components: {
+    Notification: defineAsyncComponent(
+      () => import("./Notifications/Notification.vue")
+    ),
+  },
 });
 </script>
 

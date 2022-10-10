@@ -72,7 +72,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Logo from "../assets/logo-inverted.png";
 import { useStore } from "../store";

@@ -4,7 +4,7 @@
       <v-container class="full-height d-flex justify-center align-center" fluid>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
-            <v-card theme="dark" class="pa-6" rounded="lg">
+            <v-card theme="dark" class="pa-6 bg-v-theme-surface" rounded="lg">
               <v-card-title class="d-flex justify-center align-center mt-4">
                 <v-img
                   :src="Logo"

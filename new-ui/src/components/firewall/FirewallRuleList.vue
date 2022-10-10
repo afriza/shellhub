@@ -271,7 +271,6 @@ export default defineComponent({
   components: {
     DataTable,
     FirewallRuleDelete,
-    FirewallRuleDelete,
     FirewallRuleEdit,
   },
 });

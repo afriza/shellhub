@@ -131,7 +131,7 @@
       </div>
     </v-card>
     <v-card-item class="ma-0 pa-0 w-100">
-      <div ref="terminal" class="mt-n6" />
+      <div ref="terminal" class="mt-n6 xterm-helper" />
     </v-card-item>
   </v-dialog>
 </template>
@@ -378,4 +378,9 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.xterm-helper {
+  background: #0f1526;
+  width: 105%;
+}
+</style>

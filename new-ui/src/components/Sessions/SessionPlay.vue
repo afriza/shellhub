@@ -22,7 +22,6 @@
     <v-card class="bg-v-theme-surface">
       <v-card-title
         class="text-h5 pa-3 bg-primary d-flex justify-space-between align-center"
-        style="z-index: 999"
       >
         Watch Session
         <v-btn
@@ -34,10 +33,10 @@
       </v-card-title>
 
       <v-card-item class="ma-0 pa-0 w-100">
-        <div ref="terminal" class="mt-n6" />
+        <div ref="terminal" class="mt-n6 xterm-helper" />
       </v-card-item>
 
-      <v-card-actions>
+      <v-card-actions class="bg-v-theme-surface">
         <v-container>
           <v-row no-gutters>
             <v-col cols="2" sm="6" md="1">
@@ -73,9 +72,9 @@
                 class="pt-4 pl-9 mr-5 d-flex align-center"
                 tile
               >
-                <p class="mr-4">
+                <!-- <p class="mr-4">
                   {{ nowTimerDisplay }} - {{ endTimerDisplay }}
-                </p>
+                </p> -->
                 <v-slider
                   v-model="currentTime"
                   class="ml-0"
@@ -437,3 +436,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.xterm-helper {
+  background: #0f1526;
+  width: 105%;
+}
+</style>

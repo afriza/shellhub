@@ -1,8 +1,8 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
-import Login from "../views/Login.vue";
+// import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import SignUp from "../views/SignUp.vue";
-import Dashboard from "../views/Dashboard.vue";
+// import Dashboard from "../views/Dashboard.vue";
 import Devices from "../views/Devices.vue";
 import { envVariables } from "../envVariables";
 import DeviceList from "../components/Devices/DeviceList.vue";
@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "login",
-    component: Login,
+    component: () => import("../views/Login.vue"),
   },
   {
     path: "/forgot-pass",
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Dashboard",
-    component: Dashboard,
+    component: () => import("../views/Dashboard.vue"),
   },
   {
     path: "/devices",
@@ -133,11 +133,6 @@ const routes: Array<RouteRecordRaw> = [
         component: SettingBilling,
       },
     ],
-  },
-  {
-    path: "/teste",
-    name: "Teste",
-    component: () => import("../views/Teste.vue"),
   },
 ];
 

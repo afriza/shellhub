@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test-sc": "concurrently \"vite preview --host\" \"node example.ts\"",
     "serve": "vite preview --host & node example.ts",
     "build": "vite build",
     "dev": "vite --host",

@@ -1,5 +1,5 @@
 <template>
-  <main v-bind="$attrs">
+  <main>
     <router-view :key="currentRoute.value.path" />
   </main>
 </template>

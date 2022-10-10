@@ -16,7 +16,7 @@
       </div>
     </v-col>
   </v-row>
-  <v-card class="mt-2 pa-4" v-else>
+  <v-card class="mt-2 pa-4 bg-v-theme-surface" v-else>
     <p class="text-center">Something is wrong, try again !</p>
   </v-card>
 </template>
